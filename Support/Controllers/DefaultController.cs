@@ -19,5 +19,12 @@ namespace Support.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [Route("IGR/login")]
+        public ActionResult login()
+        {
+            return View();
+        }
     }
 }
