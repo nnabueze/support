@@ -1,47 +1,103 @@
 ﻿
 @{
     ViewBag.Title = "IGR";
-    Layout = "~/Views/Shared/_Admin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="login-container">
     <!-- Login Header -->
     <h1 class="h2 text-light text-center push-top-bottom animation-pullDown">
-        <i class="fa fa-cube text-light-op"></i> <strong>AppUI</strong>
+        <img src="~/Content/img/eCollect.png" height="50" width="150" opa/>
     </h1>
     <!-- END Login Header -->
     <!-- Login Block -->
-    <div class="block animation-fadeInQuick">
+    <div class="block animation-fadeInQuick" style="opacity: 0.95;">
         <!-- Login Title -->
         <div class="block-title">
-            <h2>IGR Login</h2>
+            <h2>Biller Page</h2>
         </div>
-        <!-- END Login Title -->
-        <!-- Login Form -->
-        <form id="form-login" action="/IGR/login" method="post" class="form-horizontal">
-            <div class="form-group">
-                <label for="tin" class="col-xs-12">Tin Number</label>
+
+
+
+        <!-- Tabs -->
+        <div class="site-block  push-bit">
+            @*<h3 class="push-bit"><strong>Tabs</strong></h3>*@
+            <ul class="nav nav-tabs" data-toggle="tabs">
+                <li class="active"><a href="#tabs-home">IGR Login</a></li>
+                <li><a href="#tabs-profile">School</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane push-bit active" id="tabs-home">
+
+
+                    @if (ViewBag.UpdateInformation != null)
+                    {
+                        <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.UpdateInformation
+                        </div>
+                    }
+
+                    @if (ViewBag.error != null)
+                    {
+                        <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.error
+                        </div>
+                    }
+
+
+
+                    <!-- END Login Title -->
+                    <!-- Login Form -->
+                    <form id="form-login" action="/IGR/login" method="post" class="form-horizontal push-top" onsubmit="CheckFileName();">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+            @*<label for="login-password" class="col-xs-12">Password</label>
+            <div class="col-xs-12">
+                <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+            </div>*@
+        </div>
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Tin No.</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="login-email" name="tin" class="form-control" placeholder="Your Tin....">
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                <label for="login-password" class="col-xs-12">Password</label>
                 <div class="col-xs-12">
-                    <input type="text" id="login-email" name="tin" class="form-control" placeholder="Your Tin....">
+                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                </div>
+            </div>*@
+                        <div class="form-group form-actions">
+                            <div class="col-xs-8">
+                                    <button type="submit" class="btn btn-effect-ripple btn-sm btn-warning">Get Tin</button>                               
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <button type="submit"  class="btn btn-effect-ripple btn-sm btn-success">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane" id="tabs-profile">
+                    School...............
                 </div>
             </div>
-            @*<div class="form-group">
-                    <label for="login-password" class="col-xs-12">Password</label>
-                    <div class="col-xs-12">
-                        <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
-                    </div>
-                </div>*@
-            <div class="form-group form-actions">
-                <div class="col-xs-8">
-                        <label class="csscheckbox csscheckbox-primary">
-                            @*<input type="checkbox" id="login-remember-me" name="login-remember-me"><span></span> Remember Me?*@
-                        </label>
-                    </div>
-                <div class="col-xs-4 text-right">
-                    <button type="submit" class="btn btn-effect-ripple btn-sm btn-success">Log In</button>
-                </div>
-            </div>
-        </form>
+        </div>
+        <!-- END Tabs -->
+
+
+
+
+
+
+
+
+
+
+
         <!-- END Login Form -->
         <!-- Social Login -->
         <hr>

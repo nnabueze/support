@@ -14,16 +14,17 @@ namespace Support.Controllers
             return View();
         }
 
-        [Route("IGR/login")]
-        public ActionResult IGR()
-        {
-            return View();
-        }
-
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [Route("IGR/login")]
-        public ActionResult login()
+        public ActionResult login(string tin)
         {
+            if (string.IsNullOrEmpty(tin))
+            {
+                ViewBag.error = "Tin is required";
+                return View("Index");
+
+            }
             return View();
         }
     }

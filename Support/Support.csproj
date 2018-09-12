@@ -217,6 +217,7 @@
     <Content Include="Content\admin\img\placeholders\avatars\avatar9%402x.jpg" />
     <Content Include="Content\admin\img\placeholders\avatars\avatar9.jpg" />
     <Content Include="Content\admin\img\placeholders\avatars\readme.txt" />
+    <Content Include="Content\admin\img\placeholders\layout\background.png" />
     <Content Include="Content\admin\img\placeholders\layout\error_full_bg.jpg" />
     <Content Include="Content\admin\img\placeholders\layout\lock_full_bg.jpg" />
     <Content Include="Content\admin\img\placeholders\layout\login2_full_bg.jpg" />
@@ -279,6 +280,7 @@
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\plugins.css" />
     <Content Include="Content\css\themes.css" />
+    <Content Include="Content\img\eCollect.png" />
     <Content Include="Content\img\favicon.png" />
     <Content Include="Content\img\icon114.png" />
     <Content Include="Content\img\icon120.png" />
