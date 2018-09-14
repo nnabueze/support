@@ -23,8 +23,8 @@ namespace Support.Controllers
             {
                 ViewBag.error = "Tin is required";
                 return View("Index");
+            } 
 
-            }
             return View();
         }
     }

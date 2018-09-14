@@ -51,3 +51,16 @@ c:\users\eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\System.We
 c:\users\eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\System.Web.WebPages.xml
 c:\users\eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\System.Web.WebPages.Deployment.xml
 c:\users\eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\System.Web.WebPages.Razor.xml
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\MySql.Data.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\MySql.Data.Entity.EF6.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\MySql.Web.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\EntityFramework.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\EntityFramework.SqlServer.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\Google.Protobuf.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\WebMatrix.Data.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\WebMatrix.WebData.dll
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\EntityFramework.xml
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\EntityFramework.SqlServer.xml
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\Google.Protobuf.xml
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\WebMatrix.Data.xml
+C:\Users\Eze\Documents\Visual Studio 2015\Projects\Support\Support\bin\WebMatrix.WebData.xml
