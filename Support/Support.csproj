@@ -93,14 +93,11 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.8.8\lib\net45\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.8\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.8.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Web, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Web.6.8.8\lib\net45\MySql.Web.dll</HintPath>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.10.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.10.8\lib\net452\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -111,6 +108,7 @@
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
@@ -411,6 +409,16 @@
     <Content Include="Content\img\placeholders\screenshots\promo_3.png" />
     <Content Include="Content\img\placeholders\screenshots\promo_welcome%402x.png" />
     <Content Include="Content\img\placeholders\screenshots\promo_welcome.png" />
+    <Content Include="IGRModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IGRModel.edmx</DependentUpon>
+      <LastGenOutput>IGRModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="IGRModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IGRModel.edmx</DependentUpon>
+      <LastGenOutput>IGRModel.cs</LastGenOutput>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -874,6 +882,13 @@
     <Content Include="Content\admin\css\fonts\glyphicons.social.pro\glyphicons-social-regular.ttf" />
     <Content Include="Content\admin\css\fonts\glyphicons.social.pro\glyphicons-social-regular.woff" />
     <Content Include="Views\Default\IGR.cshtml" />
+    <EntityDeploy Include="IGRModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IGRModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="IGRModel.edmx.diagram">
+      <DependentUpon>IGRModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -906,18 +921,204 @@
     <Content Include="Views\Default\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abuthpayment.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="abuthpaymentitem.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="agent.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="aspnetrole.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnetuser.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnetuserclaim.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="aspnetuserlogin.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="assessmenttable.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="asset.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bank.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="beneficiary.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="buypowernotification.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="colortab.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="conlog.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="enumeration.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fundsweep.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="igr.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IGRModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IGRModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IGRModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IGRModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IGRModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="igr_categories.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="igr_users.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="invoice.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="isnotification.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="jambpayment.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="jigawalog.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="kedcopayment.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="kingscare.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mda.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mda_category.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mda_stations.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Support.cs" />
+    <Compile Include="notification.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="oneclickpayment.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="payertype.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="paymentnotification.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pos.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pos_collection.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pos_test_najib.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="power.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="remittance.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reportslisting.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="reportsparameter.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="revenuehead.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="richfield.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rserver.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rssh_upload.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="schoolclass.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="schooldetail.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="schoolnotification.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="schoolsession.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="schoolterm.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="student_information.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="subhead.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="taxpayer.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tin.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="valueswitchpayment.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_collections.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_remittances.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="web_collection.cs">
+      <DependentUpon>IGRModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

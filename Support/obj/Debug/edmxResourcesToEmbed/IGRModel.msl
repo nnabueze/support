@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="igr_collectionsModelStoreContainer" CdmEntityContainer="igr_collectionsEntities">
+    <EntitySetMapping Name="abuthpaymentitems">
+      <EntityTypeMapping TypeName="igr_collectionsModel.abuthpaymentitem">
+        <MappingFragment StoreEntitySet="abuthpaymentitems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="TransId" ColumnName="TransId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Create_At" ColumnName="Create_At" />
+          <ScalarProperty Name="offlineTransId" ColumnName="offlineTransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="abuthpayments">
+      <EntityTypeMapping TypeName="igr_collectionsModel.abuthpayment">
+        <MappingFragment StoreEntitySet="abuthpayments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransId" ColumnName="TransId" />
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="IsRemitted" ColumnName="IsRemitted" />
+          <ScalarProperty Name="RemittanceId" ColumnName="RemittanceId" />
+          <ScalarProperty Name="Create_At" ColumnName="Create_At" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="offlineTransId" ColumnName="offlineTransId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="agents">
+      <EntityTypeMapping TypeName="igr_collectionsModel.agent">
+        <MappingFragment StoreEntitySet="agents">
+          <ScalarProperty Name="Agent_ID" ColumnName="Agent_ID" />
+          <ScalarProperty Name="AgentName" ColumnName="AgentName" />
+          <ScalarProperty Name="CollectLimit" ColumnName="CollectLimit" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="IsConsultant" ColumnName="IsConsultant" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnetroles">
+      <EntityTypeMapping TypeName="igr_collectionsModel.aspnetrole">
+        <MappingFragment StoreEntitySet="aspnetroles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Priviledges" ColumnName="Priviledges" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnetuserclaims">
+      <EntityTypeMapping TypeName="igr_collectionsModel.aspnetuserclaim">
+        <MappingFragment StoreEntitySet="aspnetuserclaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnetusers">
+      <EntityTypeMapping TypeName="igr_collectionsModel.aspnetuser">
+        <MappingFragment StoreEntitySet="aspnetusers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IGRCode" ColumnName="IGRCode" />
+          <ScalarProperty Name="MDACode" ColumnName="MDACode" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="UserLimit" ColumnName="UserLimit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assessmenttables">
+      <EntityTypeMapping TypeName="igr_collectionsModel.assessmenttable">
+        <MappingFragment StoreEntitySet="assessmenttable">
+          <ScalarProperty Name="Assessment_ID" ColumnName="Assessment_ID" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="TaxPayer" ColumnName="TaxPayer" />
+          <ScalarProperty Name="Remitted" ColumnName="Remitted" />
+          <ScalarProperty Name="DateRemitted" ColumnName="DateRemitted" />
+          <ScalarProperty Name="AssessmentType" ColumnName="AssessmentType" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="LGA" ColumnName="LGA" />
+          <ScalarProperty Name="AssessmentItem" ColumnName="AssessmentItem" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Asset" ColumnName="Asset" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assets">
+      <EntityTypeMapping TypeName="igr_collectionsModel.asset">
+        <MappingFragment StoreEntitySet="asset">
+          <ScalarProperty Name="Asset_ID" ColumnName="Asset_ID" />
+          <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="AssetType" ColumnName="AssetType" />
+          <ScalarProperty Name="TaxPayer" ColumnName="TaxPayer" />
+          <ScalarProperty Name="LGA" ColumnName="LGA" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="IGR_Id" ColumnName="IGR_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="igr_collectionsModel.bank">
+        <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Bank_Code" ColumnName="Bank_Code" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficiaries">
+      <EntityTypeMapping TypeName="igr_collectionsModel.beneficiary">
+        <MappingFragment StoreEntitySet="beneficiaries">
+          <ScalarProperty Name="Benefuciary_ID" ColumnName="Benefuciary_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="Account_Number" ColumnName="Account_Number" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="buypowernotifications">
+      <EntityTypeMapping TypeName="igr_collectionsModel.buypowernotification">
+        <MappingFragment StoreEntitySet="buypowernotifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="BillerID" ColumnName="BillerID" />
+          <ScalarProperty Name="BillerName" ColumnName="BillerName" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="SourceBankCode" ColumnName="SourceBankCode" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="DestinationBankCode" ColumnName="DestinationBankCode" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="meterNumber" ColumnName="meterNumber" />
+          <ScalarProperty Name="discoCode" ColumnName="discoCode" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="vendRef" ColumnName="vendRef" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="colortabs">
+      <EntityTypeMapping TypeName="igr_collectionsModel.colortab">
+        <MappingFragment StoreEntitySet="colortabs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ColourName" ColumnName="ColourName" />
+          <ScalarProperty Name="Colour" ColumnName="Colour" />
+          <ScalarProperty Name="AscentColour" ColumnName="AscentColour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conlogs">
+      <EntityTypeMapping TypeName="igr_collectionsModel.conlog">
+        <MappingFragment StoreEntitySet="conlogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enumerations">
+      <EntityTypeMapping TypeName="igr_collectionsModel.enumeration">
+        <MappingFragment StoreEntitySet="enumerations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Serial" ColumnName="Serial" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Enumerator" ColumnName="Enumerator" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FeederName" ColumnName="FeederName" />
+          <ScalarProperty Name="TransformerName" ColumnName="TransformerName" />
+          <ScalarProperty Name="TransfermerCode" ColumnName="TransfermerCode" />
+          <ScalarProperty Name="PoleServiceWireRemark" ColumnName="PoleServiceWireRemark" />
+          <ScalarProperty Name="PoleType" ColumnName="PoleType" />
+          <ScalarProperty Name="PoleCondition" ColumnName="PoleCondition" />
+          <ScalarProperty Name="WireType" ColumnName="WireType" />
+          <ScalarProperty Name="WireCondition" ColumnName="WireCondition" />
+          <ScalarProperty Name="PropertyType" ColumnName="PropertyType" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="MeterTariff" ColumnName="MeterTariff" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CspName" ColumnName="CspName" />
+          <ScalarProperty Name="MeterNumber" ColumnName="MeterNumber" />
+          <ScalarProperty Name="ServiceAddress" ColumnName="ServiceAddress" />
+          <ScalarProperty Name="CustomerTitle" ColumnName="CustomerTitle" />
+          <ScalarProperty Name="CustomerFirstName" ColumnName="CustomerFirstName" />
+          <ScalarProperty Name="CustomerLastName" ColumnName="CustomerLastName" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LandMark" ColumnName="LandMark" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Village" ColumnName="Village" />
+          <ScalarProperty Name="CustomerStatus" ColumnName="CustomerStatus" />
+          <ScalarProperty Name="FileMeterNumber" ColumnName="FileMeterNumber" />
+          <ScalarProperty Name="Lga" ColumnName="Lga" />
+          <ScalarProperty Name="CustormerRemark" ColumnName="CustormerRemark" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Altitude" ColumnName="Altitude" />
+          <ScalarProperty Name="AccountStatus" ColumnName="AccountStatus" />
+          <ScalarProperty Name="BookCode" ColumnName="BookCode" />
+          <ScalarProperty Name="AmountBilled" ColumnName="AmountBilled" />
+          <ScalarProperty Name="MeterType" ColumnName="MeterType" />
+          <ScalarProperty Name="MeterModel" ColumnName="MeterModel" />
+          <ScalarProperty Name="MeterStatus" ColumnName="MeterStatus" />
+          <ScalarProperty Name="MeterPhase" ColumnName="MeterPhase" />
+          <ScalarProperty Name="MeterRemark" ColumnName="MeterRemark" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fundsweeps">
+      <EntityTypeMapping TypeName="igr_collectionsModel.fundsweep">
+        <MappingFragment StoreEntitySet="fundsweeps">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Coll" ColumnName="Coll" />
+          <ScalarProperty Name="SerialNo" ColumnName="SerialNo" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TxnDate" ColumnName="TxnDate" />
+          <ScalarProperty Name="Payee" ColumnName="Payee" />
+          <ScalarProperty Name="Payer" ColumnName="Payer" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="AmountCollected" ColumnName="AmountCollected" />
+          <ScalarProperty Name="AmountRemitted" ColumnName="AmountRemitted" />
+          <ScalarProperty Name="AgencyAmount" ColumnName="AgencyAmount" />
+          <ScalarProperty Name="Agency" ColumnName="Agency" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UploadId" ColumnName="UploadId" />
+          <ScalarProperty Name="BillerID" ColumnName="BillerID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="RemittedAt" ColumnName="RemittedAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="igrs">
+      <EntityTypeMapping TypeName="igr_collectionsModel.igr">
+        <MappingFragment StoreEntitySet="igr">
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="IGR_Name" ColumnName="IGR_Name" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="IsIGR" ColumnName="IsIGR" />
+          <ScalarProperty Name="Dashboard" ColumnName="Dashboard" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IS_IGRCode" ColumnName="IS_IGRCode" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryUrl" ColumnName="CategoryUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="igr_categories">
+      <EntityTypeMapping TypeName="igr_collectionsModel.igr_categories">
+        <MappingFragment StoreEntitySet="igr_categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoices">
+      <EntityTypeMapping TypeName="igr_collectionsModel.invoice">
+        <MappingFragment StoreEntitySet="invoices">
+          <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="POS_ID" ColumnName="POS_ID" />
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Invoice_Status" ColumnName="Invoice_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="isnotifications">
+      <EntityTypeMapping TypeName="igr_collectionsModel.isnotification">
+        <MappingFragment StoreEntitySet="isnotifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceUrl" ColumnName="ServiceUrl" />
+          <ScalarProperty Name="ServiceUsername" ColumnName="ServiceUsername" />
+          <ScalarProperty Name="ServicePassword" ColumnName="ServicePassword" />
+          <ScalarProperty Name="FTPUrl" ColumnName="FTPUrl" />
+          <ScalarProperty Name="FTPUsername" ColumnName="FTPUsername" />
+          <ScalarProperty Name="FTPPassword" ColumnName="FTPPassword" />
+          <ScalarProperty Name="IsRepeated" ColumnName="IsRepeated" />
+          <ScalarProperty Name="ProductGroupCode" ColumnName="ProductGroupCode" />
+          <ScalarProperty Name="PaymentLogId" ColumnName="PaymentLogId" />
+          <ScalarProperty Name="CustReference" ColumnName="CustReference" />
+          <ScalarProperty Name="AlternateCustReference" ColumnName="AlternateCustReference" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="IsReversal" ColumnName="IsReversal" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+          <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="OtherCustomerInfo" ColumnName="OtherCustomerInfo" />
+          <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+          <ScalarProperty Name="CollectionsAccount" ColumnName="CollectionsAccount" />
+          <ScalarProperty Name="ThirdPartyCode" ColumnName="ThirdPartyCode" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ItemAmount" ColumnName="ItemAmount" />
+          <ScalarProperty Name="LeadBankCode" ColumnName="LeadBankCode" />
+          <ScalarProperty Name="LeadBankCbnCode" ColumnName="LeadBankCbnCode" />
+          <ScalarProperty Name="LeadBankName" ColumnName="LeadBankName" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+          <ScalarProperty Name="DepositorName" ColumnName="DepositorName" />
+          <ScalarProperty Name="DepositorSlipNumber" ColumnName="DepositorSlipNumber" />
+          <ScalarProperty Name="PaymentCurrency" ColumnName="PaymentCurrency" />
+          <ScalarProperty Name="OriginalPaymentLogId" ColumnName="OriginalPaymentLogId" />
+          <ScalarProperty Name="OriginalPaymentReference" ColumnName="OriginalPaymentReference" />
+          <ScalarProperty Name="Teller" ColumnName="Teller" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="IsSent" ColumnName="IsSent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jambpayments">
+      <EntityTypeMapping TypeName="igr_collectionsModel.jambpayment">
+        <MappingFragment StoreEntitySet="jambpayments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="GSMNo" ColumnName="GSMNo" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="Pin" ColumnName="Pin" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jigawalogs">
+      <EntityTypeMapping TypeName="igr_collectionsModel.jigawalog">
+        <MappingFragment StoreEntitySet="jigawalog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ServiceUrl" ColumnName="ServiceUrl" />
+          <ScalarProperty Name="ServiceUsername" ColumnName="ServiceUsername" />
+          <ScalarProperty Name="ServicePassword" ColumnName="ServicePassword" />
+          <ScalarProperty Name="FTPUrl" ColumnName="FTPUrl" />
+          <ScalarProperty Name="FTPUsername" ColumnName="FTPUsername" />
+          <ScalarProperty Name="FTPPassword" ColumnName="FTPPassword" />
+          <ScalarProperty Name="IsRepeated" ColumnName="IsRepeated" />
+          <ScalarProperty Name="ProductGroupCode" ColumnName="ProductGroupCode" />
+          <ScalarProperty Name="PaymentLogId" ColumnName="PaymentLogId" />
+          <ScalarProperty Name="CustReference" ColumnName="CustReference" />
+          <ScalarProperty Name="AlternateCustReference" ColumnName="AlternateCustReference" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="PaymentReference" ColumnName="PaymentReference" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="IsReversal" ColumnName="IsReversal" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+          <ScalarProperty Name="InstitutionId" ColumnName="InstitutionId" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="OtherCustomerInfo" ColumnName="OtherCustomerInfo" />
+          <ScalarProperty Name="ReceiptNo" ColumnName="ReceiptNo" />
+          <ScalarProperty Name="CollectionsAccount" ColumnName="CollectionsAccount" />
+          <ScalarProperty Name="ThirdPartyCode" ColumnName="ThirdPartyCode" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ItemAmount" ColumnName="ItemAmount" />
+          <ScalarProperty Name="LeadBankCode" ColumnName="LeadBankCode" />
+          <ScalarProperty Name="LeadBankCbnCode" ColumnName="LeadBankCbnCode" />
+          <ScalarProperty Name="LeadBankName" ColumnName="LeadBankName" />
+          <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ItemQuantity" ColumnName="ItemQuantity" />
+          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+          <ScalarProperty Name="DepositorName" ColumnName="DepositorName" />
+          <ScalarProperty Name="DepositorSlipNumber" ColumnName="DepositorSlipNumber" />
+          <ScalarProperty Name="PaymentCurrency" ColumnName="PaymentCurrency" />
+          <ScalarProperty Name="OriginalPaymentLogId" ColumnName="OriginalPaymentLogId" />
+          <ScalarProperty Name="OriginalPaymentReference" ColumnName="OriginalPaymentReference" />
+          <ScalarProperty Name="Teller" ColumnName="Teller" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kedcopayments">
+      <EntityTypeMapping TypeName="igr_collectionsModel.kedcopayment">
+        <MappingFragment StoreEntitySet="kedcopayments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PosId" ColumnName="PosId" />
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="MeterType" ColumnName="MeterType" />
+          <ScalarProperty Name="PaymentMode" ColumnName="PaymentMode" />
+          <ScalarProperty Name="TranactionDate" ColumnName="TranactionDate" />
+          <ScalarProperty Name="TransactionReference" ColumnName="TransactionReference" />
+          <ScalarProperty Name="LastTransactionDate" ColumnName="LastTransactionDate" />
+          <ScalarProperty Name="StationId" ColumnName="StationId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReceiptNumber" ColumnName="ReceiptNumber" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+          <ScalarProperty Name="CustomerArears" ColumnName="CustomerArears" />
+          <ScalarProperty Name="IsRemitted" ColumnName="IsRemitted" />
+          <ScalarProperty Name="RemittanceId" ColumnName="RemittanceId" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="tariffCode" ColumnName="tariffCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kingscares">
+      <EntityTypeMapping TypeName="igr_collectionsModel.kingscare">
+        <MappingFragment StoreEntitySet="kingscares">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="SourceBankName" ColumnName="SourceBankName" />
+          <ScalarProperty Name="DestinationBankCode" ColumnName="DestinationBankCode" />
+          <ScalarProperty Name="PupilsName" ColumnName="PupilsName" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PayersName" ColumnName="PayersName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mdas">
+      <EntityTypeMapping TypeName="igr_collectionsModel.mda">
+        <MappingFragment StoreEntitySet="mda">
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="IGR_ID" ColumnName="IGR_ID" />
+          <ScalarProperty Name="MDA_Category" ColumnName="MDA_Category" />
+          <ScalarProperty Name="MDA_DetailedCategory" ColumnName="MDA_DetailedCategory" />
+          <ScalarProperty Name="MDA_Name" ColumnName="MDA_Name" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="Invoice_status" ColumnName="Invoice_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mda_category">
+      <EntityTypeMapping TypeName="igr_collectionsModel.mda_category">
+        <MappingFragment StoreEntitySet="mda_category">
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mda_stations">
+      <EntityTypeMapping TypeName="igr_collectionsModel.mda_stations">
+        <MappingFragment StoreEntitySet="mda_stations">
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="MDAStation_Name" ColumnName="MDAStation_Name" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notifications">
+      <EntityTypeMapping TypeName="igr_collectionsModel.notification">
+        <MappingFragment StoreEntitySet="notification">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+          <ScalarProperty Name="SourceBankCode" ColumnName="SourceBankCode" />
+          <ScalarProperty Name="DestinationBankCode" ColumnName="DestinationBankCode" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="SourceBankName" ColumnName="SourceBankName" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="payerid" ColumnName="payerid" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="tin" ColumnName="tin" />
+          <ScalarProperty Name="remittance_id" ColumnName="remittance_id" />
+          <ScalarProperty Name="invoice_id" ColumnName="invoice_id" />
+          <ScalarProperty Name="refcode" ColumnName="refcode" />
+          <ScalarProperty Name="productType" ColumnName="productType" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oneclickpayments">
+      <EntityTypeMapping TypeName="igr_collectionsModel.oneclickpayment">
+        <MappingFragment StoreEntitySet="oneclickpayments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="PayerName" ColumnName="PayerName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Disco" ColumnName="Disco" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="SourceBank" ColumnName="SourceBank" />
+          <ScalarProperty Name="DestinationBank" ColumnName="DestinationBank" />
+          <ScalarProperty Name="IsSent" ColumnName="IsSent" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="Created_At" ColumnName="Created_At" />
+          <ScalarProperty Name="MeterNumber" ColumnName="MeterNumber" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payertypes">
+      <EntityTypeMapping TypeName="igr_collectionsModel.payertype">
+        <MappingFragment StoreEntitySet="payertype">
+          <ScalarProperty Name="PayerType_ID" ColumnName="PayerType_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentnotifications">
+      <EntityTypeMapping TypeName="igr_collectionsModel.paymentnotification">
+        <MappingFragment StoreEntitySet="paymentnotifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="RequestorID" ColumnName="RequestorID" />
+          <ScalarProperty Name="PayerPhoneNumber" ColumnName="PayerPhoneNumber" />
+          <ScalarProperty Name="PayerName" ColumnName="PayerName" />
+          <ScalarProperty Name="MerchantCode" ColumnName="MerchantCode" />
+          <ScalarProperty Name="MerchantName" ColumnName="MerchantName" />
+          <ScalarProperty Name="MerchantPhoneNumber" ColumnName="MerchantPhoneNumber" />
+          <ScalarProperty Name="ReferenceCode" ColumnName="ReferenceCode" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+          <ScalarProperty Name="sent_status" ColumnName="sent_status" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pos">
+      <EntityTypeMapping TypeName="igr_collectionsModel.pos">
+        <MappingFragment StoreEntitySet="pos">
+          <ScalarProperty Name="POS_ID" ColumnName="POS_ID" />
+          <ScalarProperty Name="POS_imei" ColumnName="POS_imei" />
+          <ScalarProperty Name="POS_Name" ColumnName="POS_Name" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="Activation" ColumnName="Activation" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="Station_ID" ColumnName="Station_ID" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pos_collection">
+      <EntityTypeMapping TypeName="igr_collectionsModel.pos_collection">
+        <MappingFragment StoreEntitySet="pos_collection">
+          <ScalarProperty Name="COLLECTION_ID" ColumnName="COLLECTION_ID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="remittance_id" ColumnName="remittance_id" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="POS_ID" ColumnName="POS_ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="CollectionType" ColumnName="CollectionType" />
+          <ScalarProperty Name="CollectionStatus" ColumnName="CollectionStatus" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IGR_ID" ColumnName="IGR_ID" />
+          <ScalarProperty Name="PosCollectionId" ColumnName="PosCollectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="powers">
+      <EntityTypeMapping TypeName="igr_collectionsModel.power">
+        <MappingFragment StoreEntitySet="powers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SourceBankCode" ColumnName="SourceBankCode" />
+          <ScalarProperty Name="SourceBankName" ColumnName="SourceBankName" />
+          <ScalarProperty Name="InstitutionCode" ColumnName="InstitutionCode" />
+          <ScalarProperty Name="ChannelCode" ColumnName="ChannelCode" />
+          <ScalarProperty Name="Step" ColumnName="Step" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerAccountNumber" ColumnName="CustomerAccountNumber" />
+          <ScalarProperty Name="BillerID" ColumnName="BillerID" />
+          <ScalarProperty Name="BillerName" ColumnName="BillerName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="remittances">
+      <EntityTypeMapping TypeName="igr_collectionsModel.remittance">
+        <MappingFragment StoreEntitySet="remittances">
+          <ScalarProperty Name="remittance_id" ColumnName="remittance_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="remtted_date" ColumnName="remtted_date" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="remittance_status" ColumnName="remittance_status" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="POS_ID" ColumnName="POS_ID" />
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="IGR_ID" ColumnName="IGR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reportslistings">
+      <EntityTypeMapping TypeName="igr_collectionsModel.reportslisting">
+        <MappingFragment StoreEntitySet="reportslisting">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="ReportServerURL" ColumnName="ReportServerURL" />
+          <ScalarProperty Name="MenuUrl" ColumnName="MenuUrl" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsDashboard" ColumnName="IsDashboard" />
+          <ScalarProperty Name="RCredentials" ColumnName="RCredentials" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reportsparameters">
+      <EntityTypeMapping TypeName="igr_collectionsModel.reportsparameter">
+        <MappingFragment StoreEntitySet="reportsparameter">
+          <ScalarProperty Name="ReportParameterID" ColumnName="ReportParameterID" />
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
+          <ScalarProperty Name="ReportParameterName" ColumnName="ReportParameterName" />
+          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+          <ScalarProperty Name="ShowParameter" ColumnName="ShowParameter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="revenueheads">
+      <EntityTypeMapping TypeName="igr_collectionsModel.revenuehead">
+        <MappingFragment StoreEntitySet="revenueheads">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RevenueCode" ColumnName="RevenueCode" />
+          <ScalarProperty Name="Biller_ID" ColumnName="Biller_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="RevenueName" ColumnName="RevenueName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Taxable" ColumnName="Taxable" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="AssmentItem" ColumnName="AssmentItem" />
+          <ScalarProperty Name="IsPOS" ColumnName="IsPOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="richfields">
+      <EntityTypeMapping TypeName="igr_collectionsModel.richfield">
+        <MappingFragment StoreEntitySet="richfields">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="DestinationBankCode" ColumnName="DestinationBankCode" />
+          <ScalarProperty Name="SourceBankName" ColumnName="SourceBankName" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rservers">
+      <EntityTypeMapping TypeName="igr_collectionsModel.rserver">
+        <MappingFragment StoreEntitySet="rservers">
+          <ScalarProperty Name="Rserver_ID" ColumnName="Rserver_ID" />
+          <ScalarProperty Name="RServerName" ColumnName="RServerName" />
+          <ScalarProperty Name="RServerPwd" ColumnName="RServerPwd" />
+          <ScalarProperty Name="RserverDomain" ColumnName="RserverDomain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rssh_upload">
+      <EntityTypeMapping TypeName="igr_collectionsModel.rssh_upload">
+        <MappingFragment StoreEntitySet="rssh_upload">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Teller" ColumnName="Teller" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UploadedBy" ColumnName="UploadedBy" />
+          <ScalarProperty Name="DateUploaded" ColumnName="DateUploaded" />
+          <ScalarProperty Name="UploadID" ColumnName="UploadID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schoolclasses">
+      <EntityTypeMapping TypeName="igr_collectionsModel.schoolclass">
+        <MappingFragment StoreEntitySet="schoolclasses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="SchoolFees" ColumnName="SchoolFees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schooldetails">
+      <EntityTypeMapping TypeName="igr_collectionsModel.schooldetail">
+        <MappingFragment StoreEntitySet="schooldetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AdmissionNo" ColumnName="AdmissionNo" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="D_B" ColumnName="D_B" />
+          <ScalarProperty Name="SchoolFees" ColumnName="SchoolFees" />
+          <ScalarProperty Name="Rebait" ColumnName="Rebait" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="BillerId" ColumnName="BillerId" />
+          <ScalarProperty Name="Created_At" ColumnName="Created_At" />
+          <ScalarProperty Name="uploadId" ColumnName="uploadId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schoolnotifications">
+      <EntityTypeMapping TypeName="igr_collectionsModel.schoolnotification">
+        <MappingFragment StoreEntitySet="schoolnotifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="BillerId" ColumnName="BillerId" />
+          <ScalarProperty Name="SourceBank" ColumnName="SourceBank" />
+          <ScalarProperty Name="DestinationBank" ColumnName="DestinationBank" />
+          <ScalarProperty Name="PayerName" ColumnName="PayerName" />
+          <ScalarProperty Name="PayerPhone" ColumnName="PayerPhone" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="AdmissionNo" ColumnName="AdmissionNo" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="Created_At" ColumnName="Created_At" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schoolsessions">
+      <EntityTypeMapping TypeName="igr_collectionsModel.schoolsession">
+        <MappingFragment StoreEntitySet="schoolsessions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="SessionName" ColumnName="SessionName" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="schoolterms">
+      <EntityTypeMapping TypeName="igr_collectionsModel.schoolterm">
+        <MappingFragment StoreEntitySet="schoolterms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="TermId" ColumnName="TermId" />
+          <ScalarProperty Name="Term" ColumnName="Term" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_information">
+      <EntityTypeMapping TypeName="igr_collectionsModel.student_information">
+        <MappingFragment StoreEntitySet="student_information">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="AdmissionNo" ColumnName="AdmissionNo" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="TermId" ColumnName="TermId" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="StudentType" ColumnName="StudentType" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="uploadId" ColumnName="uploadId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subheads">
+      <EntityTypeMapping TypeName="igr_collectionsModel.subhead">
+        <MappingFragment StoreEntitySet="subheads">
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="SubHead_Code" ColumnName="SubHead_Code" />
+          <ScalarProperty Name="RevHead_ID" ColumnName="RevHead_ID" />
+          <ScalarProperty Name="SubHead_Name" ColumnName="SubHead_Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Government" ColumnName="Government" />
+          <ScalarProperty Name="Agency" ColumnName="Agency" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="Taxable" ColumnName="Taxable" />
+          <ScalarProperty Name="Recurrent" ColumnName="Recurrent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taxpayers">
+      <EntityTypeMapping TypeName="igr_collectionsModel.taxpayer">
+        <MappingFragment StoreEntitySet="taxpayer">
+          <ScalarProperty Name="TaxPayer_ID" ColumnName="TaxPayer_ID" />
+          <ScalarProperty Name="TIN" ColumnName="TIN" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="OtherNames" ColumnName="OtherNames" />
+          <ScalarProperty Name="BVN" ColumnName="BVN" />
+          <ScalarProperty Name="IGR_ID" ColumnName="IGR_ID" />
+          <ScalarProperty Name="LocalGovernment" ColumnName="LocalGovernment" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PayerType" ColumnName="PayerType" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tins">
+      <EntityTypeMapping TypeName="igr_collectionsModel.tin">
+        <MappingFragment StoreEntitySet="tins">
+          <ScalarProperty Name="tin_id" ColumnName="tin_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="IGR_Code" ColumnName="IGR_Code" />
+          <ScalarProperty Name="tin_no" ColumnName="tin_no" />
+          <ScalarProperty Name="temporary_tin" ColumnName="temporary_tin" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="identification" ColumnName="identification" />
+          <ScalarProperty Name="bussiness_type" ColumnName="bussiness_type" />
+          <ScalarProperty Name="bussinesss_name" ColumnName="bussinesss_name" />
+          <ScalarProperty Name="bussiness_address" ColumnName="bussiness_address" />
+          <ScalarProperty Name="bussiness_no" ColumnName="bussiness_no" />
+          <ScalarProperty Name="reg_bus_name" ColumnName="reg_bus_name" />
+          <ScalarProperty Name="commencement_date" ColumnName="commencement_date" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="valueswitchpayments">
+      <EntityTypeMapping TypeName="igr_collectionsModel.valueswitchpayment">
+        <MappingFragment StoreEntitySet="valueswitchpayments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="SourceBank" ColumnName="SourceBank" />
+          <ScalarProperty Name="DestinationBank" ColumnName="DestinationBank" />
+          <ScalarProperty Name="BillerID" ColumnName="BillerID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BillerName" ColumnName="BillerName" />
+          <ScalarProperty Name="CollectRef" ColumnName="CollectRef" />
+          <ScalarProperty Name="Narration" ColumnName="Narration" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsSent" ColumnName="IsSent" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="Created_At" ColumnName="Created_At" />
+          <ScalarProperty Name="CollectionTitle" ColumnName="CollectionTitle" />
+          <ScalarProperty Name="CollectionType" ColumnName="CollectionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_collection">
+      <EntityTypeMapping TypeName="igr_collectionsModel.web_collection">
+        <MappingFragment StoreEntitySet="web_collection">
+          <ScalarProperty Name="COLLECTION_ID" ColumnName="COLLECTION_ID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="remittance_id" ColumnName="remittance_id" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="POS_ID" ColumnName="POS_ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="CollectionType" ColumnName="CollectionType" />
+          <ScalarProperty Name="CollectionStatus" ColumnName="CollectionStatus" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnetuserlogins">
+      <EntityTypeMapping TypeName="igr_collectionsModel.aspnetuserlogin">
+        <MappingFragment StoreEntitySet="aspnetuserlogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pos_test_najib">
+      <EntityTypeMapping TypeName="igr_collectionsModel.pos_test_najib">
+        <MappingFragment StoreEntitySet="pos_test_najib">
+          <ScalarProperty Name="COLLECTION_ID" ColumnName="COLLECTION_ID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="remittance_id" ColumnName="remittance_id" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="SubHead_ID" ColumnName="SubHead_ID" />
+          <ScalarProperty Name="POS_ID" ColumnName="POS_ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="CollectionType" ColumnName="CollectionType" />
+          <ScalarProperty Name="CollectionStatus" ColumnName="CollectionStatus" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="igr_users">
+      <EntityTypeMapping TypeName="igr_collectionsModel.igr_users">
+        <MappingFragment StoreEntitySet="igr_users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Priviledges" ColumnName="Priviledges" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IGRCode" ColumnName="IGRCode" />
+          <ScalarProperty Name="IGR_Name" ColumnName="IGR_Name" />
+          <ScalarProperty Name="MDACode" ColumnName="MDACode" />
+          <ScalarProperty Name="MDA_Name" ColumnName="MDA_Name" />
+          <ScalarProperty Name="MDAStation_Name" ColumnName="MDAStation_Name" />
+          <ScalarProperty Name="CollectionLimit" ColumnName="CollectionLimit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_collections">
+      <EntityTypeMapping TypeName="igr_collectionsModel.vw_collections">
+        <MappingFragment StoreEntitySet="vw_collections">
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="subhead_ID" ColumnName="subhead_ID" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="MDAStation_Name" ColumnName="MDAStation_Name" />
+          <ScalarProperty Name="pos_ID" ColumnName="pos_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="collectionType" ColumnName="collectionType" />
+          <ScalarProperty Name="CollectionStatus" ColumnName="CollectionStatus" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="SubHead_Name" ColumnName="SubHead_Name" />
+          <ScalarProperty Name="SubHead_Code" ColumnName="SubHead_Code" />
+          <ScalarProperty Name="RevenueCode" ColumnName="RevenueCode" />
+          <ScalarProperty Name="RevenueName" ColumnName="RevenueName" />
+          <ScalarProperty Name="Biller_ID" ColumnName="Biller_ID" />
+          <ScalarProperty Name="RevenueHead_ID" ColumnName="RevenueHead_ID" />
+          <ScalarProperty Name="Remittance_id" ColumnName="Remittance_id" />
+          <ScalarProperty Name="MDA_Name" ColumnName="MDA_Name" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_remittances">
+      <EntityTypeMapping TypeName="igr_collectionsModel.vw_remittances">
+        <MappingFragment StoreEntitySet="vw_remittances">
+          <ScalarProperty Name="Remittance_id" ColumnName="Remittance_id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="MDAStation_ID" ColumnName="MDAStation_ID" />
+          <ScalarProperty Name="create_at" ColumnName="create_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="MDAStation_Name" ColumnName="MDAStation_Name" />
+          <ScalarProperty Name="pos_ID" ColumnName="pos_ID" />
+          <ScalarProperty Name="MDA_ID" ColumnName="MDA_ID" />
+          <ScalarProperty Name="MDA_Name" ColumnName="MDA_Name" />
+          <ScalarProperty Name="Biller_ID" ColumnName="Biller_ID" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="remittance_status" ColumnName="remittance_status" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="channel" ColumnName="channel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="aspnetuserroles" TypeName="igr_collectionsModel.aspnetuserroles" StoreEntitySet="aspnetuserroles">
+      <EndProperty Name="aspnetroles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="aspnetusers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
