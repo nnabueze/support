@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Support.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace Support.Controllers
 {
     public class DefaultController : Controller
     {
+        support db = new support(); 
+
         // GET: Default
         public ActionResult Index()
         {
@@ -23,7 +26,18 @@ namespace Support.Controllers
             {
                 ViewBag.error = "Tin is required";
                 return View("Index");
-            } 
+            }
+
+            try
+            {
+                var tinData = db.tins.Where(o => o.tin_no == tin || o.temporary_tin == tin).FirstOrDefault();
+                
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message.ToString()+" | Please contact the Admin";
+                return View("Index");
+            }
 
             return View();
         }
