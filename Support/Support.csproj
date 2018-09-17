@@ -889,6 +889,9 @@
     <Content Include="IGRModel.edmx.diagram">
       <DependentUpon>IGRModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\include\_sideBar.cshtml" />
+    <Content Include="Views\Shared\_SideBar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -967,6 +970,7 @@
       <DependentUpon>IGRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="enumeration.cs">
       <DependentUpon>IGRModel.tt</DependentUpon>
     </Compile>
