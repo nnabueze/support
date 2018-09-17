@@ -55,7 +55,8 @@ namespace Support.Controllers
             Session["tinNo"] = tinData.tin_no;
             Session["name"] = tinData.name;
             Session["email"] = tinData.email;
-            Session["address"] = tinData.IGR_Code;
+            Session["address"] = tinData.address;
+            Session["igr"] = tinData.IGR_Code;
             Session["temporary_tin"] = tinData.temporary_tin;
             Session["phone"] = tinData.phone;
             return true;

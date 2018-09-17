@@ -212,8 +212,7 @@
     <script src="~/scripts/admin/js/plugins.js"></script>
     <script src="~/scripts/admin/js/app.js"></script>
 
-    <!-- Load and execute javascript code used only in this page -->
-    <script src="~/scripts/admin/js/pages/readyDashboard.js"></script>
-    <script>$(function () { ReadyDashboard.init(); });</script>
+    @RenderSection("Script", true)
+
 </body>
 </html>
