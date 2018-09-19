@@ -66,8 +66,11 @@
     <script src="~/scripts/admin/js/plugins.js"></script>
     <script src="~/scripts/admin/js/app.js"></script>
 
+    @RenderSection("Script", true)
+
+
     <!-- Load and execute javascript code used only in this page -->
-    <script src="~/scripts/admin/js/pages/readyLogin.js"></script>
-    <script>$(function(){ ReadyLogin.init(); });</script>
+    @*<script src="~/scripts/admin/js/pages/readyLogin.js"></script>
+    <script>$(function(){ ReadyLogin.init(); });</script>*@
 </body>
 </html>

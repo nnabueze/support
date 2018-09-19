@@ -50,5 +50,32 @@ namespace Support.Controllers
 
             return View(tinData);
         }
+
+        [Route("tickets")]
+        public ActionResult Ticket()
+        {
+            IEnumerable<Models.Ticket> ticketData = new List<Models.Ticket>();
+
+            string tinNo = Session["tinNo"].ToString();
+            string tempararyTin = Session["temporary_tin"].ToString();
+
+            if (Session["isLogin"] != null)
+            {
+                ticketData = db.Ticket.ToList();
+
+                return View(ticketData);
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Ticket_Reply()
+        {
+            if (Session["isLogin"] != null)
+            {
+
+                return View();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

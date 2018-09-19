@@ -964,6 +964,7 @@
     <Property Name="commencement_date" Type="DateTime" />
     <Property Name="create_at" Type="DateTime" />
     <Property Name="updated_at" Type="DateTime" />
+    <Property Name="bvn" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="valueswitchpayment">
     <Key>

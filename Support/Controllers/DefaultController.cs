@@ -15,7 +15,18 @@ namespace Support.Controllers
         // GET: Default
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Models.igr> biller = new List<Models.igr>();
+            try
+            {
+                biller = db.igrs.Where(o => o.IsIGR == true).ToList();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message.ToString() + "An error occured while loading Please contact the admin.. ";
+                return View();
+            }
+
+            return View(biller);
         }
 
         [HttpPost]
@@ -60,6 +71,67 @@ namespace Support.Controllers
             Session["temporary_tin"] = tinData.temporary_tin;
             Session["phone"] = tinData.phone;
             return true;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("tin")]
+        public ActionResult Tin(TinRequest requestParam)
+        {
+            IEnumerable<Models.igr> biller = new List<Models.igr>();
+            biller = db.igrs.Where(o => o.IsIGR == true).ToList();
+            Models.tin tinParam = new Models.tin();
+
+            if (!ModelState.IsValid)
+            {
+                var message = string.Join(" | ", ModelState.Values
+               .SelectMany(v => v.Errors)
+               .Select(e => e.ErrorMessage));
+                ViewBag.error = message;
+                return View("Index", biller);
+            }
+
+            try
+            {
+                var checkBvn = db.tins.Where(o=>o.bvn == requestParam.bvn).FirstOrDefault();
+                if (checkBvn != null)
+                {
+                    ViewBag.error = "Your Temporary tin: "+checkBvn.temporary_tin;
+                    return View("Index", biller);
+                }
+
+               
+                tinParam.bvn = requestParam.bvn;
+                tinParam.name = requestParam.name;
+                tinParam.email = requestParam.email;
+                tinParam.phone = requestParam.phone;
+                tinParam.address = requestParam.address;
+                tinParam.IGR_Code = requestParam.biller;
+                tinParam.temporary_tin = "TN" + RandomNumber();
+                tinParam.tin_id = Guid.NewGuid().ToString();
+
+                var tinData = db.tins.Add(tinParam);
+                db.SaveChanges();
+
+            }
+            catch (Exception ex)
+            {
+
+                ViewBag.error = ex.Message.ToString()+" Please contact the admin.. ";
+                return View("Index", biller);
+            }
+
+
+            ViewBag.UpdateInformation = "Successfull: Tin No " + tinParam.temporary_tin;
+            return View("Index", biller);
+        }
+
+        public string RandomNumber()
+        {
+            var rnd = new Random(DateTime.Now.Millisecond);
+            string rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000).ToString();
+
+            return rNum;
         }
 
         [Route("logout")]

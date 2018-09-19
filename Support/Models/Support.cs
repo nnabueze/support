@@ -68,6 +68,7 @@ namespace Support.Models
         public virtual DbSet<igr_users> igr_users { get; set; }
         public virtual DbSet<vw_collections> vw_collections { get; set; }
         public virtual DbSet<vw_remittances> vw_remittances { get; set; }
+        public virtual DbSet<Ticket> Ticket { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

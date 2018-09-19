@@ -893,6 +893,9 @@
     <Content Include="Views\Shared\_SideBar.cshtml" />
     <Content Include="Views\Home\Payments.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Default\Tin.cshtml" />
+    <Content Include="Views\Home\Ticket.cshtml" />
+    <Content Include="Views\Home\Ticket_Reply.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1086,6 +1089,7 @@
     <Compile Include="Models\support.cs" />
     <Compile Include="Models\taxpayer.cs" />
     <Compile Include="Models\tin.cs" />
+    <Compile Include="Models\Utility.cs" />
     <Compile Include="Models\valueswitchpayment.cs" />
     <Compile Include="Models\vw_collections.cs" />
     <Compile Include="Models\vw_remittances.cs" />

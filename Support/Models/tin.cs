@@ -56,6 +56,8 @@ namespace Support.Models
         [StringLength(200)]
         public string reg_bus_name { get; set; }
 
+        public string bvn { get; set; }
+
         public DateTime? commencement_date { get; set; }
 
         public DateTime? create_at { get; set; }

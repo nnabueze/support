@@ -464,94 +464,6 @@ warning 6002: The table/view 'def.igr_collections.aspnetuserroles' does not have
     <Property Name="OriginalPaymentReference" Type="longtext" />
     <Property Name="Teller" Type="longtext" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'def.igr_collections.kebbi _igr_ebillspay' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="kebbi _igr_ebillspay">
-          <Property Name="﻿TransactionID" Type="text" />
-          <Property Name="Product" Type="text" />
-          <Property Name="SourceBank" Type="text" />
-          <Property Name="DestinationBank" Type="text" />
-          <Property Name="Date Approved" Type="text" />
-          <Property Name="Amount" Type="double" />
-          <Property Name="Total" Type="text" />
-          <Property Name="Email" Type="text" />
-          <Property Name="LGAName" Type="text" />
-          <Property Name="SubheadName" Type="text" />
-          <Property Name="Lga" Type="text" />
-          <Property Name="Period" Type="text" />
-          <Property Name="subhead" Type="text" />
-          <Property Name="StationName" Type="text" />
-          <Property Name="startdate" Type="text" />
-          <Property Name="PaymentAmount" Type="int" />
-          <Property Name="LGADesc" Type="text" />
-          <Property Name="Name" Type="text" />
-          <Property Name="ercasBillerId" Type="text" />
-          <Property Name="enddate" Type="text" />
-          <Property Name="phone" Type="bigint" />
-          <Property Name="station" Type="text" />
-          <Property Name="page" Type="int" />
-          <Property Name="PhoneNumber" Type="bigint" />
-          <Property Name="PayerId" Type="text" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'def.igr_collections.kebbi_ igr_ebillspay_upload1' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="kebbi_ igr_ebillspay_upload1">
-          <Property Name="﻿TransactionID" Type="text" />
-          <Property Name="Product" Type="text" />
-          <Property Name="SourceBank" Type="text" />
-          <Property Name="DestinationBank" Type="text" />
-          <Property Name="Date Approved" Type="text" />
-          <Property Name="Amount" Type="double" />
-          <Property Name="Total" Type="text" />
-          <Property Name="Email" Type="text" />
-          <Property Name="LGAName" Type="text" />
-          <Property Name="SubheadName" Type="text" />
-          <Property Name="Lga" Type="text" />
-          <Property Name="Period" Type="text" />
-          <Property Name="subhead" Type="text" />
-          <Property Name="StationName" Type="text" />
-          <Property Name="startdate" Type="text" />
-          <Property Name="PaymentAmount" Type="int" />
-          <Property Name="LGADesc" Type="text" />
-          <Property Name="Name" Type="text" />
-          <Property Name="ercasBillerId" Type="text" />
-          <Property Name="enddate" Type="text" />
-          <Property Name="phone" Type="bigint" />
-          <Property Name="station" Type="text" />
-          <Property Name="page" Type="int" />
-          <Property Name="PhoneNumber" Type="bigint" />
-          <Property Name="PayerId" Type="text" />
-          <Property Name="Status" Type="text" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'def.igr_collections.kebbi_igr_ebillspay' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="kebbi_igr_ebillspay">
-          <Property Name="﻿TransactionID" Type="text" />
-          <Property Name="Product" Type="text" />
-          <Property Name="SourceBank" Type="text" />
-          <Property Name="DestinationBank" Type="text" />
-          <Property Name="Date Approved" Type="text" />
-          <Property Name="Amount" Type="double" />
-          <Property Name="Total" Type="text" />
-          <Property Name="Email" Type="text" />
-          <Property Name="LGAName" Type="text" />
-          <Property Name="SubheadName" Type="text" />
-          <Property Name="Lga" Type="text" />
-          <Property Name="Period" Type="text" />
-          <Property Name="subhead" Type="text" />
-          <Property Name="StationName" Type="text" />
-          <Property Name="startdate" Type="text" />
-          <Property Name="PaymentAmount" Type="int" />
-          <Property Name="LGADesc" Type="text" />
-          <Property Name="Name" Type="text" />
-          <Property Name="ercasBillerId" Type="text" />
-          <Property Name="enddate" Type="text" />
-          <Property Name="phone" Type="bigint" />
-          <Property Name="station" Type="text" />
-          <Property Name="page" Type="int" />
-          <Property Name="PhoneNumber" Type="bigint" />
-          <Property Name="PayerId" Type="text" />
-        </EntityType>-->
   <EntityType Name="kedcopayments">
     <Key>
       <PropertyRef Name="Id" />
@@ -1052,6 +964,7 @@ warning 6002: The table/view 'def.igr_collections.pos_test_najib' does not have 
     <Property Name="commencement_date" Type="datetime" Precision="0" />
     <Property Name="create_at" Type="datetime" Precision="0" />
     <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="bvn" Type="varchar" MaxLength="45" />
   </EntityType>
   <EntityType Name="valueswitchpayments">
     <Key>
@@ -1174,24 +1087,6 @@ warning 6002: The table/view 'def.igr_collections.vw_remittances' does not have 
     <Property Name="UserName" Type="longtext" />
     <Property Name="channel" Type="varchar" MaxLength="9" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'def.igr_collections.vw_remittances_new' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vw_remittances_new">
-          <Property Name="Remittance_id" Type="longtext" />
-          <Property Name="Amount" Type="decimal" Precision="40" Scale="2" />
-          <Property Name="MDAStation_ID" Type="longtext" />
-          <Property Name="create_at" Type="datetime" Precision="0" />
-          <Property Name="updated_at" Type="datetime" Precision="0" />
-          <Property Name="MDAStation_Name" Type="longtext" />
-          <Property Name="pos_ID" Type="longtext" />
-          <Property Name="MDA_ID" Type="longtext" />
-          <Property Name="MDA_Name" Type="longtext" />
-          <Property Name="Biller_ID" Type="mediumtext" />
-          <Property Name="User_ID" Type="longtext" />
-          <Property Name="remittance_status" Type="mediumtext" />
-          <Property Name="UserName" Type="longtext" />
-          <Property Name="channel" Type="varchar" MaxLength="250" />
-        </EntityType>-->
   <Association Name="agents_ibfk_1">
     <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
     <End Role="agents" Type="Self.agents" Multiplicity="*" />

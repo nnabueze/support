@@ -940,6 +940,7 @@
     <EntitySetMapping Name="tins">
       <EntityTypeMapping TypeName="igr_collectionsModel.tin">
         <MappingFragment StoreEntitySet="tins">
+          <ScalarProperty Name="bvn" ColumnName="bvn" />
           <ScalarProperty Name="tin_id" ColumnName="tin_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="email" ColumnName="email" />
