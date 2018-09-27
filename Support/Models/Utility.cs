@@ -36,4 +36,30 @@ namespace Support.Models
         public string TinId { get; set; }
         public DateTime Created_at { get; set; }
     }
+
+    public class TicketPost
+    {
+        [Required]
+        public string Title { get; set; }
+        [Required]
+        public string Message { get; set; }
+        public string type { get; set; }
+    }
+
+    public class TicketViewModel
+    {
+        public Ticket ticket { get; set; }
+        public List<Comment> Comment { get; set; }
+
+    }
+
+    public class Comment
+    {
+        public int Id { get; set; }
+        public string TicketId { get; set; }
+        public string CommentId { get; set; }
+        public string CommenterName { get; set; }
+        public string CommentMessage { get; set; }
+        public DateTime Created_at { get; set; }
+    }
 }

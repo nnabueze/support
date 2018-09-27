@@ -1,6 +1,7 @@
 ﻿using Support.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -61,19 +62,143 @@ namespace Support.Controllers
 
             if (Session["isLogin"] != null)
             {
-                ticketData = db.Ticket.ToList();
+                ticketData = db.Ticket.Where(o=>o.TinId == tinNo || o.TinId == tempararyTin).OrderByDescending(o=>o.Created_at).ToList();
 
                 return View(ticketData);
             }
             return RedirectToAction("Index");
         }
 
-        public ActionResult Ticket_Reply()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("tickets")]
+        public ActionResult CreateTicket(HttpPostedFileBase file, TicketPost requestPost)
+        {
+            if (!ModelState.IsValid)
+            {
+                var message = string.Join(" | ", ModelState.Values
+               .SelectMany(v => v.Errors)
+               .Select(e => e.ErrorMessage));
+                Session["Error"] = message;
+                return RedirectToAction("Ticket");
+            }
+
+            //save  ticket
+            Ticket ticketParam = new Ticket();
+            ticketParam.Title = requestPost.Title;
+            ticketParam.Message = requestPost.Message;
+            ticketParam.TicketId = RandomNumber()+ RandomNumber().ToString();
+            ticketParam.SourceData = requestPost.type;
+            ticketParam.Ticket_Status = 1;
+            ticketParam.Created_at = DateTime.Now;
+            if (Session["temporary_tin"] == null)
+            {
+                ticketParam.TinId = Session["tinNo"].ToString();
+            }
+            else
+            {
+                ticketParam.TinId = Session["temporary_tin"].ToString();
+            }
+
+            try
+            {
+                db.Ticket.Add(ticketParam);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Session["Error"] = ex.Message.ToString();
+                return RedirectToAction("Ticket");
+            }
+            
+
+            foreach (string upload in Request.Files)
+            {
+                if (Request.Files[upload].ContentLength > 0)
+                {
+                    var filename = ticketParam.TicketId + ".png";
+                    var size = Request.Files[upload].ContentLength;
+
+                    if (size > 532000)
+                    {
+                        Session["Error"] = "File cannot be larger than 500KB";
+                        return RedirectToAction("Ticket");
+
+                    }
+                    var FileExt = Request.Files[upload].ContentType;
+                    if (FileExt == "image/png" || FileExt == "image/jpeg")
+                    {
+                        var filePathOriginal = Server.MapPath("/Content/ticket");
+                        var filePathThumbnail = Server.MapPath("/Content/ticket");
+                        string savedFileName = Path.Combine(filePathOriginal, filename);
+                        Request.Files[upload].SaveAs(savedFileName);
+                    }
+                    else
+                    {
+                        Session["Error"] = "Please upload a .png or .jpeg format";
+                        return RedirectToAction("Ticket");
+                    }
+                }
+            }
+
+            Session["Sucess"] = "Ticket successfully opened";
+            return RedirectToAction("Ticket");
+        }
+
+        // Generate a random number between two numbers
+        public string RandomNumber()
+        {
+            var rnd = new Random(DateTime.Now.Millisecond);
+            string rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000).ToString();
+
+            return rNum;
+        }
+        
+        public ActionResult Ticket_Reply(string id)
         {
             if (Session["isLogin"] != null)
             {
+                TicketViewModel viewModel = new TicketViewModel();
+                viewModel.Comment = db.Comment.Where(o => o.TicketId == id).ToList();
+                viewModel.ticket = db.Ticket.Where(o => o.TicketId == id).FirstOrDefault();
+                return View(viewModel);
+            }
+            return RedirectToAction("Index");
+        }
 
-                return View();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("CommentReply")]
+        public ActionResult CommentReply(string commentreply, string ticketId)
+        {
+            if (Session["isLogin"] != null)
+            {
+                if (!string.IsNullOrEmpty(commentreply))
+                {
+                    TicketViewModel viewModel = new TicketViewModel();
+                    viewModel.Comment = db.Comment.Where(o => o.TicketId == ticketId).ToList();
+                    viewModel.ticket = db.Ticket.Where(o => o.TicketId == ticketId).FirstOrDefault();
+
+                    Comment commentModel = new Comment();
+                    try
+                    {
+                        commentModel.CommenterName = Session["name"].ToString();
+                        commentModel.CommentMessage = commentreply;
+                        commentModel.TicketId = ticketId;
+                        commentModel.Created_at = DateTime.Now;
+                        commentModel.CommentId = RandomNumber();
+
+                        var commentData = db.Comment.Add(commentModel);
+                        db.SaveChanges();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Error = "Unable to add comment";
+                    }
+                    return View("Ticket_Reply", viewModel);
+                }
             }
             return RedirectToAction("Index");
         }

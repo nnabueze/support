@@ -42,32 +42,20 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li class="active">
                         <a href="page_app_email.html">
-                            <span class="badge pull-right">350</span>
+                            <span class="badge pull-right">@Model.Count()</span>
                             <i class="fa fa-fw fa-ticket icon-push"></i> <strong>All</strong>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)">
-                            <span class="badge pull-right">5</span>
-                            <i class="fa fa-fw fa-exclamation-triangle icon-push"></i> <strong>Urgent</strong>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <span class="badge pull-right">10</span>
+                            <span class="badge pull-right">@Model.Count(o=>o.Ticket_Status == 1)</span>
                             <i class="fa fa-fw fa-folder-open-o icon-push"></i> <strong>Open</strong>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)">
-                            <span class="badge pull-right">50</span>
+                            <span class="badge pull-right">@Model.Count(o => o.Ticket_Status == 0)</span>
                             <i class="fa fa-fw fa-folder-o icon-push"></i> <strong>Closed</strong>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <span class="badge pull-right">8</span>
-                            <i class="fa fa-fw fa-ban icon-push"></i> <strong>Invalid</strong>
                         </a>
                     </li>
                 </ul>
@@ -104,11 +92,26 @@
                                             <th class="text-center">ID</th>
                                             <th>Status</th>
                                             <th>Title</th>
-                                            <th class="text-center">Sender</th>
+                                            <th class="text-center">Date</th>
                                             <th class="text-center"><i class="fa fa-comments"></i></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if (ViewBag.UpdateInformation != null)
+                                        {
+                                            <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                @ViewBag.UpdateInformation
+                                            </div>
+                                        }
+
+                                        @if (Session["Error"] != null)
+                                        {
+                                            <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                @Session["Error"]
+                                            </div>
+                                        }
     @foreach (var item in Model)
     {
         <tr>
@@ -122,10 +125,11 @@
             <td><span class="label label-default">CLOSED</span></td>
             }
             <td>
-                <a href="/ticket-reply"><strong>@item.Title</strong></a><br>
-                <span class="text-muted">1 day ago by <strong>@item.TinId</strong></span>
+                <a href="Home/Ticket_Reply/@item.TicketId"><strong>@item.Title</strong></a><br>
+                @*<span class="text-muted">1 day ago by <strong>@item.TinId</strong></span>*@
             </td>
-            <td class="text-center"><img src="img/placeholders/avatars/avatar1.jpg" alt="Avatar" class="img-circle"></td>
+            <link rel="apple-touch-icon" href="~/Content/admin/img/icon180.png" sizes="180x180">
+            <td class="text-center">@item.Created_at</td>
             <td class="text-center"><span class="badge">1</span></td>
         </tr>
 
@@ -134,95 +138,47 @@
                                 </table>
                             </div>
                             <div class="text-center">
-                                <ul class="pagination">
+                                @*<ul class="pagination">
                                     <li class="disabled"><a href="javascript:void(0)"><i class="fa fa-chevron-left"></i></a></li>
                                     <li class="active"><a href="javascript:void(0)">1</a></li>
                                     <li><a href="javascript:void(0)">2</a></li>
                                     <li><a href="javascript:void(0)">3</a></li>
                                     <li><a href="javascript:void(0)"><i class="fa fa-chevron-right"></i></a></li>
-                                </ul>
+                                </ul>*@
                             </div>
                         </div>
                     </div>
                     <!-- END Tickets List -->
+
+
+
+
                     <!-- Ticket View -->
                     <div class="tab-pane" id="tickets-single">
                         <div class="alert alert-success animation-fadeInQuick">Current Status: <strong>OPEN</strong></div>
-                        <a href="javascript:void(0)" class="btn btn-xs btn-default pull-right"><i class="fa fa-check"></i> Flag as Closed</a>
+                        @*<a href="javascript:void(0)" class="btn btn-xs btn-default pull-right"><i class="fa fa-check"></i> Flag as Closed</a>
                         <a href="javascript:void(0)" class="btn btn-xs btn-danger"><i class="fa fa-flag"></i> Flag as Urgent</a>
-                        <a href="javascript:void(0)" class="btn btn-xs btn-warning"><i class="fa fa-flag"></i> Flag as Invalid</a>
+                        <a href="javascript:void(0)" class="btn btn-xs btn-warning"><i class="fa fa-flag"></i> Flag as Invalid</a>*@
                         <hr>
                         <ul class="media-list media-feed push">
-                            <!-- Ticket -->
-                            <li class="media">
-                                <a href="page_ready_user_profile.html" class="pull-left">
-                                    <img src="img/placeholders/avatars/avatar9.jpg" alt="Avatar" class="img-circle">
-                                </a>
-                                <div class="media-body">
-                                    <p class="push-bit">
-                                        <span class="text-muted pull-right">
-                                            <small>2 hours ago</small>
-                                        </span>
-                                        <small><a href="page_ready_user_profile.html">Howard Smith</a> through <a href="javascript:void(0)">Forum</a></small>
-                                    </p>
-                                    <h4><strong>Can you help me with the installation?</strong></h4>
-                                    <p>Hi, I'm having a problem with the installation of the theme, can you help me out? I get the following error message and I don't know what to do:</p>
-                                    <div class="alert alert-warning">
-                                        <p><i class="fa fa-angle-right"></i> <strong>Error Establishing Database Connection</strong></p>
-                                        <p>...</p>
-                                    </div>
-                                    <p>
-                                        <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-support"></i> Ask for Assistance</a>
-                                        <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-user"></i> Assign this ticket</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- END Ticket -->
+
                             <!-- Replies -->
+                           
+                          
                             <li class="media">
                                 <a href="page_ready_user_profile.html" class="pull-left">
-                                    <img src="img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
+                                    <img src="~/Content/admin/img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
                                 </a>
                                 <div class="media-body">
-                                    <p class="push-bit">
-                                        <span class="text-muted pull-right">
-                                            <small>1 hour ago</small>
-                                        </span>
-                                        <small><a href="page_ready_user_profile.html">Support</a></small>
-                                    </p>
-                                    <p>Hi Howard and thank you very much for your purchase! There are many reasons this can happen. One is the incorrect information in wp-config.html file. Please open up wp-config.html and ensure that the following are correct:</p>
-                                    <ul class="fa-ul push">
-                                        <li><i class="fa fa-li fa-check text-success"></i> Database name</li>
-                                        <li><i class="fa fa-li fa-check text-success"></i> Database username</li>
-                                        <li><i class="fa fa-li fa-check text-success"></i> Database password</li>
-                                        <li><i class="fa fa-li fa-check text-success"></i> Database host</li>
-                                    </ul>
-                                    <p>Learn more about <a href="javascript:void(0)">editing the wp-config.html</a></p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="page_ready_user_profile.html" class="pull-left">
-                                    <img src="img/placeholders/avatars/avatar9.jpg" alt="Avatar" class="img-circle">
-                                </a>
-                                <div class="media-body">
-                                    <p class="push-bit">
-                                        <span class="text-muted pull-right">
-                                            <small>30 min ago</small>
-                                        </span>
-                                        <small><a href="page_ready_user_profile.html">Howard Smith</a></small>
-                                    </p>
-                                    <p>I'm going to check it out and let you know!</p>
-                                    <p>Thanks a lot!</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <a href="page_ready_user_profile.html" class="pull-left">
-                                    <img src="img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
-                                </a>
-                                <div class="media-body">
-                                    <form action="page_ready_tickets.html#tickets-single" method="post">
-                                        <textarea id="tickets-reply" name="tickets-reply" class="form-control" rows="5" placeholder="Enter your reply"></textarea>
-                                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-reply"></i> Post Reply</button>
+                                    <form action="tickets" method="post" enctype="multipart/form-data">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="type" value="igr" />
+                                        <input type="text" name="title" class="form-control" placeholder="Enter title" />
+                                        <textarea id="tickets-reply" name="message" class="form-control" rows="5" placeholder="Enter your reply"></textarea>
+                                        <br />
+                                        <input type="file" name="fileUpload" multiple>
+                                        <br />
+                                        <button type="submit" class="btn btn-sm btn-primary">Send</button>
                                     </form>
                                 </div>
                             </li>
