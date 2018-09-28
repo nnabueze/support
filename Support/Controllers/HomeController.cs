@@ -11,6 +11,7 @@ namespace Support.Controllers
     public class HomeController : Controller
     {
         support db = new support();
+        public const string EMAILAPI = "http://hub.ercasng.com:8011/api/pos/Sms";
 
         // GET: Home
         public ActionResult Index()
@@ -102,8 +103,15 @@ namespace Support.Controllers
 
             try
             {
-                db.Ticket.Add(ticketParam);
+                var ticketPara = db.Ticket.Add(ticketParam);
                 db.SaveChanges();
+                if (ticketPara != null)
+                {
+                    EmailParam param = new EmailParam();
+                    param.Email = "nnabueze.opara@ercasng.com";
+                    param.From = "Open Ticket for IGR";
+                    EmailClass.sendEmail(EMAILAPI, param);
+                }
             }
             catch (Exception ex)
             {
