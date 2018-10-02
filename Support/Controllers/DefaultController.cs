@@ -16,10 +16,10 @@ namespace Support.Controllers
         public ActionResult Index()
         {
             IEnumerable<Models.igr> biller = new List<Models.igr>();
-            biller = db.igrs.Where(o => o.IsIGR == true).ToList();
+            
             try
             {
-               
+                biller = db.igrs.Where(o => o.IsIGR == true).ToList();
             }
             catch (Exception ex)
             {

@@ -35,7 +35,7 @@ namespace Support.Models
         public string SourceData { get; set; }
         public int Ticket_Status { get; set; }
         [Key]
-        public long TicketId { get; set; }
+        public int TicketId { get; set; }
         public string TinId { get; set; }
         public DateTime Created_at { get; set; }
 
@@ -61,8 +61,8 @@ namespace Support.Models
     public class Comment
     {
         public int Id { get; set; }
-        public long TicketId { get; set; }
-        public long CommentId { get; set; }
+        public int TicketId { get; set; }
+        public int CommentId { get; set; }
         public string CommenterName { get; set; }
         public string CommentMessage { get; set; }
         public DateTime Created_at { get; set; }

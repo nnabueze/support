@@ -89,6 +89,7 @@ namespace Support.Controllers
             ticketParam.Title = requestPost.Title;
             ticketParam.Message = requestPost.Message;
             ticketParam.TicketId = RandomNumber()+ RandomNumber();
+            ticketParam.Id = ticketParam.TicketId;
             ticketParam.SourceData = requestPost.type;
             ticketParam.Ticket_Status = 1;
             ticketParam.Created_at = DateTime.Now;
@@ -101,16 +102,19 @@ namespace Support.Controllers
                 ticketParam.TinId = Session["temporary_tin"].ToString();
             }
 
+            
+
             try
             {
                 var ticketPara = db.Ticket.Add(ticketParam);
                 db.SaveChanges();
+
                 if (ticketPara != null)
                 {
-                    EmailParam param = new EmailParam();
-                    param.Email = "nnabueze.opara@ercasng.com";
-                    param.From = "Open Ticket for IGR";
-                    EmailClass.sendEmail(EMAILAPI, param);
+                    //EmailParam param = new EmailParam();
+                    //param.Email = "nnabueze.opara@ercasng.com";
+                    //param.From = "Open Ticket for IGR";
+                    //EmailClass.sendEmail(EMAILAPI, param);
                 }
             }
             catch (Exception ex)
@@ -154,10 +158,10 @@ namespace Support.Controllers
         }
 
         // Generate a random number between two numbers
-        public long RandomNumber()
+        public int RandomNumber()
         {
             var rnd = new Random(DateTime.Now.Millisecond);
-            long rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000);
+            int rNum = DateTime.Now.Millisecond + rnd.Next(0, 90000);
 
             return rNum;
         }
@@ -177,7 +181,7 @@ namespace Support.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("CommentReply")]
-        public ActionResult CommentReply(string commentreply, long ticketId)
+        public ActionResult CommentReply(string commentreply, int ticketId)
         {
             if (Session["isLogin"] != null)
             {
