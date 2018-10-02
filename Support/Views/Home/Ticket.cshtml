@@ -130,7 +130,7 @@
             </td>
             <link rel="apple-touch-icon" href="~/Content/admin/img/icon180.png" sizes="180x180">
             <td class="text-center">@item.Created_at</td>
-            <td class="text-center"><span class="badge">1</span></td>
+            <td class="text-center"><span class="badge">@item.Comments.Count()</span></td>
         </tr>
 
     }

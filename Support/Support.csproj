@@ -1050,6 +1050,7 @@
     <Compile Include="Models\buypowernotification.cs" />
     <Compile Include="Models\colortab.cs" />
     <Compile Include="Models\conlog.cs" />
+    <Compile Include="Models\EmailClass.cs" />
     <Compile Include="Models\enumeration.cs" />
     <Compile Include="Models\fundsweep.cs" />
     <Compile Include="Models\igr.cs" />

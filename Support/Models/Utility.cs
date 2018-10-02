@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -27,14 +28,18 @@ namespace Support.Models
 
     public class Ticket
     {
+        
         public int Id { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
         public string SourceData { get; set; }
         public int Ticket_Status { get; set; }
-        public string TicketId { get; set; }
+        [Key]
+        public long TicketId { get; set; }
         public string TinId { get; set; }
         public DateTime Created_at { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 
     public class TicketPost
@@ -56,10 +61,13 @@ namespace Support.Models
     public class Comment
     {
         public int Id { get; set; }
-        public string TicketId { get; set; }
-        public string CommentId { get; set; }
+        public long TicketId { get; set; }
+        public long CommentId { get; set; }
         public string CommenterName { get; set; }
         public string CommentMessage { get; set; }
         public DateTime Created_at { get; set; }
+
+        [ForeignKey(nameof(TicketId))]
+        public virtual Ticket Ticket { get; set; }
     }
 }

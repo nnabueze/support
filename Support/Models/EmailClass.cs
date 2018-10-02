@@ -10,7 +10,7 @@ namespace Support.Models
 {
     public class EmailClass
     {
-        public const string TOKEN = "FNs6Noo-kkuqsM7QPzQ5f26MPs1-r1KXLEa4oZmRMLghzA256sFgnLJVFHweeiJgwKS9oXanr_3pSqEJ9TP01kHf-h3nGLrnM7v1vhsDIccAf6P2W29m5pB873fDcWbTLEyUTcXA6Feys1KX1sybsjbA_-sW7UL5OHLjCR9W6Igmp0p3XhYjk8I4aef8SCsJZOtqhrsBr5K8E9bm51_R5OW0xe_7pd0I9NNbuHbEEifGgRQDWPVWfdGSqJN8VOgw"
+        public const string TOKEN = "FNs6Noo-kkuqsM7QPzQ5f26MPs1-r1KXLEa4oZmRMLghzA256sFgnLJVFHweeiJgwKS9oXanr_3pSqEJ9TP01kHf-h3nGLrnM7v1vhsDIccAf6P2W29m5pB873fDcWbTLEyUTcXA6Feys1KX1sybsjbA_-sW7UL5OHLjCR9W6Igmp0p3XhYjk8I4aef8SCsJZOtqhrsBr5K8E9bm51_R5OW0xe_7pd0I9NNbuHbEEifGgRQDWPVWfdGSqJN8VOgw";
         public static string sendEmail(string url, EmailParam requestParam)
         {
             var json = JsonConvert.SerializeObject(requestParam);

@@ -56,14 +56,14 @@ namespace Support.Controllers
         [Route("tickets")]
         public ActionResult Ticket()
         {
-            IEnumerable<Models.Ticket> ticketData = new List<Models.Ticket>();
+            IEnumerable<Ticket> ticketData = new List<Ticket>();
 
             string tinNo = Session["tinNo"].ToString();
             string tempararyTin = Session["temporary_tin"].ToString();
 
             if (Session["isLogin"] != null)
             {
-                ticketData = db.Ticket.Where(o=>o.TinId == tinNo || o.TinId == tempararyTin).OrderByDescending(o=>o.Created_at).ToList();
+                ticketData = db.Ticket.Where(o => o.TinId == tinNo || o.TinId == tempararyTin).OrderByDescending(o => o.Created_at).ToList();
 
                 return View(ticketData);
             }
@@ -88,7 +88,7 @@ namespace Support.Controllers
             Ticket ticketParam = new Ticket();
             ticketParam.Title = requestPost.Title;
             ticketParam.Message = requestPost.Message;
-            ticketParam.TicketId = RandomNumber()+ RandomNumber().ToString();
+            ticketParam.TicketId = RandomNumber()+ RandomNumber();
             ticketParam.SourceData = requestPost.type;
             ticketParam.Ticket_Status = 1;
             ticketParam.Created_at = DateTime.Now;
@@ -154,15 +154,15 @@ namespace Support.Controllers
         }
 
         // Generate a random number between two numbers
-        public string RandomNumber()
+        public long RandomNumber()
         {
             var rnd = new Random(DateTime.Now.Millisecond);
-            string rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000).ToString();
+            long rNum = DateTime.Now.Millisecond + rnd.Next(0, 900000000);
 
             return rNum;
         }
         
-        public ActionResult Ticket_Reply(string id)
+        public ActionResult Ticket_Reply(long id)
         {
             if (Session["isLogin"] != null)
             {
@@ -177,7 +177,7 @@ namespace Support.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("CommentReply")]
-        public ActionResult CommentReply(string commentreply, string ticketId)
+        public ActionResult CommentReply(string commentreply, long ticketId)
         {
             if (Session["isLogin"] != null)
             {
