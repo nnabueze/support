@@ -203,6 +203,14 @@ namespace Support.Controllers
                         var commentData = db.Comment.Add(commentModel);
                         db.SaveChanges();
 
+                        if (commentData != null)
+                        {
+                            //EmailParam param = new EmailParam();
+                            //param.Email = "nnabueze.opara@ercasng.com";
+                            //param.From = "Open Ticket for IGR";
+                            //EmailClass.sendEmail(EMAILAPI, param);
+                        }
+
 
                     }
                     catch (Exception ex)
