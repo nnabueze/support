@@ -51,6 +51,14 @@ namespace Support.Models
         public string type { get; set; }
     }
 
+    public class SchoolLogin
+    {
+        [Required]
+        public string School { get; set; }
+        [Required]
+        public string AdmissionNo { get; set; }
+    }
+
     public class TicketViewModel
     {
         public Ticket ticket { get; set; }

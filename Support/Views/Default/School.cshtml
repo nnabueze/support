@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Support.Models.igr>
 @{
-    ViewBag.Title = "IGR";
+    ViewBag.Title = "School";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="login-container">
     <!-- Login Header -->
     <h1 class="h2 text-light text-center push-top-bottom animation-pullDown">
-        <img src="~/Content/img/eCollect.png" height="50" width="150" opacity:.5/>
+        <img src="~/Content/img/eCollect.png" height="50" width="150" opacity:.5 />
     </h1>
     <!-- END Login Header -->
     <!-- Login Block -->
@@ -24,18 +24,18 @@
             <!-- Block Tabs Title -->
             <div class="block-title">
                 @*<div class="block-options pull-right">
-                    <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
-                </div>*@
+                        <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+                    </div>*@
                 <ul class="nav nav-tabs" data-toggle="tabs">
-                    <li class="active"><a href="#block-tabs-home">IGR Login</a></li>
-                    <li><a href="#block-tabs-profile">School</a></li>
+                    <li ><a href="#block-tabs-home">IGR Login</a></li>
+                    <li class="active"><a href="#block-tabs-profile">School</a></li>
                     <li><a href="#block-tabs-settings" data-toggle="tooltip" title="Settings">Admin Login</a></li>
                 </ul>
             </div>
             <!-- END Block Tabs Title -->
             <!-- Tabs Content -->
             <div class="tab-content">
-                <div class="tab-pane active" id="block-tabs-home">
+                <div class="tab-pane " id="block-tabs-home">
 
 
                     @if (ViewBag.UpdateInformation != null)
@@ -62,9 +62,9 @@
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             @*<label for="login-password" class="col-xs-12">Password</label>
-                            <div class="col-xs-12">
-                                <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
-                            </div>*@
+                                <div class="col-xs-12">
+                                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                                </div>*@
                         </div>
                         <div class="form-group">
                             <label for="tin" class="col-xs-12">Tin No.</label>
@@ -73,11 +73,11 @@
                             </div>
                         </div>
                         @*<div class="form-group">
-                            <label for="login-password" class="col-xs-12">Password</label>
-                            <div class="col-xs-12">
-                                <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
-                            </div>
-                        </div>*@
+                                <label for="login-password" class="col-xs-12">Password</label>
+                                <div class="col-xs-12">
+                                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                                </div>
+                            </div>*@
                         <div class="form-group form-actions">
                             <div class="col-xs-8">
                                 @*<button type="submit" class="btn btn-effect-ripple btn-sm btn-warning">Get Tin</button>*@
@@ -93,9 +93,9 @@
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             @*<label for="login-password" class="col-xs-12">Password</label>
-                <div class="col-xs-12">
-                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
-                </div>*@
+                                <div class="col-xs-12">
+                                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                                </div>*@
                         </div>
 
                         <div class="form-group">
@@ -133,7 +133,7 @@
                                     {
                                         <option value="@item.IGR_Code">@item.IGR_Name</option>
                                     }
-                                    
+
                                 </select>
                             </div>
                         </div>
@@ -145,11 +145,11 @@
                             </div>
                         </div>
                         @*<div class="form-group">
-                <label for="login-password" class="col-xs-12">Password</label>
-                <div class="col-xs-12">
-                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
-                </div>
-            </div>*@
+                                <label for="login-password" class="col-xs-12">Password</label>
+                                <div class="col-xs-12">
+                                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                                </div>
+                            </div>*@
                         <div class="form-group form-actions">
                             <div class="col-xs-8">
                                 @*<button type="submit" class="btn btn-effect-ripple btn-sm btn-warning">Get Tin</button>*@
@@ -162,17 +162,34 @@
                     </form>
 
                 </div>
-                <div class="tab-pane" id="block-tabs-profile">
+                <div class="tab-pane active" id="block-tabs-profile">
+
+                    @if (ViewBag.UpdateInformation != null)
+                    {
+                        <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.UpdateInformation
+                        </div>
+                    }
+
+                    @if (ViewBag.error != null)
+                    {
+                        <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.error
+                        </div>
+                    }
+
                     <form id="form2" action="/school/login" method="post" class="form-horizontal push-top" onsubmit="CheckFileName();">
                         @Html.AntiForgeryToken()
                         <div class="form-group">
                             @*<label for="login-password" class="col-xs-12">Password</label>
-                <div class="col-xs-12">
-                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
-                </div>*@
+                                <div class="col-xs-12">
+                                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                                </div>*@
                         </div>
 
-                       
+
 
                         <div class="form-group">
                             <label for="biller" class="col-xs-12">School</label>
@@ -210,12 +227,6 @@
             <!-- END Tabs Content -->
         </div>
         <!-- END Block Tabs -->
-
-
-
-
-
-
         <!-- Regular Fade -->
         <div id="modal-fade" class="modal fade" tabindex="-1" role="dialog" aria-hidden="false">
             <div class="modal-dialog">
@@ -235,11 +246,6 @@
             </div>
         </div>
         <!-- END Regular Fade -->
-
-
-
-
-
         <!-- END Login Form -->
         <!-- Social Login -->
         <hr>
@@ -279,4 +285,6 @@
             });
         </script>
     }
+
+
 

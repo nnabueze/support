@@ -86,9 +86,14 @@
         -->
         <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
 
-            @if (@Session["type"].ToString() == "IGR")
+            @if (Session["type"].ToString() == "IGR" && Session["type"].ToString() != null)
             {
                 @Html.Partial("_SideBar")
+            }
+
+            @if (Session["type"].ToString() == "School" && Session["type"].ToString() != null)
+            {
+                @Html.Partial("_School")
             }
             
 

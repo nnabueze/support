@@ -896,6 +896,9 @@
     <Content Include="Views\Default\Tin.cshtml" />
     <Content Include="Views\Home\Ticket.cshtml" />
     <Content Include="Views\Home\Ticket_Reply.cshtml" />
+    <Content Include="Views\Default\School.cshtml" />
+    <Content Include="Views\School\Index.cshtml" />
+    <Content Include="Views\Shared\_School.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -976,6 +979,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SchoolController.cs" />
     <Compile Include="enumeration.cs">
       <DependentUpon>IGRModel.tt</DependentUpon>
     </Compile>

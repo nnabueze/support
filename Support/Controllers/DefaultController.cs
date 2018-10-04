@@ -19,7 +19,7 @@ namespace Support.Controllers
             
             try
             {
-                biller = db.igrs.Where(o => o.IsIGR == true).ToList();
+                biller = db.igrs;
             }
             catch (Exception ex)
             {
@@ -71,6 +71,77 @@ namespace Support.Controllers
             Session["igr"] = tinData.IGR_Code;
             Session["temporary_tin"] = tinData.temporary_tin;
             Session["phone"] = tinData.phone;
+            return true;
+        }
+
+        public ActionResult SchoolLogin()
+        {
+            IEnumerable<Models.igr> biller = new List<Models.igr>();
+            try
+            {
+                biller = db.igrs;
+
+                ViewBag.Error = "Invalid Admission No";
+                return View("School", biller);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message.ToString() + "An error occured while loading Please contact the admin.. ";
+                return View("School");
+            }
+
+
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("school/login")]
+        public ActionResult School(SchoolLogin requestSchool)
+        {
+            IEnumerable<Models.igr> biller = new List<Models.igr>();
+            try
+            {
+                biller = db.igrs;
+
+                if (!ModelState.IsValid)
+                {
+                    var message = string.Join(" | ", ModelState.Values
+                   .SelectMany(v => v.Errors)
+                   .Select(e => e.ErrorMessage));
+                    ViewBag.Error = message;
+                    return View(biller);
+                }
+
+                var student = db.student_information.Where(o => o.IGR_Code == requestSchool.School && o.AdmissionNo == requestSchool.AdmissionNo).FirstOrDefault();
+                if (student != null)
+                {
+                    Session["isLogin"] = "yes";
+                    Session["type"] = "School";
+                    SetSchoolInfo(student);
+
+                    return RedirectToAction("Index", "School");
+                }
+                ViewBag.Error = "Invalid Admission No";
+                return View(biller);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.error = ex.Message.ToString() + "An error occured while loading Please contact the admin.. ";
+                return View();
+            }
+
+            
+        }
+
+        public bool SetSchoolInfo(Models.student_information student)
+        {
+            Session["AdmissionNo"] = student.AdmissionNo;
+            Session["name"] = student.FirstName +" "+ student.LastName;
+            Session["email"] = "";
+            Session["address"] = "";
+            Session["igr"] = student.IGR_Code;
+            Session["phone"] = "";
             return true;
         }
 
