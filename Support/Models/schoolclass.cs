@@ -11,6 +11,7 @@ namespace Support.Models
     {
         public int Id { get; set; }
 
+        [Key]
         [Required]
         [StringLength(255)]
         public string ClassId { get; set; }
@@ -28,5 +29,7 @@ namespace Support.Models
         public DateTime? created_at { get; set; }
 
         public decimal SchoolFees { get; set; }
+
+        public virtual ICollection<student_information> studentInformation { get; set; }
     }
 }

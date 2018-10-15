@@ -1,0 +1,203 @@
+﻿@model IEnumerable<Support.Models.Ticket>
+@{
+    ViewBag.Title = "School Ticket";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+                    <!-- Page content -->
+<div id="page-content">
+    <!-- Tickets Header -->
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="header-section">
+                    <h1>Tickets</h1>
+                </div>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <div class="header-section">
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li>Extra Pages</li>
+                        <li><a href="">Tickets</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Tickets Header -->
+    <!-- Tickets Content -->
+    <div class="row">
+        <div class="col-md-4 col-lg-3">
+            <!-- Menu Block -->
+            <div class="block full">
+                <!-- Menu Title -->
+                <div class="block-title clearfix">
+                    <div class="block-options pull-right">
+                        <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+                    </div>
+                    <h2>Manage Tickets</h2>
+                </div>
+                <!-- END Menu Title -->
+                <!-- Menu Content -->
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">
+                        <a href="page_app_email.html">
+                            <span class="badge pull-right">@Model.Count()</span>
+                            <i class="fa fa-fw fa-ticket icon-push"></i> <strong>All</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span class="badge pull-right">@Model.Count(o => o.Ticket_Status == 1)</span>
+                            <i class="fa fa-fw fa-folder-open-o icon-push"></i> <strong>Open</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">
+                            <span class="badge pull-right">@Model.Count(o => o.Ticket_Status == 0)</span>
+                            <i class="fa fa-fw fa-folder-o icon-push"></i> <strong>Closed</strong>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END Menu Content -->
+            </div>
+            <!-- END Menu Block -->
+
+        </div>
+        <div class="col-md-8 col-lg-9">
+            <!-- Tickets Block -->
+            <div class="block">
+                <!-- Tickets Title -->
+                <div class="block-title">
+                    <div class="block-options pull-right">
+                        <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+                    </div>
+                    <ul class="nav nav-tabs" data-toggle="tabs">
+                        <li class="active"><a href="#tickets-list">Ticket List</a></li>
+                        <li></li>
+                        <div class="pull-right"><a href="#tickets-single" class="btn btn-sm btn-primary">Open A Ticket</a></div>
+                    </ul>
+
+                </div>
+                <!-- END Tickets Title -->
+                <!-- Tabs Content -->
+                <div class="tab-content">
+                    <!-- Tickets List -->
+                    <div class="tab-pane active" id="tickets-list">
+                        <div class="block-content-full">
+                            <div class="table-responsive remove-margin-bottom">
+                                <table id="example-datatable" class="table table-striped  table-vcenter">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 50px;">ID</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Title</th>
+                                            <th class="text-center">Date</th>
+                                            <th class="text-center"><i class="fa fa-comments"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (ViewBag.UpdateInformation != null)
+                                        {
+                                            <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                @ViewBag.UpdateInformation
+                                            </div>
+                                        }
+
+                                        @if (Session["Error"] != null)
+                                        {
+                                            <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                @Session["Error"]
+                                            </div>
+                                        }
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center">#@item.TicketId</td>
+                                                @if (item.Ticket_Status == 1)
+                                                {
+                                                    <td class="text-center"><span class="label label-success">OPEN</span></td>
+                                                }
+                                                else
+                                                {
+                                                    <td class="text-center"><span class="label label-default">CLOSED</span></td>
+                                                }
+                                                <td class="text-center">
+                                                    <a href="/School/Ticket_Reply/@item.TicketId"><strong>@item.Title</strong></a><br>
+                                                    @*<span class="text-muted">1 day ago by <strong>@item.TinId</strong></span>*@
+                                                </td>
+                                                <link rel="apple-touch-icon" href="~/Content/admin/img/icon180.png" sizes="180x180">
+                                                <td class="text-center">@item.Created_at</td>
+                                                <td class="text-center"><span class="badge">@item.Comments.Count()</span></td>
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center">
+                                @*<ul class="pagination">
+                                        <li class="disabled"><a href="javascript:void(0)"><i class="fa fa-chevron-left"></i></a></li>
+                                        <li class="active"><a href="javascript:void(0)">1</a></li>
+                                        <li><a href="javascript:void(0)">2</a></li>
+                                        <li><a href="javascript:void(0)">3</a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-chevron-right"></i></a></li>
+                                    </ul>*@
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Tickets List -->
+                    <!-- Ticket View -->
+                    <div class="tab-pane" id="tickets-single">
+                        <div class="alert alert-success animation-fadeInQuick">Current Status: <strong>OPEN</strong></div>
+                        @*<a href="javascript:void(0)" class="btn btn-xs btn-default pull-right"><i class="fa fa-check"></i> Flag as Closed</a>
+                            <a href="javascript:void(0)" class="btn btn-xs btn-danger"><i class="fa fa-flag"></i> Flag as Urgent</a>
+                            <a href="javascript:void(0)" class="btn btn-xs btn-warning"><i class="fa fa-flag"></i> Flag as Invalid</a>*@
+                        <hr>
+                        <ul class="media-list media-feed push">
+
+                            <!-- Replies -->
+
+
+                            <li class="media">
+                                <a href="page_ready_user_profile.html" class="pull-left">
+                                    <img src="~/Content/admin/img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
+                                </a>
+                                <div class="media-body">
+                                    <form action="/school/tickets" method="post" enctype="multipart/form-data">
+                                        @Html.AntiForgeryToken()
+                                        <input type="hidden" name="type" value="igr" />
+                                        <input type="text" name="title" class="form-control" placeholder="Enter title" />
+                                        <textarea id="tickets-reply" name="message" class="form-control" rows="5" placeholder="Enter your reply"></textarea>
+                                        <br />
+                                        <input type="file" name="fileUpload" multiple>
+                                        <br />
+                                        <button type="submit" class="btn btn-sm btn-primary">Send</button>
+                                    </form>
+                                </div>
+                            </li>
+                            <!-- END Replies -->
+                        </ul>
+                    </div>
+                    <!-- END Ticket View -->
+                </div>
+                <!-- END Tabs Content -->
+            </div>
+            <!-- END Tickets Block -->
+        </div>
+    </div>
+    <!-- END Tickets Content -->
+</div>
+<!-- END Page Content -->
+                </div>
+<!-- END Main Container -->
+
+
+@section Script {
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="~/scripts/admin/js/pages/uiTables.js"></script>
+    <script>$(function () { UiTables.init(); });</script>
+}
+

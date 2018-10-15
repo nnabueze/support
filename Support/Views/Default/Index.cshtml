@@ -127,7 +127,7 @@
                         <div class="form-group">
                             <label for="biller" class="col-xs-12">State</label>
                             <div class="col-xs-12">
-                                <select name="biller" class="col-xs-12">
+                                <select name="biller" class="col-xs-12 form-control">
                                     <option value="">Select state ....</option>
                                     @foreach (var item in Model.Where(o => o.IsIGR == true))
                                     {
@@ -177,7 +177,7 @@
                         <div class="form-group">
                             <label for="biller" class="col-xs-12">School</label>
                             <div class="col-xs-12">
-                                <select name="school" class="col-xs-12">
+                                <select id="example-select" name="school" class="col-xs-12 form-control">
                                     <option value="">Select School ....</option>
                                     @foreach (var item in Model)
                                     {
@@ -278,5 +278,9 @@
                 $("#form1").show(1000);
             });
         </script>
+
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="~/scripts/admin/js/pages/formsComponents.js"></script>
+    <script>$(function () { FormsComponents.init(); });</script>
     }
 

@@ -11,6 +11,7 @@ namespace Support.Models
     {
         public int Id { get; set; }
 
+        [Key]
         [Required]
         [StringLength(255)]
         public string SessionId { get; set; }
@@ -26,5 +27,7 @@ namespace Support.Models
         [Column(TypeName = "timestamp")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime? created_at { get; set; }
+
+        public virtual ICollection<student_information> studentInformation { get; set; }
     }
 }

@@ -37,6 +37,8 @@ namespace Support.Models
         [Key]
         public int TicketId { get; set; }
         public string TinId { get; set; }
+        public string AdmissionNo { get; set; }
+        public string IGR_Code { get; set; }
         public DateTime Created_at { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
@@ -77,5 +79,11 @@ namespace Support.Models
 
         [ForeignKey(nameof(TicketId))]
         public virtual Ticket Ticket { get; set; }
+    }
+
+    public class SchoolPaymentViewModel
+    {
+        public IList<subhead> subheads { get; set; }
+        public IList<revenuehead> revenueheads { get; set; }
     }
 }

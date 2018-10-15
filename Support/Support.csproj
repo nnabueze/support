@@ -900,6 +900,9 @@
     <Content Include="Views\School\Index.cshtml" />
     <Content Include="Views\Shared\_School.cshtml" />
     <Content Include="Views\School\payment.cshtml" />
+    <Content Include="Views\School\Ticket.cshtml" />
+    <Content Include="Views\School\Ticket_Reply.cshtml" />
+    <Content Include="Views\School\PaymentItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

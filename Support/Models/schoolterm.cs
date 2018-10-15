@@ -15,6 +15,7 @@ namespace Support.Models
         [StringLength(255)]
         public string IGR_Code { get; set; }
 
+        [Key]
         [Required]
         [StringLength(255)]
         public string TermId { get; set; }
@@ -26,5 +27,7 @@ namespace Support.Models
         [Column(TypeName = "timestamp")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime? created_at { get; set; }
+
+        public virtual ICollection<student_information> studentInformation { get; set; }
     }
 }

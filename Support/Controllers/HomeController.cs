@@ -92,6 +92,7 @@ namespace Support.Controllers
             ticketParam.Id = ticketParam.TicketId;
             ticketParam.SourceData = requestPost.type;
             ticketParam.Ticket_Status = 1;
+            ticketParam.IGR_Code = Session["igr"].ToString();
             ticketParam.Created_at = DateTime.Now;
             if (Session["temporary_tin"] == null)
             {

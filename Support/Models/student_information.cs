@@ -57,5 +57,14 @@ namespace Support.Models
 
         [StringLength(45)]
         public string uploadId { get; set; }
+
+        [ForeignKey(nameof(ClassId))]
+        public virtual schoolclass schoolclass { get; set; }
+
+        [ForeignKey(nameof(SessionId))]
+        public virtual schoolsession schoolsession { get; set; }
+
+        [ForeignKey(nameof(TermId))]
+        public virtual schoolterm schoolterm { get; set; }
     }
 }
