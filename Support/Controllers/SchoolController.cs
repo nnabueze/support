@@ -307,8 +307,58 @@ namespace Support.Controllers
         }
 
 
-        // Generate a random number between two numbers
-        public int RandomNumber()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Route("school/payment/list-items")]
+        public ActionResult paymentItemList([Bind(Include = "totalAmount,item,mdaData")] PaymentItemList data)
+        {
+            if (Session["isLogin"] != null)
+            {
+                if (data.totalAmount == 0)
+                {
+                    Session["PaymentItemList"] = "Total Amount can't be zero(0). Please select an item ";
+                    return RedirectToAction("PaymentItem");
+                }
+
+                Models.invoice invoiceData = new Models.invoice();
+                invoiceData.invoice_id = RandomNumber().ToString();
+                invoiceData.name = Session["name"].ToString();
+                invoiceData.AdmissionNo = Session["AdmissionNo"].ToString();
+                invoiceData.IGR_Code = Session["igr"].ToString();
+                invoiceData.amount = data.totalAmount;
+                invoiceData.create_at = DateTime.Now;
+                try
+                {
+                    db.invoices.Add(invoiceData);
+                    db.SaveChanges();
+
+                    foreach (var item in data.item)
+                    {
+                        invoiceschoolitem info = new invoiceschoolitem();
+                        info.invoice_id = invoiceData.invoice_id;
+                        info.IGR_CODE = invoiceData.IGR_Code;
+                        info.SubHead_ID = item.item;
+                        info.Created_at = DateTime.Now;
+
+                        db.invoiceschoolitem.Add(info);
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Session["PaymentItemList"] = ex.Message.ToString() + " | Please contact Admin";
+                    return RedirectToAction("PaymentItem");
+                }
+
+                Session["PaymentItemSuccessful"] = "Invoice generated successfully with ID "+ invoiceData.invoice_id + " Total Amount "+ invoiceData.amount;
+                return RedirectToAction("PaymentItem");
+            }
+            return RedirectToAction("Index");
+        }
+
+
+            // Generate a random number between two numbers
+            public int RandomNumber()
         {
             var rnd = new Random(DateTime.Now.Millisecond);
             int rNum = DateTime.Now.Millisecond + rnd.Next(0, 90000);

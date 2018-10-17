@@ -48,5 +48,8 @@ namespace Support.Models
 
         [StringLength(11)]
         public string Invoice_Status { get; set; }
+
+        public string AdmissionNo { get; set; }
+        public string IGR_Code { get; set; }
     }
 }

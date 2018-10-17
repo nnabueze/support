@@ -86,4 +86,24 @@ namespace Support.Models
         public IList<subhead> subheads { get; set; }
         public IList<revenuehead> revenueheads { get; set; }
     }
+
+    public class PaymentItemList
+    {
+        public decimal totalAmount { get; set; }
+        public IList<Item> item { get; set; }
+        public string mdaData { get; set; }
+    }
+    public class Item
+    {
+        public string item { get; set; }
+    }
+
+    public class invoiceschoolitem
+    {
+        public int Id { get; set; }
+        public string invoice_id { get; set; }
+        public string IGR_CODE { get; set; }
+        public string SubHead_ID { get; set; }
+        public DateTime Created_at { get; set; }
+    }
 }
