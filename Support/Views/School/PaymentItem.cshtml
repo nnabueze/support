@@ -43,6 +43,7 @@
                         <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             @Session["PaymentItemSuccessful"]
+                            @{ Session.Remove("PaymentItemSuccessful"); }
                         </div>
                     }
 
@@ -51,6 +52,7 @@
                         <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             @Session["PaymentItemList"]
+                            @{ Session.Remove("PaymentItemList"); }
                         </div>
                     }
                     <!-- Horizontal Form Content -->
@@ -71,17 +73,20 @@
                         </div>
 
                     </form>
-                    <form action="/school/payment/list-items" method="post" class="form-horizontal form-bordered">
+                    <form action="/school/payment" method="post" class="form-horizontal form-bordered">
                         @Html.AntiForgeryToken()
+
+                        <input type="hidden" name="mdaData" value="@Model.mdaData">
+
                         <div class="form-group">
                             <label class="col-md-3 control-label">Items</label>
                             <div class="col-md-9">
                                 @foreach (var  item in Model.subheads) {
                                 <div class="checkbox">
                                     <label for="example-checkbox1">
-                                        <input type="checkbox" id="example-checkbox1"  value="@item.Amount"> @item.SubHead_Name <strong>(@item.Amount)</strong>
+                                        <input type="checkbox" id="example-checkbox1" name="items[]" placeholder="@item.Amount"  value="@item.SubHead_ID"> @item.SubHead_Name <strong>(@item.Amount)</strong>
                                     </label>
-                                    <input type="hidden" id="item" name="item[]" value="@item.SubHead_ID"> 
+                                    @*<input type="hidden" id="item" name="items[]" value="@item.SubHead_ID">*@ 
                                 </div>
 
                                 }
@@ -90,7 +95,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="example-file-multiple-input">Total Amount</label>
                             <div class="col-md-9">
-                                <input type="text" id="item2" name="totalAmount" value="0.00" disabled>
+                                <input type="text" id="item2" name="totalAmount" value="0.00" >
                             </div>
                         </div>
                         <div class="form-group form-actions">
@@ -118,22 +123,25 @@
         <script src="~/scripts/admin/js/pages/formsComponents.js"></script>
         <script>$(function () { FormsComponents.init(); });</script>
         <script>
-            $("input[type=checkbox]").change(function () {
-                
-                recalculate();
-            });
 
+            $(document).ready(function () {
+                $("input[type=checkbox]").change(function () {
 
-            function recalculate() {
-                
-                var sum = 0.00;
-
-                $("input[type=checkbox]:checked").each(function () {
-                    sum += parseInt($(this).attr("value"));
+                    recalculate();
                 });
 
-                $('#item2').val(sum);
-            }
+
+                function recalculate() {
+
+                    var sum = 0.00;
+
+                    $("input[type=checkbox]:checked").each(function () {
+                        sum += parseInt($(this).attr("placeholder"));
+                    });
+
+                    $('#item2').val(sum);
+                }
+            });
         </script>
     }
 

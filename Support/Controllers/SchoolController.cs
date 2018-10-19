@@ -222,6 +222,10 @@ namespace Support.Controllers
                         }
                     }
 
+                    var mda = db.mdas.Where(o => o.IGR_ID == igrCode).FirstOrDefault();
+
+                    
+                    DataModel.mdaData = mda.MDA_ID;
                     DataModel.subheads = listSubHeads;
                     DataModel.revenueheads = listrevenuehead;
                 }
@@ -291,8 +295,11 @@ namespace Support.Controllers
                         }
                     }
 
+                    var mda = db.mdas.Where(o => o.IGR_ID == igrCode).FirstOrDefault();
+
                     DataModel.subheads = listSubHeads;
                     DataModel.revenueheads = listrevenuehead;
+                    DataModel.mdaData = mda.MDA_ID;
                 }
                 catch (Exception ex)
                 {
@@ -309,12 +316,13 @@ namespace Support.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("school/payment/list-items")]
-        public ActionResult paymentItemList([Bind(Include = "totalAmount,item,mdaData")] PaymentItemList data)
+        [Route("school/payment")]
+        public ActionResult paymentItemList(PaymentItemList paymentData)
         {
+
             if (Session["isLogin"] != null)
             {
-                if (data.totalAmount == 0)
+                if (Convert.ToDecimal(paymentData.totalAmount) == 0)
                 {
                     Session["PaymentItemList"] = "Total Amount can't be zero(0). Please select an item ";
                     return RedirectToAction("PaymentItem");
@@ -325,19 +333,21 @@ namespace Support.Controllers
                 invoiceData.name = Session["name"].ToString();
                 invoiceData.AdmissionNo = Session["AdmissionNo"].ToString();
                 invoiceData.IGR_Code = Session["igr"].ToString();
-                invoiceData.amount = data.totalAmount;
+                invoiceData.Invoice_Status = "1";
+                invoiceData.amount = Convert.ToDecimal(paymentData.totalAmount);
                 invoiceData.create_at = DateTime.Now;
                 try
                 {
                     db.invoices.Add(invoiceData);
                     db.SaveChanges();
 
-                    foreach (var item in data.item)
+                    foreach (var item in paymentData.items)
                     {
                         invoiceschoolitem info = new invoiceschoolitem();
                         info.invoice_id = invoiceData.invoice_id;
                         info.IGR_CODE = invoiceData.IGR_Code;
-                        info.SubHead_ID = item.item;
+                        info.SubHead_ID = item;
+                        info.AdmissionNo = Session["AdmissionNo"].ToString();
                         info.Created_at = DateTime.Now;
 
                         db.invoiceschoolitem.Add(info);
@@ -350,7 +360,7 @@ namespace Support.Controllers
                     return RedirectToAction("PaymentItem");
                 }
 
-                Session["PaymentItemSuccessful"] = "Invoice generated successfully with ID "+ invoiceData.invoice_id + " Total Amount "+ invoiceData.amount;
+                Session["PaymentItemSuccessful"] = "Invoice generated successfully with ID " + invoiceData.invoice_id + " Total Amount " + invoiceData.amount;
                 return RedirectToAction("PaymentItem");
             }
             return RedirectToAction("Index");
@@ -361,8 +371,7 @@ namespace Support.Controllers
             public int RandomNumber()
         {
             var rnd = new Random(DateTime.Now.Millisecond);
-            int rNum = DateTime.Now.Millisecond + rnd.Next(0, 90000);
-
+            int rNum = DateTime.Now.Millisecond + rnd.Next(0, 9000000);
             return rNum;
         }
     }

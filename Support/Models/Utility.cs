@@ -85,12 +85,13 @@ namespace Support.Models
     {
         public IList<subhead> subheads { get; set; }
         public IList<revenuehead> revenueheads { get; set; }
+        public string mdaData { get; set; }
     }
 
     public class PaymentItemList
     {
-        public decimal totalAmount { get; set; }
-        public IList<Item> item { get; set; }
+        public string totalAmount { get; set; }
+        public IList<string> items { get; set; }
         public string mdaData { get; set; }
     }
     public class Item
@@ -105,5 +106,6 @@ namespace Support.Models
         public string IGR_CODE { get; set; }
         public string SubHead_ID { get; set; }
         public DateTime Created_at { get; set; }
+        public string AdmissionNo { get; set; }
     }
 }
