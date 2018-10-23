@@ -39,6 +39,38 @@ namespace Support.Controllers
             return RedirectToAction("SchoolLogin", "Default");
         }
 
+        [Route("school/list-invoice")]
+        public ActionResult invoice()
+        {
+            if (Session["isLogin"] != null)
+            {
+                string AdmissionNo = Session["AdmissionNo"].ToString();
+                string IGR_Code = Session["igr"].ToString();
+
+                //var info = db.student_information.Where(o => o.IGR_Code == IGR_Code && o.AdmissionNo == AdmissionNo).ToList();
+                var info = db.invoices.Where(o=>o.IGR_Code == IGR_Code && o.AdmissionNo == AdmissionNo).OrderByDescending(o=>o.create_at).ToList();
+
+                return View(info);
+            }
+
+            return RedirectToAction("SchoolLogin", "Default");
+        }
+
+        
+        public ActionResult viewInvoice(string invoice, string admissionNo)
+        {
+            if (Session["isLogin"] != null)
+            {
+
+                //var info = db.student_information.Where(o => o.IGR_Code == IGR_Code && o.AdmissionNo == AdmissionNo).ToList();
+                var info = db.invoiceschoolitem.Where(o => o.invoice_id == invoice && o.AdmissionNo == admissionNo).OrderByDescending(o => o.Created_at).ToList();
+
+                return View(info);
+            }
+
+            return RedirectToAction("SchoolLogin", "Default");
+        }
+
         [Route("school/tickets")]
         public ActionResult Ticket()
         {
@@ -334,7 +366,6 @@ namespace Support.Controllers
                 invoiceData.name = Session["name"].ToString();
                 invoiceData.AdmissionNo = Session["AdmissionNo"].ToString();
                 invoiceData.IGR_Code = Session["igr"].ToString();
-                invoiceData.Invoice_Status = "1";
                 invoiceData.amount = Convert.ToDecimal(paymentData.totalAmount);
                 invoiceData.create_at = DateTime.Now;
                 try

@@ -1,6 +1,6 @@
-﻿@model IEnumerable<Support.Models.schoolnotification>
+﻿@model IEnumerable<Support.Models.invoice>
 @{
-    ViewBag.Title = "School payment";
+    ViewBag.Title = "Invoice Payments";
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
@@ -49,32 +49,34 @@
             <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
                 <thead>
                     <tr>
-                        <th class="text-center" >SessionID</th>
-                        <th class="text-center" >Bank Name</th>
-                        <th class="text-center">Admission No.</th>
-                        <th>Class</th>
-                        <th>Term</th>
-                        <th>Session</th>
+                        <th class="text-center">InvoiceID</th>
+                        <th class="text-center">Admission No.</th>                        
                         <th style="width: 120px;">Amount</th>
+                        <th>Status</th>
                         <th class="text-center" style="width: 75px;">Date</th>
+                        <th class="text-center" style="width: 75px;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td class="text-center">@item.SessionId</td>
-                            <td class="text-center">@item.SourceBank</td>
-                            <td class="text-center">@item.AdmissionNo</td>
-                            <td>@item.Class</td>
-                            <td>@item.Term</td>
-                            <td>@item.Session</td>
-                            <td>@item.Amount</td>
-                            <td>@item.Created_At</td>
-                            @*<td class="text-center">
-                                    <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                                    <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                                </td>*@
+                            <td class="text-center">@item.invoice_id</td>
+                            <td class="text-center">@item.AdmissionNo</td>                            
+                            <td>@item.amount</td>
+                            @if (@item.Invoice_Status == null)
+                            {
+                                <td><span class="badge badge-success">Unpaid</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="badge badge-success">Paid</span></td>
+                            }                            
+                            <td>@item.create_at</td>
+                            <td class="text-center">
+                                    <a href="@Url.Action("viewInvoice", "School", new { invoice = item.invoice_id, admissionNo = item.AdmissionNo })" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                </td>
                         </tr>
                     }
 

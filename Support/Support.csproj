@@ -903,6 +903,8 @@
     <Content Include="Views\School\Ticket.cshtml" />
     <Content Include="Views\School\Ticket_Reply.cshtml" />
     <Content Include="Views\School\PaymentItem.cshtml" />
+    <Content Include="Views\School\invoice.cshtml" />
+    <Content Include="Views\School\viewInvoice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

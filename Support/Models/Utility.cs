@@ -107,5 +107,7 @@ namespace Support.Models
         public string SubHead_ID { get; set; }
         public DateTime Created_at { get; set; }
         public string AdmissionNo { get; set; }
+        [ForeignKey(nameof(SubHead_ID))]
+        public virtual subhead subhead { get; set; }
     }
 }
