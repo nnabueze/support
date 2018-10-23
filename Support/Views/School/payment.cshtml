@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Support.Models.student_information>
+﻿@model IEnumerable<Support.Models.schoolnotification>
 @{
     ViewBag.Title = "School payment";
     Layout = "~/Views/Shared/_Admin.cshtml";
@@ -49,7 +49,9 @@
             <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
                 <thead>
                     <tr>
-                        <th class="text-center" style="width: 50px;">Admission No.</th>
+                        <th class="text-center" >SessionID</th>
+                        <th class="text-center" >Bank Name</th>
+                        <th class="text-center">Admission No.</th>
                         <th>Class</th>
                         <th>Term</th>
                         <th>Session</th>
@@ -61,12 +63,14 @@
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td class="text-center">@item.SessionId</td>
+                            <td class="text-center">@item.SourceBank</td>
                             <td class="text-center">@item.AdmissionNo</td>
-                            <td><strong>@item.schoolclass.ClassName</strong></td>
-                            <td>@item.schoolterm.Term</td>
-                            <td>@item.schoolsession.SessionName</td>
-                            <td>@item.schoolclass.SchoolFees</td>
-                            <td>@item.created_at</td>
+                            <td><strong>@item.Class</strong></td>
+                            <td>@item.Term</td>
+                            <td>@item.Session</td>
+                            <td>@item.Amount</td>
+                            <td>@item.Created_At</td>
                             @*<td class="text-center">
                                     <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
                                     <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>

@@ -30,7 +30,8 @@ namespace Support.Controllers
                 string AdmissionNo = Session["AdmissionNo"].ToString();
                 string IGR_Code = Session["igr"].ToString();
 
-                var info = db.student_information.Where(o => o.IGR_Code == IGR_Code && o.AdmissionNo == AdmissionNo).ToList();
+                //var info = db.student_information.Where(o => o.IGR_Code == IGR_Code && o.AdmissionNo == AdmissionNo).ToList();
+                var info = db.schoolnotifications.Where(o => o.BillerId == IGR_Code && o.AdmissionNo == AdmissionNo).ToList();
 
                 return View(info);
             }
