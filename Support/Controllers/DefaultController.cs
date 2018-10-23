@@ -79,7 +79,7 @@ namespace Support.Controllers
             IEnumerable<Models.igr> biller = new List<Models.igr>();
             try
             {
-                biller = db.igrs;
+                biller = db.igrs.Where(o => o.CategoryName == "School");
 
                 ViewBag.Error = "Invalid Admission No";
                 return View("School", biller);
@@ -102,7 +102,7 @@ namespace Support.Controllers
             IEnumerable<Models.igr> biller = new List<Models.igr>();
             try
             {
-                biller = db.igrs;
+                biller = db.igrs.Where(o=>o.CategoryName == "School");
 
                 if (!ModelState.IsValid)
                 {
