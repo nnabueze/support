@@ -905,6 +905,9 @@
     <Content Include="Views\School\PaymentItem.cshtml" />
     <Content Include="Views\School\invoice.cshtml" />
     <Content Include="Views\School\viewInvoice.cshtml" />
+    <Content Include="Views\Home\PaymentItem.cshtml" />
+    <Content Include="Views\Home\invoice.cshtml" />
+    <Content Include="Views\Home\viewInvoice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
