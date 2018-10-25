@@ -1,0 +1,1606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="igr_collectionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="abuthpaymentitem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TransId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ServiceId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ServiceName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepartmentId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" />
+    <Property Name="Quantity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Create_At" Type="DateTime" Nullable="false" />
+    <Property Name="offlineTransId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="abuthpayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransId" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PosId" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PatientName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TotalAmount" Type="Decimal" Nullable="false" />
+    <Property Name="TransDate" Type="DateTime" Nullable="false" />
+    <Property Name="IsRemitted" Type="Boolean" Nullable="false" />
+    <Property Name="RemittanceId" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="Create_At" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="offlineTransId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="agent">
+    <Key>
+      <PropertyRef Name="Agent_ID" />
+    </Key>
+    <Property Name="Agent_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AgentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CollectLimit" Type="Decimal" />
+    <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="IsConsultant" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="PIN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <NavigationProperty Name="mda" Relationship="Self.agents_ibfk_1" FromRole="agents" ToRole="mda" />
+  </EntityType>
+  <EntityType Name="aspnetrole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Priviledges" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="aspnetusers" Relationship="Self.aspnetuserroles" FromRole="aspnetroles" ToRole="aspnetusers" />
+  </EntityType>
+  <EntityType Name="aspnetuserclaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ClaimValue" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="aspnetuser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGRCode" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDACode" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pin" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="UserLimit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="aspnetroles" Relationship="Self.aspnetuserroles" FromRole="aspnetusers" ToRole="aspnetroles" />
+  </EntityType>
+  <EntityType Name="assessmenttable">
+    <Key>
+      <PropertyRef Name="Assessment_ID" />
+    </Key>
+    <Property Name="Assessment_ID" Type="Int32" Nullable="false" />
+    <Property Name="AssessmentDate" Type="DateTime" />
+    <Property Name="TaxPayer" Type="Int32" />
+    <Property Name="Remitted" Type="Boolean" />
+    <Property Name="DateRemitted" Type="DateTime" />
+    <Property Name="AssessmentType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="LGA" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="AssessmentItem" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="Asset" Type="Int32" />
+    <NavigationProperty Name="asset1" Relationship="Self.FK_AssetAssessment" FromRole="assessmenttable" ToRole="asset" />
+    <NavigationProperty Name="mda" Relationship="Self.FK_LGAAssessment" FromRole="assessmenttable" ToRole="mda" />
+    <NavigationProperty Name="igr" Relationship="Self.FK_StateAssessment" FromRole="assessmenttable" ToRole="igr" />
+    <NavigationProperty Name="taxpayer1" Relationship="Self.FK_TaxpayerAssessment" FromRole="assessmenttable" ToRole="taxpayer" />
+  </EntityType>
+  <EntityType Name="asset">
+    <Key>
+      <PropertyRef Name="Asset_ID" />
+    </Key>
+    <Property Name="Asset_ID" Type="Int32" Nullable="false" />
+    <Property Name="AssetName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="AssetType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="TaxPayer" Type="Int32" />
+    <Property Name="LGA" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyName" Type="Int32" />
+    <Property Name="IGR_Id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="assessmenttables" Relationship="Self.FK_AssetAssessment" FromRole="asset" ToRole="assessmenttable" />
+    <NavigationProperty Name="taxpayer1" Relationship="Self.fk_CompanyAsset" FromRole="asset" ToRole="taxpayer" />
+    <NavigationProperty Name="igr" Relationship="Self.FK_IGRAsset" FromRole="asset" ToRole="igr" />
+    <NavigationProperty Name="mda" Relationship="Self.fk_LGAAsset" FromRole="asset" ToRole="mda" />
+    <NavigationProperty Name="taxpayer2" Relationship="Self.fk_TaxpayerAsset" FromRole="asset" ToRole="taxpayer" />
+  </EntityType>
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bank_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <NavigationProperty Name="beneficiaries" Relationship="Self.beneficiaries_bnk_1" FromRole="bank" ToRole="beneficiaries" />
+  </EntityType>
+  <EntityType Name="beneficiary">
+    <Key>
+      <PropertyRef Name="Benefuciary_ID" />
+    </Key>
+    <Property Name="Benefuciary_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Account_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="BankID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Narration" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <NavigationProperty Name="bank" Relationship="Self.beneficiaries_bnk_1" FromRole="beneficiaries" ToRole="bank" />
+    <NavigationProperty Name="mda" Relationship="Self.beneficiaries_ibfk_1" FromRole="beneficiaries" ToRole="mda" />
+  </EntityType>
+  <EntityType Name="buypowernotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="SessionID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BillerID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BillerName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ProductName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBankCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ProductID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationBankCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="EntryDate" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="meterNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="discoCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="vendRef" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="colortab">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ColourName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Colour" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="AscentColour" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="conlog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="enumeration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Serial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Region" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Enumerator" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FeederName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransformerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransfermerCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PoleServiceWireRemark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PoleType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PoleCondition" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WireType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WireCondition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PropertyType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MeterTariff" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CspName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeterNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerFirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerLastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="HouseNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LandMark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Village" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FileMeterNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Lga" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustormerRemark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Longitude" Type="Double" Nullable="false" />
+    <Property Name="Latitude" Type="Double" Nullable="false" />
+    <Property Name="Altitude" Type="Double" />
+    <Property Name="AccountStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BookCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AmountBilled" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeterType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeterModel" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeterStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeterPhase" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MeterRemark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="UniqueID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="fundsweep">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Coll" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="SerialNo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="SortCode" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="TxnDate" Type="DateTime" />
+    <Property Name="Payee" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Payer" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Narration" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Reason" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="AmountCollected" Type="Decimal" />
+    <Property Name="AmountRemitted" Type="Decimal" />
+    <Property Name="AgencyAmount" Type="Decimal" />
+    <Property Name="Agency" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="UploadId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="BillerID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="RemittedAt" Type="DateTime" />
+    <Property Name="CreatedAt" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="igr">
+    <Key>
+      <PropertyRef Name="IGR_Code" />
+    </Key>
+    <Property Name="IGR_Code" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGR_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+    <Property Name="IsIGR" Type="Boolean" Nullable="false" />
+    <Property Name="Dashboard" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IS_IGRCode" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryUrl" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="assessmenttables" Relationship="Self.FK_StateAssessment" FromRole="igr" ToRole="assessmenttable" />
+    <NavigationProperty Name="assets" Relationship="Self.FK_IGRAsset" FromRole="igr" ToRole="asset" />
+    <NavigationProperty Name="reportslisting" Relationship="Self.FK_DashReport" FromRole="igr" ToRole="reportslisting" />
+    <NavigationProperty Name="taxpayers" Relationship="Self.FK_IGR" FromRole="igr" ToRole="taxpayer" />
+    <NavigationProperty Name="reportslistings" Relationship="Self.IGRkey" FromRole="igr" ToRole="reportslisting" />
+    <NavigationProperty Name="mdas" Relationship="Self.mda_ibfk_1" FromRole="igr" ToRole="mda" />
+    <NavigationProperty Name="revenueheads" Relationship="Self.revenueheads_ibfk_1" FromRole="igr" ToRole="revenueheads" />
+  </EntityType>
+  <EntityType Name="igr_categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="invoice">
+    <Key>
+      <PropertyRef Name="invoice_id" />
+    </Key>
+    <Property Name="invoice_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="USER_ID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="POS_ID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Invoice_Status" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="isnotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceUrl" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceUsername" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ServicePassword" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FTPUrl" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FTPUsername" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FTPPassword" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="IsRepeated" Type="Boolean" />
+    <Property Name="ProductGroupCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentLogId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="AlternateCustReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="PaymentStatus" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="TerminalId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ChannelName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="IsReversal" Type="Boolean" />
+    <Property Name="PaymentDate" Type="DateTime" />
+    <Property Name="SettlementDate" Type="DateTime" />
+    <Property Name="InstitutionId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BranchName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FeeName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="OtherCustomerInfo" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiptNo" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CollectionsAccount" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ThirdPartyCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemAmount" Type="Decimal" />
+    <Property Name="LeadBankCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="LeadBankCbnCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="LeadBankName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemQuantity" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BankCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="DepositorName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="DepositorSlipNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentCurrency" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="OriginalPaymentLogId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="OriginalPaymentReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Teller" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" />
+    <Property Name="IsSent" Type="Int32" />
+  </EntityType>
+  <EntityType Name="jambpayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="GSMNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="token" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pin" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="jigawalog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceUrl" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceUsername" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ServicePassword" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FTPUrl" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FTPUsername" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FTPPassword" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="IsRepeated" Type="Boolean" />
+    <Property Name="ProductGroupCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentLogId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="AlternateCustReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="PaymentStatus" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="TerminalId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ChannelName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="IsReversal" Type="Boolean" />
+    <Property Name="PaymentDate" Type="DateTime" />
+    <Property Name="SettlementDate" Type="DateTime" />
+    <Property Name="InstitutionId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BranchName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BankName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="FeeName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="OtherCustomerInfo" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiptNo" Type="Int32" />
+    <Property Name="CollectionsAccount" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ThirdPartyCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemAmount" Type="Decimal" />
+    <Property Name="LeadBankCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="LeadBankCbnCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="LeadBankName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ItemQuantity" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BankCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="DepositorName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="DepositorSlipNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentCurrency" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="OriginalPaymentLogId" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="OriginalPaymentReference" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Teller" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="kedcopayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PosId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MeterType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PaymentMode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TranactionDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TransactionReference" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LastTransactionDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StationId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiptNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionType" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerArears" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsRemitted" Type="Boolean" Nullable="false" />
+    <Property Name="RemittanceId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tariffCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="kingscare">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionDate" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBankName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationBankCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="PupilsName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Class" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Term" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="PayersName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="mda">
+    <Key>
+      <PropertyRef Name="MDA_ID" />
+    </Key>
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGR_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_Category" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_DetailedCategory" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+    <Property Name="Invoice_status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="agents" Relationship="Self.agents_ibfk_1" FromRole="mda" ToRole="agents" />
+    <NavigationProperty Name="assessmenttables" Relationship="Self.FK_LGAAssessment" FromRole="mda" ToRole="assessmenttable" />
+    <NavigationProperty Name="assets" Relationship="Self.fk_LGAAsset" FromRole="mda" ToRole="asset" />
+    <NavigationProperty Name="beneficiaries" Relationship="Self.beneficiaries_ibfk_1" FromRole="mda" ToRole="beneficiaries" />
+    <NavigationProperty Name="igr" Relationship="Self.mda_ibfk_1" FromRole="mda" ToRole="igr" />
+    <NavigationProperty Name="taxpayers" Relationship="Self.FK_lga" FromRole="mda" ToRole="taxpayer" />
+    <NavigationProperty Name="mda_stations" Relationship="Self.fk_statMDA_1" FromRole="mda" ToRole="mda_stations" />
+    <NavigationProperty Name="mda_category1" Relationship="Self.mda_catfk_1" FromRole="mda" ToRole="mda_category" />
+    <NavigationProperty Name="pos" Relationship="Self.pos_ibfk_1" FromRole="mda" ToRole="pos" />
+    <NavigationProperty Name="revenueheads" Relationship="Self.revenueheads_ibfk_2" FromRole="mda" ToRole="revenueheads" />
+  </EntityType>
+  <EntityType Name="mda_category">
+    <Key>
+      <PropertyRef Name="Category_ID" />
+    </Key>
+    <Property Name="Category_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Category_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+    <NavigationProperty Name="mdas" Relationship="Self.mda_catfk_1" FromRole="mda_category" ToRole="mda" />
+  </EntityType>
+  <EntityType Name="mda_stations">
+    <Key>
+      <PropertyRef Name="MDAStation_ID" />
+    </Key>
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDAStation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="DateUpdated" Type="DateTime" />
+    <NavigationProperty Name="mda" Relationship="Self.fk_statMDA_1" FromRole="mda_stations" ToRole="mda" />
+    <NavigationProperty Name="pos" Relationship="Self.pos_ibfk_2" FromRole="mda_stations" ToRole="pos" />
+  </EntityType>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationBankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IGR_Code" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBankName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="payerid" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="remittance_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="invoice_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="refcode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="productType" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApprovedDate" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="oneclickpayment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PayerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Disco" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBank" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationBank" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsSent" Type="Int32" Nullable="false" />
+    <Property Name="ApprovedDate" Type="DateTime" Nullable="false" />
+    <Property Name="Created_At" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeterNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="payertype">
+    <Key>
+      <PropertyRef Name="PayerType_ID" />
+    </Key>
+    <Property Name="PayerType_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="taxpayers" Relationship="Self.FK_Payertype" FromRole="payertype" ToRole="taxpayer" />
+  </EntityType>
+  <EntityType Name="paymentnotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="RequestorID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PayerPhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PayerName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="MerchantCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="MerchantName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="MerchantPhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionDate" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ResponseCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="sent_status" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="pos">
+    <Key>
+      <PropertyRef Name="POS_ID" />
+    </Key>
+    <Property Name="POS_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POS_imei" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POS_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActivationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activation" Type="Boolean" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Station_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <NavigationProperty Name="mda" Relationship="Self.pos_ibfk_1" FromRole="pos" ToRole="mda" />
+    <NavigationProperty Name="mda_stations" Relationship="Self.pos_ibfk_2" FromRole="pos" ToRole="mda_stations" />
+  </EntityType>
+  <EntityType Name="pos_collection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="remittance_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POS_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="CollectionType" Type="Int32" Nullable="false" />
+    <Property Name="CollectionStatus" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IGR_ID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="PosCollectionId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="power">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceBankCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBankName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionCode" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ChannelCode" Type="Int32" Nullable="false" />
+    <Property Name="Step" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAccountNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BillerID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="BillerName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ProductID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="ProductName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="remittance">
+    <Key>
+      <PropertyRef Name="remittance_id" />
+    </Key>
+    <Property Name="remittance_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="amount" Type="Decimal" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="remtted_date" Type="DateTime" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="remittance_status" Type="Int32" Nullable="false" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="USER_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="POS_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IGR_ID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="reportslisting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReportServerURL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MenuUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ParentID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedDate" Type="DateTime" />
+    <Property Name="IsDashboard" Type="Boolean" />
+    <Property Name="RCredentials" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <NavigationProperty Name="igrs" Relationship="Self.FK_DashReport" FromRole="reportslisting" ToRole="igr" />
+    <NavigationProperty Name="igr" Relationship="Self.IGRkey" FromRole="reportslisting" ToRole="igr" />
+    <NavigationProperty Name="reportsparameters" Relationship="Self.fk_reports_key" FromRole="reportslisting" ToRole="reportsparameter" />
+    <NavigationProperty Name="rserver" Relationship="Self.RCredentialKey" FromRole="reportslisting" ToRole="rservers" />
+  </EntityType>
+  <EntityType Name="reportsparameter">
+    <Key>
+      <PropertyRef Name="ReportParameterID" />
+    </Key>
+    <Property Name="ReportParameterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReportParameterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultValue" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ShowParameter" Type="Boolean" />
+    <NavigationProperty Name="reportslisting" Relationship="Self.fk_reports_key" FromRole="reportsparameter" ToRole="reportslisting" />
+  </EntityType>
+  <EntityType Name="revenuehead">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RevenueCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Biller_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RevenueName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="Taxable" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <Property Name="AssmentItem" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <Property Name="IsPOS" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="igr" Relationship="Self.revenueheads_ibfk_1" FromRole="revenueheads" ToRole="igr" />
+    <NavigationProperty Name="mda" Relationship="Self.revenueheads_ibfk_2" FromRole="revenueheads" ToRole="mda" />
+    <NavigationProperty Name="subheads" Relationship="Self.subheads_ibfk_1" FromRole="revenueheads" ToRole="subheads" />
+  </EntityType>
+  <EntityType Name="richfield">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Firstname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ProductType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationBankCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBankName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionDate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="rserver">
+    <Key>
+      <PropertyRef Name="Rserver_ID" />
+    </Key>
+    <Property Name="Rserver_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RServerName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="RServerPwd" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="RserverDomain" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="reportslistings" Relationship="Self.RCredentialKey" FromRole="rservers" ToRole="reportslisting" />
+  </EntityType>
+  <EntityType Name="rssh_upload">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Teller" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InvoiceDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UploadedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateUploaded" Type="DateTime" />
+    <Property Name="UploadID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="schoolclass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGR_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClassName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolFees" Type="Decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="schooldetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdmissionNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Class" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Term" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Session" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="D_B" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolFees" Type="Decimal" />
+    <Property Name="Rebait" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BillerId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Created_At" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uploadId" Type="String" MaxLength="225" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="schoolnotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BillerId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SourceBank" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DestinationBank" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PayerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PayerPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="StudentName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AdmissionNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Class" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Term" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Session" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ApprovedDate" Type="DateTime" />
+    <Property Name="Created_At" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="schoolsession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGR_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SessionName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="schoolterm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IGR_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TermId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Term" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="student_information">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IGR_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdmissionNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClassId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TermId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SessionId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Rebate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uploadId" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="subhead">
+    <Key>
+      <PropertyRef Name="SubHead_ID" />
+    </Key>
+    <Property Name="SubHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RevHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="Government" Type="Decimal" />
+    <Property Name="Agency" Type="Decimal" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="ModifiedDate" Type="DateTime" />
+    <Property Name="Taxable" Type="Boolean" />
+    <Property Name="Recurrent" Type="Boolean" />
+    <NavigationProperty Name="revenuehead" Relationship="Self.subheads_ibfk_1" FromRole="subheads" ToRole="revenueheads" />
+  </EntityType>
+  <EntityType Name="taxpayer">
+    <Key>
+      <PropertyRef Name="TaxPayer_ID" />
+    </Key>
+    <Property Name="TaxPayer_ID" Type="Int32" Nullable="false" />
+    <Property Name="TIN" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Surname" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="OtherNames" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BVN" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="IGR_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="LocalGovernment" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PayerType" Type="Int32" />
+    <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="assessmenttables" Relationship="Self.FK_TaxpayerAssessment" FromRole="taxpayer" ToRole="assessmenttable" />
+    <NavigationProperty Name="assets" Relationship="Self.fk_CompanyAsset" FromRole="taxpayer" ToRole="asset" />
+    <NavigationProperty Name="assets1" Relationship="Self.fk_TaxpayerAsset" FromRole="taxpayer" ToRole="asset" />
+    <NavigationProperty Name="igr" Relationship="Self.FK_IGR" FromRole="taxpayer" ToRole="igr" />
+    <NavigationProperty Name="mda" Relationship="Self.FK_lga" FromRole="taxpayer" ToRole="mda" />
+    <NavigationProperty Name="payertype1" Relationship="Self.FK_Payertype" FromRole="taxpayer" ToRole="payertype" />
+  </EntityType>
+  <EntityType Name="tin">
+    <Key>
+      <PropertyRef Name="tin_id" />
+    </Key>
+    <Property Name="tin_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="IGR_Code" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="tin_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="temporary_tin" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="identification" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussiness_type" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussinesss_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussiness_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="bussiness_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="reg_bus_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="commencement_date" Type="DateTime" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="bvn" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="valueswitchpayment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SourceBank" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DestinationBank" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BillerID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="BillerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CollectRef" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Narration" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="IsSent" Type="Int32" Nullable="false" />
+    <Property Name="ApprovedDate" Type="DateTime" Nullable="false" />
+    <Property Name="Created_At" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CollectionTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CollectionType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="web_collection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="remittance_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POS_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="CollectionType" Type="Int32" Nullable="false" />
+    <Property Name="CollectionStatus" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="aspnetuserlogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pos_test_najib">
+    <Key>
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="USER_ID" />
+      <PropertyRef Name="MDAStation_ID" />
+      <PropertyRef Name="SubHead_ID" />
+      <PropertyRef Name="POS_ID" />
+      <PropertyRef Name="CollectionType" />
+      <PropertyRef Name="CollectionStatus" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="remittance_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SubHead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="POS_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="CollectionType" Type="Int32" Nullable="false" />
+    <Property Name="CollectionStatus" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="igr_users">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="IGRCode" />
+      <PropertyRef Name="MDACode" />
+      <PropertyRef Name="CollectionLimit" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" />
+    <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="PIN" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="Priviledges" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+    <Property Name="IGRCode" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IGR_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MDACode" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MDAStation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CollectionLimit" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_collections">
+    <Key>
+      <PropertyRef Name="pos_ID" />
+      <PropertyRef Name="collectionType" />
+      <PropertyRef Name="CollectionStatus" />
+    </Key>
+    <Property Name="Collection_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="subhead_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="MDAStation_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pos_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="collectionType" Type="Int64" Nullable="false" />
+    <Property Name="CollectionStatus" Type="Int64" Nullable="false" />
+    <Property Name="User_ID" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="SubHead_Name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SubHead_Code" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="RevenueCode" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="RevenueName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Biller_ID" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="RevenueHead_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Remittance_id" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vw_remittances">
+    <Key>
+      <PropertyRef Name="channel" />
+    </Key>
+    <Property Name="Remittance_id" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" />
+    <Property Name="MDAStation_ID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="create_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="MDAStation_Name" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="pos_ID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_ID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="MDA_Name" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="Biller_ID" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="User_ID" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="remittance_status" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="channel" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="agents_ibfk_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="agents" Type="Self.agent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="agents">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssetAssessment">
+    <End Role="asset" Type="Self.asset" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="asset">
+        <PropertyRef Name="Asset_ID" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="Asset" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LGAAssessment">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="LGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateAssessment">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaxpayerAssessment">
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxpayer">
+        <PropertyRef Name="TaxPayer_ID" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="TaxPayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CompanyAsset">
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxpayer">
+        <PropertyRef Name="TaxPayer_ID" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="CompanyName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGRAsset">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="IGR_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LGAAsset">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="LGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TaxpayerAsset">
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxpayer">
+        <PropertyRef Name="TaxPayer_ID" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="TaxPayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="beneficiaries_bnk_1">
+    <End Role="bank" Type="Self.bank" Multiplicity="0..1" />
+    <End Role="beneficiaries" Type="Self.beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="beneficiaries">
+        <PropertyRef Name="BankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="beneficiaries_ibfk_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="beneficiaries" Type="Self.beneficiary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="beneficiaries">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DashReport">
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="0..1" />
+    <End Role="igr" Type="Self.igr" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reportslisting">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="igr">
+        <PropertyRef Name="Dashboard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGR">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="taxpayer">
+        <PropertyRef Name="IGR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IGRkey">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="reportslisting">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mda_ibfk_1">
+    <End Role="igr" Type="Self.igr" Multiplicity="1" />
+    <End Role="mda" Type="Self.mda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="mda">
+        <PropertyRef Name="IGR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="revenueheads_ibfk_1">
+    <End Role="igr" Type="Self.igr" Multiplicity="1" />
+    <End Role="revenueheads" Type="Self.revenuehead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="revenueheads">
+        <PropertyRef Name="Biller_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lga">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="taxpayer">
+        <PropertyRef Name="LocalGovernment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_statMDA_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="1" />
+    <End Role="mda_stations" Type="Self.mda_stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="mda_stations">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mda_catfk_1">
+    <End Role="mda_category" Type="Self.mda_category" Multiplicity="1" />
+    <End Role="mda" Type="Self.mda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda_category">
+        <PropertyRef Name="Category_ID" />
+      </Principal>
+      <Dependent Role="mda">
+        <PropertyRef Name="MDA_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pos_ibfk_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="pos" Type="Self.pos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="pos">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="revenueheads_ibfk_2">
+    <End Role="mda" Type="Self.mda" Multiplicity="1" />
+    <End Role="revenueheads" Type="Self.revenuehead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="revenueheads">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pos_ibfk_2">
+    <End Role="mda_stations" Type="Self.mda_stations" Multiplicity="0..1" />
+    <End Role="pos" Type="Self.pos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda_stations">
+        <PropertyRef Name="MDAStation_ID" />
+      </Principal>
+      <Dependent Role="pos">
+        <PropertyRef Name="Station_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payertype">
+    <End Role="payertype" Type="Self.payertype" Multiplicity="0..1" />
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payertype">
+        <PropertyRef Name="PayerType_ID" />
+      </Principal>
+      <Dependent Role="taxpayer">
+        <PropertyRef Name="PayerType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_reports_key">
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="1" />
+    <End Role="reportsparameter" Type="Self.reportsparameter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reportslisting">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="reportsparameter">
+        <PropertyRef Name="ReportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RCredentialKey">
+    <End Role="rservers" Type="Self.rserver" Multiplicity="0..1" />
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rservers">
+        <PropertyRef Name="Rserver_ID" />
+      </Principal>
+      <Dependent Role="reportslisting">
+        <PropertyRef Name="RCredentials" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="subheads_ibfk_1">
+    <End Role="revenueheads" Type="Self.revenuehead" Multiplicity="1" />
+    <End Role="subheads" Type="Self.subhead" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="revenueheads">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="subheads">
+        <PropertyRef Name="RevHead_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="aspnetuserroles">
+    <End Role="aspnetroles" Type="Self.aspnetrole" Multiplicity="*" />
+    <End Role="aspnetusers" Type="Self.aspnetuser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="igr_collectionsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="abuthpaymentitems" EntityType="Self.abuthpaymentitem" />
+    <EntitySet Name="abuthpayments" EntityType="Self.abuthpayment" />
+    <EntitySet Name="agents" EntityType="Self.agent" />
+    <EntitySet Name="aspnetroles" EntityType="Self.aspnetrole" />
+    <EntitySet Name="aspnetuserclaims" EntityType="Self.aspnetuserclaim" />
+    <EntitySet Name="aspnetusers" EntityType="Self.aspnetuser" />
+    <EntitySet Name="assessmenttables" EntityType="Self.assessmenttable" />
+    <EntitySet Name="assets" EntityType="Self.asset" />
+    <EntitySet Name="banks" EntityType="Self.bank" />
+    <EntitySet Name="beneficiaries" EntityType="Self.beneficiary" />
+    <EntitySet Name="buypowernotifications" EntityType="Self.buypowernotification" />
+    <EntitySet Name="colortabs" EntityType="Self.colortab" />
+    <EntitySet Name="conlogs" EntityType="Self.conlog" />
+    <EntitySet Name="enumerations" EntityType="Self.enumeration" />
+    <EntitySet Name="fundsweeps" EntityType="Self.fundsweep" />
+    <EntitySet Name="igrs" EntityType="Self.igr" />
+    <EntitySet Name="igr_categories" EntityType="Self.igr_categories" />
+    <EntitySet Name="invoices" EntityType="Self.invoice" />
+    <EntitySet Name="isnotifications" EntityType="Self.isnotification" />
+    <EntitySet Name="jambpayments" EntityType="Self.jambpayment" />
+    <EntitySet Name="jigawalogs" EntityType="Self.jigawalog" />
+    <EntitySet Name="kedcopayments" EntityType="Self.kedcopayment" />
+    <EntitySet Name="kingscares" EntityType="Self.kingscare" />
+    <EntitySet Name="mdas" EntityType="Self.mda" />
+    <EntitySet Name="mda_category" EntityType="Self.mda_category" />
+    <EntitySet Name="mda_stations" EntityType="Self.mda_stations" />
+    <EntitySet Name="notifications" EntityType="Self.notification" />
+    <EntitySet Name="oneclickpayments" EntityType="Self.oneclickpayment" />
+    <EntitySet Name="payertypes" EntityType="Self.payertype" />
+    <EntitySet Name="paymentnotifications" EntityType="Self.paymentnotification" />
+    <EntitySet Name="pos" EntityType="Self.pos" />
+    <EntitySet Name="pos_collection" EntityType="Self.pos_collection" />
+    <EntitySet Name="powers" EntityType="Self.power" />
+    <EntitySet Name="remittances" EntityType="Self.remittance" />
+    <EntitySet Name="reportslistings" EntityType="Self.reportslisting" />
+    <EntitySet Name="reportsparameters" EntityType="Self.reportsparameter" />
+    <EntitySet Name="revenueheads" EntityType="Self.revenuehead" />
+    <EntitySet Name="richfields" EntityType="Self.richfield" />
+    <EntitySet Name="rservers" EntityType="Self.rserver" />
+    <EntitySet Name="rssh_upload" EntityType="Self.rssh_upload" />
+    <EntitySet Name="schoolclasses" EntityType="Self.schoolclass" />
+    <EntitySet Name="schooldetails" EntityType="Self.schooldetail" />
+    <EntitySet Name="schoolnotifications" EntityType="Self.schoolnotification" />
+    <EntitySet Name="schoolsessions" EntityType="Self.schoolsession" />
+    <EntitySet Name="schoolterms" EntityType="Self.schoolterm" />
+    <EntitySet Name="student_information" EntityType="Self.student_information" />
+    <EntitySet Name="subheads" EntityType="Self.subhead" />
+    <EntitySet Name="taxpayers" EntityType="Self.taxpayer" />
+    <EntitySet Name="tins" EntityType="Self.tin" />
+    <EntitySet Name="valueswitchpayments" EntityType="Self.valueswitchpayment" />
+    <EntitySet Name="web_collection" EntityType="Self.web_collection" />
+    <EntitySet Name="aspnetuserlogins" EntityType="Self.aspnetuserlogin" />
+    <EntitySet Name="pos_test_najib" EntityType="Self.pos_test_najib" />
+    <EntitySet Name="igr_users" EntityType="Self.igr_users" />
+    <EntitySet Name="vw_collections" EntityType="Self.vw_collections" />
+    <EntitySet Name="vw_remittances" EntityType="Self.vw_remittances" />
+    <AssociationSet Name="agents_ibfk_1" Association="Self.agents_ibfk_1">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="agents" EntitySet="agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssetAssessment" Association="Self.FK_AssetAssessment">
+      <End Role="asset" EntitySet="assets" />
+      <End Role="assessmenttable" EntitySet="assessmenttables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LGAAssessment" Association="Self.FK_LGAAssessment">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="assessmenttable" EntitySet="assessmenttables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateAssessment" Association="Self.FK_StateAssessment">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="assessmenttable" EntitySet="assessmenttables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaxpayerAssessment" Association="Self.FK_TaxpayerAssessment">
+      <End Role="taxpayer" EntitySet="taxpayers" />
+      <End Role="assessmenttable" EntitySet="assessmenttables" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CompanyAsset" Association="Self.fk_CompanyAsset">
+      <End Role="taxpayer" EntitySet="taxpayers" />
+      <End Role="asset" EntitySet="assets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGRAsset" Association="Self.FK_IGRAsset">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="asset" EntitySet="assets" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LGAAsset" Association="Self.fk_LGAAsset">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="asset" EntitySet="assets" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TaxpayerAsset" Association="Self.fk_TaxpayerAsset">
+      <End Role="taxpayer" EntitySet="taxpayers" />
+      <End Role="asset" EntitySet="assets" />
+    </AssociationSet>
+    <AssociationSet Name="beneficiaries_bnk_1" Association="Self.beneficiaries_bnk_1">
+      <End Role="bank" EntitySet="banks" />
+      <End Role="beneficiaries" EntitySet="beneficiaries" />
+    </AssociationSet>
+    <AssociationSet Name="beneficiaries_ibfk_1" Association="Self.beneficiaries_ibfk_1">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="beneficiaries" EntitySet="beneficiaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DashReport" Association="Self.FK_DashReport">
+      <End Role="reportslisting" EntitySet="reportslistings" />
+      <End Role="igr" EntitySet="igrs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGR" Association="Self.FK_IGR">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="taxpayer" EntitySet="taxpayers" />
+    </AssociationSet>
+    <AssociationSet Name="IGRkey" Association="Self.IGRkey">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="reportslisting" EntitySet="reportslistings" />
+    </AssociationSet>
+    <AssociationSet Name="mda_ibfk_1" Association="Self.mda_ibfk_1">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="mda" EntitySet="mdas" />
+    </AssociationSet>
+    <AssociationSet Name="revenueheads_ibfk_1" Association="Self.revenueheads_ibfk_1">
+      <End Role="igr" EntitySet="igrs" />
+      <End Role="revenueheads" EntitySet="revenueheads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lga" Association="Self.FK_lga">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="taxpayer" EntitySet="taxpayers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_statMDA_1" Association="Self.fk_statMDA_1">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="mda_stations" EntitySet="mda_stations" />
+    </AssociationSet>
+    <AssociationSet Name="mda_catfk_1" Association="Self.mda_catfk_1">
+      <End Role="mda_category" EntitySet="mda_category" />
+      <End Role="mda" EntitySet="mdas" />
+    </AssociationSet>
+    <AssociationSet Name="pos_ibfk_1" Association="Self.pos_ibfk_1">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="pos" EntitySet="pos" />
+    </AssociationSet>
+    <AssociationSet Name="revenueheads_ibfk_2" Association="Self.revenueheads_ibfk_2">
+      <End Role="mda" EntitySet="mdas" />
+      <End Role="revenueheads" EntitySet="revenueheads" />
+    </AssociationSet>
+    <AssociationSet Name="pos_ibfk_2" Association="Self.pos_ibfk_2">
+      <End Role="mda_stations" EntitySet="mda_stations" />
+      <End Role="pos" EntitySet="pos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payertype" Association="Self.FK_Payertype">
+      <End Role="payertype" EntitySet="payertypes" />
+      <End Role="taxpayer" EntitySet="taxpayers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_reports_key" Association="Self.fk_reports_key">
+      <End Role="reportslisting" EntitySet="reportslistings" />
+      <End Role="reportsparameter" EntitySet="reportsparameters" />
+    </AssociationSet>
+    <AssociationSet Name="RCredentialKey" Association="Self.RCredentialKey">
+      <End Role="rservers" EntitySet="rservers" />
+      <End Role="reportslisting" EntitySet="reportslistings" />
+    </AssociationSet>
+    <AssociationSet Name="subheads_ibfk_1" Association="Self.subheads_ibfk_1">
+      <End Role="revenueheads" EntitySet="revenueheads" />
+      <End Role="subheads" EntitySet="subheads" />
+    </AssociationSet>
+    <AssociationSet Name="aspnetuserroles" Association="Self.aspnetuserroles">
+      <End Role="aspnetroles" EntitySet="aspnetroles" />
+      <End Role="aspnetusers" EntitySet="aspnetusers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

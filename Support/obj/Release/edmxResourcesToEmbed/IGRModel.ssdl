@@ -1,0 +1,1687 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="igr_collectionsModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="abuthpaymentitems">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TransId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServiceName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DepartmentId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="255" />
+    <Property Name="Create_At" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="offlineTransId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="abuthpayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransId" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="PosId" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="PatientName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="20" />
+    <Property Name="UserId" Type="varchar" MaxLength="55" Nullable="false" />
+    <Property Name="TotalAmount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="TransDate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="IsRemitted" Type="bool" Nullable="false" />
+    <Property Name="RemittanceId" Type="varchar" MaxLength="55" />
+    <Property Name="Create_At" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="offlineTransId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="agents">
+    <Key>
+      <PropertyRef Name="Agent_ID" />
+    </Key>
+    <Property Name="Agent_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="AgentName" Type="varchar" MaxLength="100" />
+    <Property Name="CollectLimit" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Telephone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="IsConsultant" Type="enum" />
+    <Property Name="PIN" Type="varchar" MaxLength="10" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="aspnetroles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Priviledges" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="aspnetuserclaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="longtext" />
+    <Property Name="ClaimValue" Type="longtext" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.igr_collections.aspnetuserlogins' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="aspnetuserlogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.igr_collections.aspnetuserroles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="aspnetuserroles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="varchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="aspnetusers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="longtext" />
+    <Property Name="SecurityStamp" Type="longtext" />
+    <Property Name="PhoneNumber" Type="longtext" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" Precision="0" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="IGRCode" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDACode" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="38" />
+    <Property Name="DateCreated" Type="datetime" Precision="0" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="Pin" Type="longtext" />
+    <Property Name="UserLimit" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="assessmenttable">
+    <Key>
+      <PropertyRef Name="Assessment_ID" />
+    </Key>
+    <Property Name="Assessment_ID" Type="int" Nullable="false" />
+    <Property Name="AssessmentDate" Type="datetime" Precision="0" />
+    <Property Name="TaxPayer" Type="int" />
+    <Property Name="Remitted" Type="bit" />
+    <Property Name="DateRemitted" Type="datetime" Precision="0" />
+    <Property Name="AssessmentType" Type="varchar" MaxLength="45" />
+    <Property Name="State" Type="varchar" MaxLength="38" />
+    <Property Name="LGA" Type="varchar" MaxLength="38" />
+    <Property Name="AssessmentItem" Type="varchar" MaxLength="38" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Asset" Type="int" />
+  </EntityType>
+  <EntityType Name="asset">
+    <Key>
+      <PropertyRef Name="Asset_ID" />
+    </Key>
+    <Property Name="Asset_ID" Type="int" Nullable="false" />
+    <Property Name="AssetName" Type="varchar" MaxLength="100" />
+    <Property Name="ImagePath" Type="varchar" MaxLength="150" />
+    <Property Name="AssetType" Type="varchar" MaxLength="45" />
+    <Property Name="TaxPayer" Type="int" />
+    <Property Name="LGA" Type="varchar" MaxLength="38" />
+    <Property Name="CompanyName" Type="int" />
+    <Property Name="IGR_Id" Type="varchar" MaxLength="38" />
+  </EntityType>
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Bank_Code" Type="varchar" MaxLength="10" />
+    <Property Name="BankName" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="beneficiaries">
+    <Key>
+      <PropertyRef Name="Benefuciary_ID" />
+    </Key>
+    <Property Name="Benefuciary_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="Account_Number" Type="varchar" MaxLength="20" />
+    <Property Name="AccountName" Type="varchar" MaxLength="250" />
+    <Property Name="BankID" Type="varchar" MaxLength="38" />
+    <Property Name="Narration" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="200" />
+    <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="buypowernotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone" Type="longtext" />
+    <Property Name="Amount" Type="longtext" />
+    <Property Name="Email" Type="longtext" />
+    <Property Name="Name" Type="longtext" />
+    <Property Name="SessionID" Type="longtext" />
+    <Property Name="BillerID" Type="longtext" />
+    <Property Name="BillerName" Type="longtext" />
+    <Property Name="ProductName" Type="longtext" />
+    <Property Name="SourceBankCode" Type="longtext" />
+    <Property Name="ProductID" Type="longtext" />
+    <Property Name="DestinationBankCode" Type="longtext" />
+    <Property Name="EntryDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+    <Property Name="meterNumber" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="discoCode" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="255" />
+    <Property Name="vendRef" Type="varchar" MaxLength="255" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="colortabs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ColourName" Type="varchar" MaxLength="45" />
+    <Property Name="Colour" Type="varchar" MaxLength="45" />
+    <Property Name="AscentColour" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="conlogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="longtext" />
+  </EntityType>
+  <EntityType Name="enumerations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Serial" Type="varchar" MaxLength="255" />
+    <Property Name="Region" Type="varchar" MaxLength="255" />
+    <Property Name="Enumerator" Type="varchar" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="FeederName" Type="varchar" MaxLength="255" />
+    <Property Name="TransformerName" Type="varchar" MaxLength="255" />
+    <Property Name="TransfermerCode" Type="varchar" MaxLength="255" />
+    <Property Name="PoleServiceWireRemark" Type="varchar" MaxLength="255" />
+    <Property Name="PoleType" Type="varchar" MaxLength="255" />
+    <Property Name="PoleCondition" Type="varchar" MaxLength="255" />
+    <Property Name="WireType" Type="varchar" MaxLength="255" />
+    <Property Name="WireCondition" Type="varchar" MaxLength="20" />
+    <Property Name="PropertyType" Type="varchar" MaxLength="30" />
+    <Property Name="AccountNumber" Type="varchar" MaxLength="100" />
+    <Property Name="MeterTariff" Type="varchar" MaxLength="200" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="255" />
+    <Property Name="CspName" Type="varchar" MaxLength="255" />
+    <Property Name="MeterNumber" Type="varchar" MaxLength="255" />
+    <Property Name="ServiceAddress" Type="varchar" MaxLength="255" />
+    <Property Name="CustomerTitle" Type="varchar" MaxLength="20" />
+    <Property Name="CustomerFirstName" Type="varchar" MaxLength="255" />
+    <Property Name="CustomerLastName" Type="varchar" MaxLength="255" />
+    <Property Name="HouseNumber" Type="varchar" MaxLength="255" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="255" />
+    <Property Name="Street" Type="varchar" MaxLength="255" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="LandMark" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="255" />
+    <Property Name="Village" Type="varchar" MaxLength="255" />
+    <Property Name="CustomerStatus" Type="varchar" MaxLength="255" />
+    <Property Name="FileMeterNumber" Type="varchar" MaxLength="255" />
+    <Property Name="Lga" Type="varchar" MaxLength="255" />
+    <Property Name="CustormerRemark" Type="varchar" MaxLength="255" />
+    <Property Name="State" Type="varchar" MaxLength="255" />
+    <Property Name="Longitude" Type="double" Nullable="false" />
+    <Property Name="Latitude" Type="double" Nullable="false" />
+    <Property Name="Altitude" Type="double" />
+    <Property Name="AccountStatus" Type="varchar" MaxLength="255" />
+    <Property Name="BookCode" Type="varchar" MaxLength="255" />
+    <Property Name="AmountBilled" Type="varchar" MaxLength="255" />
+    <Property Name="MeterType" Type="varchar" MaxLength="255" />
+    <Property Name="MeterModel" Type="varchar" MaxLength="255" />
+    <Property Name="MeterStatus" Type="varchar" MaxLength="255" />
+    <Property Name="MeterPhase" Type="varchar" MaxLength="255" />
+    <Property Name="MeterRemark" Type="varchar" MaxLength="255" />
+    <Property Name="Date" Type="varchar" MaxLength="255" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageId" Type="varchar" MaxLength="45" />
+    <Property Name="UniqueID" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="fundsweeps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Coll" Type="varchar" MaxLength="45" />
+    <Property Name="SerialNo" Type="varchar" MaxLength="45" />
+    <Property Name="AccountNo" Type="varchar" MaxLength="45" />
+    <Property Name="SortCode" Type="varchar" MaxLength="45" />
+    <Property Name="Amount" Type="decimal" Precision="36" Scale="2" />
+    <Property Name="TxnDate" Type="datetime" Precision="0" />
+    <Property Name="Payee" Type="varchar" MaxLength="45" />
+    <Property Name="Payer" Type="varchar" MaxLength="45" />
+    <Property Name="Narration" Type="varchar" MaxLength="45" />
+    <Property Name="Reason" Type="varchar" MaxLength="45" />
+    <Property Name="AmountCollected" Type="decimal" Precision="36" Scale="2" />
+    <Property Name="AmountRemitted" Type="decimal" Precision="36" Scale="2" />
+    <Property Name="AgencyAmount" Type="decimal" Precision="36" Scale="2" />
+    <Property Name="Agency" Type="varchar" MaxLength="45" />
+    <Property Name="Status" Type="varchar" MaxLength="45" />
+    <Property Name="UploadId" Type="varchar" MaxLength="45" />
+    <Property Name="BillerID" Type="varchar" MaxLength="45" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+    <Property Name="RemittedAt" Type="datetime" Precision="0" />
+    <Property Name="CreatedAt" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="igr">
+    <Key>
+      <PropertyRef Name="IGR_Code" />
+    </Key>
+    <Property Name="IGR_Code" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="IGR_Name" Type="varchar" MaxLength="200" />
+    <Property Name="Logo" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="datetime" Precision="0" />
+    <Property Name="DateUpdated" Type="datetime" Precision="0" />
+    <Property Name="IsIGR" Type="bit" Nullable="false" />
+    <Property Name="Dashboard" Type="varchar" MaxLength="38" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="Telephone" Type="varchar" MaxLength="45" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="IS_IGRCode" Type="varchar" MaxLength="45" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="45" />
+    <Property Name="CategoryUrl" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="igr_categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="invoices">
+    <Key>
+      <PropertyRef Name="invoice_id" />
+    </Key>
+    <Property Name="invoice_id" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="200" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="200" />
+    <Property Name="USER_ID" Type="longtext" />
+    <Property Name="POS_ID" Type="longtext" />
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="varchar" MaxLength="11" />
+    <Property Name="Invoice_Status" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="isnotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceUrl" Type="longtext" />
+    <Property Name="ServiceUsername" Type="longtext" />
+    <Property Name="ServicePassword" Type="longtext" />
+    <Property Name="FTPUrl" Type="longtext" />
+    <Property Name="FTPUsername" Type="longtext" />
+    <Property Name="FTPPassword" Type="longtext" />
+    <Property Name="IsRepeated" Type="bool" />
+    <Property Name="ProductGroupCode" Type="longtext" />
+    <Property Name="PaymentLogId" Type="longtext" />
+    <Property Name="CustReference" Type="longtext" />
+    <Property Name="AlternateCustReference" Type="longtext" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PaymentStatus" Type="longtext" />
+    <Property Name="PaymentMethod" Type="longtext" />
+    <Property Name="PaymentReference" Type="longtext" />
+    <Property Name="TerminalId" Type="longtext" />
+    <Property Name="ChannelName" Type="longtext" />
+    <Property Name="Location" Type="longtext" />
+    <Property Name="IsReversal" Type="bool" />
+    <Property Name="PaymentDate" Type="datetime" Precision="0" />
+    <Property Name="SettlementDate" Type="datetime" Precision="0" />
+    <Property Name="InstitutionId" Type="longtext" />
+    <Property Name="InstitutionName" Type="longtext" />
+    <Property Name="BranchName" Type="longtext" />
+    <Property Name="BankName" Type="longtext" />
+    <Property Name="FeeName" Type="longtext" />
+    <Property Name="CustomerName" Type="longtext" />
+    <Property Name="OtherCustomerInfo" Type="longtext" />
+    <Property Name="ReceiptNo" Type="longtext" />
+    <Property Name="CollectionsAccount" Type="longtext" />
+    <Property Name="ThirdPartyCode" Type="longtext" />
+    <Property Name="ItemName" Type="longtext" />
+    <Property Name="ItemCode" Type="longtext" />
+    <Property Name="ItemAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LeadBankCode" Type="longtext" />
+    <Property Name="LeadBankCbnCode" Type="longtext" />
+    <Property Name="LeadBankName" Type="longtext" />
+    <Property Name="CategoryCode" Type="longtext" />
+    <Property Name="CategoryName" Type="longtext" />
+    <Property Name="ItemQuantity" Type="longtext" />
+    <Property Name="BankCode" Type="longtext" />
+    <Property Name="CustomerAddress" Type="longtext" />
+    <Property Name="CustomerPhoneNumber" Type="longtext" />
+    <Property Name="DepositorName" Type="longtext" />
+    <Property Name="DepositorSlipNumber" Type="longtext" />
+    <Property Name="PaymentCurrency" Type="longtext" />
+    <Property Name="OriginalPaymentLogId" Type="longtext" />
+    <Property Name="OriginalPaymentReference" Type="longtext" />
+    <Property Name="Teller" Type="longtext" />
+    <Property Name="CreatedAt" Type="datetime" Precision="0" />
+    <Property Name="IsSent" Type="int" />
+  </EntityType>
+  <EntityType Name="jambpayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Amount" Type="varchar" MaxLength="255" />
+    <Property Name="Surname" Type="varchar" MaxLength="255" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="255" />
+    <Property Name="GSMNo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="token" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Pin" Type="varchar" MaxLength="255" />
+    <Property Name="date" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jigawalog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServiceUrl" Type="longtext" />
+    <Property Name="ServiceUsername" Type="longtext" />
+    <Property Name="ServicePassword" Type="longtext" />
+    <Property Name="FTPUrl" Type="longtext" />
+    <Property Name="FTPUsername" Type="longtext" />
+    <Property Name="FTPPassword" Type="longtext" />
+    <Property Name="IsRepeated" Type="bool" />
+    <Property Name="ProductGroupCode" Type="longtext" />
+    <Property Name="PaymentLogId" Type="longtext" />
+    <Property Name="CustReference" Type="longtext" />
+    <Property Name="AlternateCustReference" Type="longtext" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PaymentStatus" Type="longtext" />
+    <Property Name="PaymentMethod" Type="longtext" />
+    <Property Name="PaymentReference" Type="longtext" />
+    <Property Name="TerminalId" Type="longtext" />
+    <Property Name="ChannelName" Type="longtext" />
+    <Property Name="Location" Type="longtext" />
+    <Property Name="IsReversal" Type="bool" />
+    <Property Name="PaymentDate" Type="datetime" Precision="0" />
+    <Property Name="SettlementDate" Type="datetime" Precision="0" />
+    <Property Name="InstitutionId" Type="longtext" />
+    <Property Name="InstitutionName" Type="longtext" />
+    <Property Name="BranchName" Type="longtext" />
+    <Property Name="BankName" Type="longtext" />
+    <Property Name="FeeName" Type="longtext" />
+    <Property Name="CustomerName" Type="longtext" />
+    <Property Name="OtherCustomerInfo" Type="longtext" />
+    <Property Name="ReceiptNo" Type="int" />
+    <Property Name="CollectionsAccount" Type="longtext" />
+    <Property Name="ThirdPartyCode" Type="longtext" />
+    <Property Name="ItemName" Type="longtext" />
+    <Property Name="ItemCode" Type="longtext" />
+    <Property Name="ItemAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="LeadBankCode" Type="longtext" />
+    <Property Name="LeadBankCbnCode" Type="longtext" />
+    <Property Name="LeadBankName" Type="longtext" />
+    <Property Name="CategoryCode" Type="longtext" />
+    <Property Name="CategoryName" Type="longtext" />
+    <Property Name="ItemQuantity" Type="longtext" />
+    <Property Name="BankCode" Type="longtext" />
+    <Property Name="CustomerAddress" Type="longtext" />
+    <Property Name="CustomerPhoneNumber" Type="longtext" />
+    <Property Name="DepositorName" Type="longtext" />
+    <Property Name="DepositorSlipNumber" Type="longtext" />
+    <Property Name="PaymentCurrency" Type="longtext" />
+    <Property Name="OriginalPaymentLogId" Type="longtext" />
+    <Property Name="OriginalPaymentReference" Type="longtext" />
+    <Property Name="Teller" Type="longtext" />
+  </EntityType>
+  <EntityType Name="kedcopayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransactionId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PosId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="255" />
+    <Property Name="AccountNumber" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="MeterType" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PaymentMode" Type="varchar" MaxLength="255" />
+    <Property Name="TranactionDate" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TransactionReference" Type="varchar" MaxLength="255" />
+    <Property Name="LastTransactionDate" Type="varchar" MaxLength="255" />
+    <Property Name="StationId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="255" />
+    <Property Name="CustomerPhone" Type="varchar" MaxLength="255" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="enum" />
+    <Property Name="ReceiptNumber" Type="varchar" MaxLength="255" />
+    <Property Name="TransactionType" Type="enum" />
+    <Property Name="CustomerArears" Type="varchar" MaxLength="255" />
+    <Property Name="IsRemitted" Type="bool" Nullable="false" />
+    <Property Name="RemittanceId" Type="varchar" MaxLength="255" />
+    <Property Name="CreatedAt" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="tariffCode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="kingscares">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionID" Type="varchar" MaxLength="255" />
+    <Property Name="TransactionDate" Type="varchar" MaxLength="30" />
+    <Property Name="SourceBankName" Type="varchar" MaxLength="255" />
+    <Property Name="DestinationBankCode" Type="varchar" MaxLength="30" />
+    <Property Name="PupilsName" Type="varchar" MaxLength="255" />
+    <Property Name="Class" Type="varchar" MaxLength="100" />
+    <Property Name="Term" Type="varchar" MaxLength="100" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="PayersName" Type="varchar" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="Duration" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedAt" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mda">
+    <Key>
+      <PropertyRef Name="MDA_ID" />
+    </Key>
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="IGR_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDA_Category" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDA_DetailedCategory" Type="varchar" MaxLength="38" />
+    <Property Name="MDA_Name" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="datetime" Precision="0" />
+    <Property Name="DateUpdated" Type="datetime" Precision="0" />
+    <Property Name="Invoice_status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mda_category">
+    <Key>
+      <PropertyRef Name="Category_ID" />
+    </Key>
+    <Property Name="Category_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Category_Name" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="datetime" Precision="0" />
+    <Property Name="DateUpdated" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="mda_stations">
+    <Key>
+      <PropertyRef Name="MDAStation_ID" />
+    </Key>
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDAStation_Name" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="datetime" Precision="0" />
+    <Property Name="DateUpdated" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sessionID" Type="varchar" MaxLength="255" />
+    <Property Name="SourceBankCode" Type="varchar" MaxLength="50" />
+    <Property Name="DestinationBankCode" Type="varchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="200" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="IGR_Code" Type="varchar" MaxLength="38" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="38" />
+    <Property Name="SourceBankName" Type="varchar" MaxLength="255" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="255" />
+    <Property Name="payerid" Type="varchar" MaxLength="255" />
+    <Property Name="address" Type="varchar" MaxLength="255" />
+    <Property Name="tin" Type="varchar" MaxLength="100" />
+    <Property Name="remittance_id" Type="varchar" MaxLength="38" />
+    <Property Name="invoice_id" Type="varchar" MaxLength="38" />
+    <Property Name="refcode" Type="varchar" MaxLength="200" />
+    <Property Name="productType" Type="varchar" MaxLength="250" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+    <Property Name="ApprovedDate" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="oneclickpayments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PayerName" Type="varchar" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="Disco" Type="varchar" MaxLength="255" />
+    <Property Name="State" Type="varchar" MaxLength="255" />
+    <Property Name="Address" Type="varchar" MaxLength="255" />
+    <Property Name="SourceBank" Type="varchar" MaxLength="255" />
+    <Property Name="DestinationBank" Type="varchar" MaxLength="255" />
+    <Property Name="IsSent" Type="int" Nullable="false" />
+    <Property Name="ApprovedDate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Created_At" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MeterNumber" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="payertype">
+    <Key>
+      <PropertyRef Name="PayerType_ID" />
+    </Key>
+    <Property Name="PayerType_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="paymentnotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionID" Type="longtext" />
+    <Property Name="RequestorID" Type="longtext" />
+    <Property Name="PayerPhoneNumber" Type="longtext" />
+    <Property Name="PayerName" Type="longtext" />
+    <Property Name="MerchantCode" Type="longtext" />
+    <Property Name="MerchantName" Type="longtext" />
+    <Property Name="MerchantPhoneNumber" Type="longtext" />
+    <Property Name="ReferenceCode" Type="longtext" />
+    <Property Name="Amount" Type="longtext" />
+    <Property Name="TransactionDate" Type="longtext" />
+    <Property Name="ResponseCode" Type="longtext" />
+    <Property Name="sent_status" Type="enum" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pos">
+    <Key>
+      <PropertyRef Name="POS_ID" />
+    </Key>
+    <Property Name="POS_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="POS_imei" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="POS_Name" Type="varchar" MaxLength="100" />
+    <Property Name="ActivationCode" Type="varchar" MaxLength="50" />
+    <Property Name="Activation" Type="bit" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="Station_ID" Type="varchar" MaxLength="38" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="pos_collection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="varchar" MaxLength="38" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="remittance_id" Type="varchar" MaxLength="38" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="POS_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="CollectionType" Type="int" Nullable="false" />
+    <Property Name="CollectionStatus" Type="int" Nullable="false" />
+    <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IGR_ID" Type="varchar" MaxLength="45" />
+    <Property Name="PosCollectionId" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.igr_collections.pos_test_najib' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="pos_test_najib">
+    <Key>
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="USER_ID" />
+      <PropertyRef Name="MDAStation_ID" />
+      <PropertyRef Name="SubHead_ID" />
+      <PropertyRef Name="POS_ID" />
+      <PropertyRef Name="CollectionType" />
+      <PropertyRef Name="CollectionStatus" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="varchar" MaxLength="38" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="remittance_id" Type="varchar" MaxLength="38" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="POS_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="CollectionType" Type="int" Nullable="false" />
+    <Property Name="CollectionStatus" Type="int" Nullable="false" />
+    <Property Name="Id" Type="uint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="powers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceBankCode" Type="longtext" />
+    <Property Name="SourceBankName" Type="longtext" />
+    <Property Name="InstitutionCode" Type="longtext" />
+    <Property Name="ChannelCode" Type="int" Nullable="false" />
+    <Property Name="Step" Type="int" Nullable="false" />
+    <Property Name="CustomerName" Type="longtext" />
+    <Property Name="CustomerAccountNumber" Type="longtext" />
+    <Property Name="BillerID" Type="longtext" />
+    <Property Name="BillerName" Type="longtext" />
+    <Property Name="ProductID" Type="longtext" />
+    <Property Name="ProductName" Type="longtext" />
+    <Property Name="Amount" Type="longtext" />
+    <Property Name="phoneNumber" Type="longtext" />
+    <Property Name="email" Type="longtext" />
+  </EntityType>
+  <EntityType Name="remittances">
+    <Key>
+      <PropertyRef Name="remittance_id" />
+    </Key>
+    <Property Name="remittance_id" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="remtted_date" Type="datetime" Precision="0" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="remittance_status" Type="int" Nullable="false" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="38" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="38" />
+    <Property Name="POS_ID" Type="varchar" MaxLength="38" />
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="50" />
+    <Property Name="IGR_ID" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="reportslisting">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MenuName" Type="varchar" MaxLength="50" />
+    <Property Name="ReportServerURL" Type="varchar" MaxLength="200" />
+    <Property Name="MenuUrl" Type="varchar" MaxLength="200" />
+    <Property Name="ParentID" Type="varchar" MaxLength="38" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="38" />
+    <Property Name="UpdatedDate" Type="datetime" Precision="0" />
+    <Property Name="IsDashboard" Type="bit" />
+    <Property Name="RCredentials" Type="varchar" MaxLength="38" />
+    <Property Name="IsAdmin" Type="bit" />
+  </EntityType>
+  <EntityType Name="reportsparameter">
+    <Key>
+      <PropertyRef Name="ReportParameterID" />
+    </Key>
+    <Property Name="ReportParameterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="ReportParameterName" Type="varchar" MaxLength="50" />
+    <Property Name="DefaultValue" Type="varchar" MaxLength="200" />
+    <Property Name="ShowParameter" Type="bit" />
+  </EntityType>
+  <EntityType Name="revenueheads">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="RevenueCode" Type="varchar" MaxLength="20" />
+    <Property Name="Biller_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="RevenueName" Type="varchar" MaxLength="200" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="Taxable" Type="enum" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+    <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+    <Property Name="AssmentItem" Type="enum" />
+    <Property Name="IsPOS" Type="enum" />
+  </EntityType>
+  <EntityType Name="richfields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="255" />
+    <Property Name="Firstname" Type="varchar" MaxLength="255" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="VehicleNumber" Type="varchar" MaxLength="255" />
+    <Property Name="VehicleType" Type="varchar" MaxLength="255" />
+    <Property Name="ProductType" Type="varchar" MaxLength="255" />
+    <Property Name="amount" Type="varchar" MaxLength="255" />
+    <Property Name="state" Type="varchar" MaxLength="255" />
+    <Property Name="DestinationBankCode" Type="varchar" MaxLength="255" />
+    <Property Name="SourceBankName" Type="varchar" MaxLength="255" />
+    <Property Name="TransactionDate" Type="varchar" MaxLength="255" />
+    <Property Name="create_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="rservers">
+    <Key>
+      <PropertyRef Name="Rserver_ID" />
+    </Key>
+    <Property Name="Rserver_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="RServerName" Type="varchar" MaxLength="45" />
+    <Property Name="RServerPwd" Type="varchar" MaxLength="45" />
+    <Property Name="RserverDomain" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="rssh_upload">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="45" />
+    <Property Name="Teller" Type="varchar" MaxLength="50" />
+    <Property Name="InvoiceDate" Type="varchar" MaxLength="20" />
+    <Property Name="Department" Type="varchar" MaxLength="100" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="16" Scale="2" />
+    <Property Name="Status" Type="varchar" MaxLength="10" />
+    <Property Name="UploadedBy" Type="varchar" MaxLength="100" />
+    <Property Name="DateUploaded" Type="datetime" Precision="0" />
+    <Property Name="UploadID" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="schoolclasses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IGR_Code" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ClassName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolFees" Type="decimal" Precision="20" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="schooldetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdmissionNo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Class" Type="varchar" MaxLength="255" />
+    <Property Name="Term" Type="varchar" MaxLength="255" />
+    <Property Name="Session" Type="varchar" MaxLength="255" />
+    <Property Name="D_B" Type="varchar" MaxLength="255" />
+    <Property Name="SchoolFees" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="Rebait" Type="varchar" MaxLength="200" />
+    <Property Name="remark" Type="varchar" MaxLength="255" />
+    <Property Name="BillerId" Type="varchar" MaxLength="200" />
+    <Property Name="Created_At" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="uploadId" Type="varchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="schoolnotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BillerId" Type="varchar" MaxLength="255" />
+    <Property Name="SourceBank" Type="varchar" MaxLength="255" />
+    <Property Name="DestinationBank" Type="varchar" MaxLength="255" />
+    <Property Name="PayerName" Type="varchar" MaxLength="255" />
+    <Property Name="PayerPhone" Type="varchar" MaxLength="255" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="StudentName" Type="varchar" MaxLength="255" />
+    <Property Name="AdmissionNo" Type="varchar" MaxLength="255" />
+    <Property Name="Class" Type="varchar" MaxLength="255" />
+    <Property Name="Term" Type="varchar" MaxLength="255" />
+    <Property Name="Session" Type="varchar" MaxLength="255" />
+    <Property Name="ApprovedDate" Type="datetime" Precision="0" />
+    <Property Name="Created_At" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="schoolsessions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IGR_Code" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SessionName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="schoolterms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IGR_Code" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TermId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Term" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="student_information">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IGR_Code" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AdmissionNo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ClassId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="TermId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SessionId" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="StudentType" Type="varchar" MaxLength="255" />
+    <Property Name="Rebate" Type="varchar" MaxLength="255" />
+    <Property Name="Remark" Type="varchar" MaxLength="255" />
+    <Property Name="Gender" Type="varchar" MaxLength="255" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+    <Property Name="uploadId" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="subheads">
+    <Key>
+      <PropertyRef Name="SubHead_ID" />
+    </Key>
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="SubHead_Code" Type="varchar" MaxLength="50" />
+    <Property Name="RevHead_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="SubHead_Name" Type="varchar" MaxLength="200" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Government" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Agency" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+    <Property Name="ModifiedDate" Type="datetime" Precision="0" />
+    <Property Name="Taxable" Type="bit" />
+    <Property Name="Recurrent" Type="bit" />
+  </EntityType>
+  <EntityType Name="taxpayer">
+    <Key>
+      <PropertyRef Name="TaxPayer_ID" />
+    </Key>
+    <Property Name="TaxPayer_ID" Type="int" Nullable="false" />
+    <Property Name="TIN" Type="varchar" MaxLength="45" />
+    <Property Name="Surname" Type="varchar" MaxLength="45" />
+    <Property Name="OtherNames" Type="varchar" MaxLength="100" />
+    <Property Name="BVN" Type="varchar" MaxLength="45" />
+    <Property Name="IGR_ID" Type="varchar" MaxLength="38" />
+    <Property Name="LocalGovernment" Type="varchar" MaxLength="38" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="PayerType" Type="int" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="200" />
+    <Property Name="Telephone" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="tins">
+    <Key>
+      <PropertyRef Name="tin_id" />
+    </Key>
+    <Property Name="tin_id" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="address" Type="text" />
+    <Property Name="IGR_Code" Type="varchar" MaxLength="38" />
+    <Property Name="tin_no" Type="varchar" MaxLength="200" />
+    <Property Name="temporary_tin" Type="varchar" MaxLength="200" />
+    <Property Name="phone" Type="varchar" MaxLength="200" />
+    <Property Name="nationality" Type="varchar" MaxLength="100" />
+    <Property Name="identification" Type="varchar" MaxLength="200" />
+    <Property Name="bussiness_type" Type="varchar" MaxLength="200" />
+    <Property Name="bussinesss_name" Type="varchar" MaxLength="200" />
+    <Property Name="bussiness_address" Type="varchar" MaxLength="200" />
+    <Property Name="bussiness_no" Type="varchar" MaxLength="200" />
+    <Property Name="reg_bus_name" Type="varchar" MaxLength="200" />
+    <Property Name="commencement_date" Type="datetime" Precision="0" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="bvn" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="valueswitchpayments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionID" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SourceBank" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="DestinationBank" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="BillerID" Type="varchar" MaxLength="255" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="BillerName" Type="varchar" MaxLength="255" />
+    <Property Name="CollectRef" Type="varchar" MaxLength="255" />
+    <Property Name="Narration" Type="varchar" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="255" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="IsSent" Type="int" Nullable="false" />
+    <Property Name="ApprovedDate" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Created_At" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CollectionTitle" Type="varchar" MaxLength="255" />
+    <Property Name="CollectionType" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="web_collection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="COLLECTION_ID" Type="varchar" MaxLength="38" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="USER_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="remittance_id" Type="varchar" MaxLength="38" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="SubHead_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="POS_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="200" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="CollectionType" Type="int" Nullable="false" />
+    <Property Name="CollectionStatus" Type="int" Nullable="false" />
+    <Property Name="Id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.igr_collections.igr_users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="igr_users">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="IGRCode" />
+      <PropertyRef Name="MDACode" />
+      <PropertyRef Name="CollectionLimit" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="256" />
+    <Property Name="DateCreated" Type="datetime" Precision="0" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+    <Property Name="PhoneNumber" Type="longtext" />
+    <Property Name="PIN" Type="longtext" />
+    <Property Name="Role" Type="varchar" MaxLength="256" />
+    <Property Name="Priviledges" Type="varchar" MaxLength="100" />
+    <Property Name="RoleId" Type="varchar" MaxLength="128" />
+    <Property Name="IGRCode" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="IGR_Name" Type="varchar" MaxLength="200" />
+    <Property Name="MDACode" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDA_Name" Type="varchar" MaxLength="100" />
+    <Property Name="MDAStation_Name" Type="varchar" MaxLength="100" />
+    <Property Name="CollectionLimit" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.igr_collections.vw_collections' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_collections">
+    <Key>
+      <PropertyRef Name="pos_ID" />
+      <PropertyRef Name="collectionType" />
+      <PropertyRef Name="CollectionStatus" />
+    </Key>
+    <Property Name="Collection_ID" Type="varchar" MaxLength="255" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="subhead_ID" Type="varchar" MaxLength="38" />
+    <Property Name="MDAStation_ID" Type="varchar" MaxLength="38" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="MDAStation_Name" Type="varchar" MaxLength="100" />
+    <Property Name="pos_ID" Type="varchar" MaxLength="38" Nullable="false" />
+    <Property Name="MDA_ID" Type="varchar" MaxLength="38" />
+    <Property Name="collectionType" Type="bigint" Nullable="false" />
+    <Property Name="CollectionStatus" Type="bigint" Nullable="false" />
+    <Property Name="User_ID" Type="varchar" MaxLength="256" />
+    <Property Name="SubHead_Name" Type="varchar" MaxLength="250" />
+    <Property Name="SubHead_Code" Type="varchar" MaxLength="250" />
+    <Property Name="RevenueCode" Type="varchar" MaxLength="250" />
+    <Property Name="RevenueName" Type="varchar" MaxLength="250" />
+    <Property Name="Biller_ID" Type="varchar" MaxLength="38" />
+    <Property Name="RevenueHead_ID" Type="varchar" MaxLength="255" />
+    <Property Name="Remittance_id" Type="varchar" MaxLength="38" />
+    <Property Name="MDA_Name" Type="varchar" MaxLength="100" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.igr_collections.vw_remittances' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_remittances">
+    <Key>
+      <PropertyRef Name="channel" />
+    </Key>
+    <Property Name="Remittance_id" Type="longtext" />
+    <Property Name="Amount" Type="decimal" Precision="40" Scale="2" />
+    <Property Name="MDAStation_ID" Type="longtext" />
+    <Property Name="create_at" Type="datetime" Precision="0" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="MDAStation_Name" Type="longtext" />
+    <Property Name="pos_ID" Type="longtext" />
+    <Property Name="MDA_ID" Type="longtext" />
+    <Property Name="MDA_Name" Type="longtext" />
+    <Property Name="Biller_ID" Type="mediumtext" />
+    <Property Name="User_ID" Type="longtext" />
+    <Property Name="remittance_status" Type="mediumtext" />
+    <Property Name="UserName" Type="longtext" />
+    <Property Name="channel" Type="varchar" MaxLength="9" Nullable="false" />
+  </EntityType>
+  <Association Name="agents_ibfk_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="agents" Type="Self.agents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="agents">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="beneficiaries_bnk_1">
+    <End Role="bank" Type="Self.bank" Multiplicity="0..1" />
+    <End Role="beneficiaries" Type="Self.beneficiaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="beneficiaries">
+        <PropertyRef Name="BankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="beneficiaries_ibfk_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="beneficiaries" Type="Self.beneficiaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="beneficiaries">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssetAssessment">
+    <End Role="asset" Type="Self.asset" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="asset">
+        <PropertyRef Name="Asset_ID" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="Asset" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CompanyAsset">
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxpayer">
+        <PropertyRef Name="TaxPayer_ID" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="CompanyName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DashReport">
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="0..1" />
+    <End Role="igr" Type="Self.igr" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reportslisting">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="igr">
+        <PropertyRef Name="Dashboard" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGR">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="taxpayer">
+        <PropertyRef Name="IGR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IGRAsset">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="IGR_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lga">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="taxpayer">
+        <PropertyRef Name="LocalGovernment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LGAAssessment">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="LGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LGAAsset">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="LGA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payertype">
+    <End Role="payertype" Type="Self.payertype" Multiplicity="0..1" />
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payertype">
+        <PropertyRef Name="PayerType_ID" />
+      </Principal>
+      <Dependent Role="taxpayer">
+        <PropertyRef Name="PayerType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_reports_key">
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="1" />
+    <End Role="reportsparameter" Type="Self.reportsparameter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reportslisting">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="reportsparameter">
+        <PropertyRef Name="ReportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_roles">
+    <End Role="aspnetroles" Type="Self.aspnetroles" Multiplicity="1" />
+    <End Role="aspnetuserroles" Type="Self.aspnetuserroles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnetroles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnetuserroles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateAssessment">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_statMDA_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="1" />
+    <End Role="mda_stations" Type="Self.mda_stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="mda_stations">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaxpayerAssessment">
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="0..1" />
+    <End Role="assessmenttable" Type="Self.assessmenttable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxpayer">
+        <PropertyRef Name="TaxPayer_ID" />
+      </Principal>
+      <Dependent Role="assessmenttable">
+        <PropertyRef Name="TaxPayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TaxpayerAsset">
+    <End Role="taxpayer" Type="Self.taxpayer" Multiplicity="0..1" />
+    <End Role="asset" Type="Self.asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="taxpayer">
+        <PropertyRef Name="TaxPayer_ID" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="TaxPayer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_users">
+    <End Role="aspnetusers" Type="Self.aspnetusers" Multiplicity="1" />
+    <End Role="aspnetuserroles" Type="Self.aspnetuserroles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnetusers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="aspnetuserroles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="IGRkey">
+    <End Role="igr" Type="Self.igr" Multiplicity="0..1" />
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="reportslisting">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mda_catfk_1">
+    <End Role="mda_category" Type="Self.mda_category" Multiplicity="1" />
+    <End Role="mda" Type="Self.mda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda_category">
+        <PropertyRef Name="Category_ID" />
+      </Principal>
+      <Dependent Role="mda">
+        <PropertyRef Name="MDA_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mda_ibfk_1">
+    <End Role="igr" Type="Self.igr" Multiplicity="1" />
+    <End Role="mda" Type="Self.mda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="mda">
+        <PropertyRef Name="IGR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pos_ibfk_1">
+    <End Role="mda" Type="Self.mda" Multiplicity="0..1" />
+    <End Role="pos" Type="Self.pos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="pos">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pos_ibfk_2">
+    <End Role="mda_stations" Type="Self.mda_stations" Multiplicity="0..1" />
+    <End Role="pos" Type="Self.pos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda_stations">
+        <PropertyRef Name="MDAStation_ID" />
+      </Principal>
+      <Dependent Role="pos">
+        <PropertyRef Name="Station_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RCredentialKey">
+    <End Role="rservers" Type="Self.rservers" Multiplicity="0..1" />
+    <End Role="reportslisting" Type="Self.reportslisting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rservers">
+        <PropertyRef Name="Rserver_ID" />
+      </Principal>
+      <Dependent Role="reportslisting">
+        <PropertyRef Name="RCredentials" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="revenueheads_ibfk_1">
+    <End Role="igr" Type="Self.igr" Multiplicity="1" />
+    <End Role="revenueheads" Type="Self.revenueheads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="igr">
+        <PropertyRef Name="IGR_Code" />
+      </Principal>
+      <Dependent Role="revenueheads">
+        <PropertyRef Name="Biller_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="revenueheads_ibfk_2">
+    <End Role="mda" Type="Self.mda" Multiplicity="1" />
+    <End Role="revenueheads" Type="Self.revenueheads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="mda">
+        <PropertyRef Name="MDA_ID" />
+      </Principal>
+      <Dependent Role="revenueheads">
+        <PropertyRef Name="MDA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="subheads_ibfk_1">
+    <End Role="revenueheads" Type="Self.revenueheads" Multiplicity="1" />
+    <End Role="subheads" Type="Self.subheads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="revenueheads">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="subheads">
+        <PropertyRef Name="RevHead_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="igr_collectionsModelStoreContainer">
+    <EntitySet Name="abuthpaymentitems" EntityType="Self.abuthpaymentitems" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="abuthpayments" EntityType="Self.abuthpayments" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="agents" EntityType="Self.agents" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="aspnetroles" EntityType="Self.aspnetroles" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="aspnetuserclaims" EntityType="Self.aspnetuserclaims" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="aspnetusers" EntityType="Self.aspnetusers" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="assessmenttable" EntityType="Self.assessmenttable" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="asset" EntityType="Self.asset" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="bank" EntityType="Self.bank" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="beneficiaries" EntityType="Self.beneficiaries" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="buypowernotifications" EntityType="Self.buypowernotifications" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="colortabs" EntityType="Self.colortabs" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="conlogs" EntityType="Self.conlogs" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="enumerations" EntityType="Self.enumerations" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="fundsweeps" EntityType="Self.fundsweeps" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="igr" EntityType="Self.igr" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="igr_categories" EntityType="Self.igr_categories" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="invoices" EntityType="Self.invoices" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="isnotifications" EntityType="Self.isnotifications" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="jambpayments" EntityType="Self.jambpayments" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="jigawalog" EntityType="Self.jigawalog" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="kedcopayments" EntityType="Self.kedcopayments" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="kingscares" EntityType="Self.kingscares" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="mda" EntityType="Self.mda" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="mda_category" EntityType="Self.mda_category" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="mda_stations" EntityType="Self.mda_stations" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="notification" EntityType="Self.notification" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="oneclickpayments" EntityType="Self.oneclickpayments" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="payertype" EntityType="Self.payertype" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="paymentnotifications" EntityType="Self.paymentnotifications" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="pos" EntityType="Self.pos" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="pos_collection" EntityType="Self.pos_collection" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="powers" EntityType="Self.powers" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="remittances" EntityType="Self.remittances" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="reportslisting" EntityType="Self.reportslisting" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="reportsparameter" EntityType="Self.reportsparameter" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="revenueheads" EntityType="Self.revenueheads" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="richfields" EntityType="Self.richfields" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="rservers" EntityType="Self.rservers" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="rssh_upload" EntityType="Self.rssh_upload" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="schoolclasses" EntityType="Self.schoolclasses" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="schooldetails" EntityType="Self.schooldetails" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="schoolnotifications" EntityType="Self.schoolnotifications" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="schoolsessions" EntityType="Self.schoolsessions" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="schoolterms" EntityType="Self.schoolterms" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="student_information" EntityType="Self.student_information" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="subheads" EntityType="Self.subheads" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="taxpayer" EntityType="Self.taxpayer" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="tins" EntityType="Self.tins" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="valueswitchpayments" EntityType="Self.valueswitchpayments" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="web_collection" EntityType="Self.web_collection" Schema="igr_collections" store:Type="Tables" />
+    <EntitySet Name="aspnetuserlogins" EntityType="Self.aspnetuserlogins" store:Type="Tables" store:Schema="igr_collections">
+      <DefiningQuery>SELECT
+`aspnetuserlogins`.`LoginProvider`, 
+`aspnetuserlogins`.`ProviderKey`, 
+`aspnetuserlogins`.`UserId`
+FROM `aspnetuserlogins` AS `aspnetuserlogins`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="aspnetuserroles" EntityType="Self.aspnetuserroles" store:Type="Tables" store:Schema="igr_collections">
+      <DefiningQuery>SELECT
+`aspnetuserroles`.`UserId`, 
+`aspnetuserroles`.`RoleId`
+FROM `aspnetuserroles` AS `aspnetuserroles`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="pos_test_najib" EntityType="Self.pos_test_najib" store:Type="Tables" store:Schema="igr_collections">
+      <DefiningQuery>SELECT
+`pos_test_najib`.`COLLECTION_ID`, 
+`pos_test_najib`.`Amount`, 
+`pos_test_najib`.`Phone`, 
+`pos_test_najib`.`Name`, 
+`pos_test_najib`.`USER_ID`, 
+`pos_test_najib`.`remittance_id`, 
+`pos_test_najib`.`MDA_ID`, 
+`pos_test_najib`.`MDAStation_ID`, 
+`pos_test_najib`.`SubHead_ID`, 
+`pos_test_najib`.`POS_ID`, 
+`pos_test_najib`.`Email`, 
+`pos_test_najib`.`create_at`, 
+`pos_test_najib`.`updated_at`, 
+`pos_test_najib`.`CollectionType`, 
+`pos_test_najib`.`CollectionStatus`, 
+`pos_test_najib`.`Id`
+FROM `pos_test_najib` AS `pos_test_najib`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="igr_users" EntityType="Self.igr_users" store:Type="Views" store:Schema="igr_collections">
+      <DefiningQuery>SELECT
+`igr_users`.`id`, 
+`igr_users`.`Username`, 
+`igr_users`.`Email`, 
+`igr_users`.`DateCreated`, 
+`igr_users`.`CreatedBy`, 
+`igr_users`.`PhoneNumber`, 
+`igr_users`.`PIN`, 
+`igr_users`.`Role`, 
+`igr_users`.`Priviledges`, 
+`igr_users`.`RoleId`, 
+`igr_users`.`IGRCode`, 
+`igr_users`.`IGR_Name`, 
+`igr_users`.`MDACode`, 
+`igr_users`.`MDA_Name`, 
+`igr_users`.`MDAStation_Name`, 
+`igr_users`.`CollectionLimit`
+FROM `igr_users` AS `igr_users`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_collections" EntityType="Self.vw_collections" store:Type="Views" store:Schema="igr_collections">
+      <DefiningQuery>SELECT
+`vw_collections`.`Collection_ID`, 
+`vw_collections`.`Amount`, 
+`vw_collections`.`subhead_ID`, 
+`vw_collections`.`MDAStation_ID`, 
+`vw_collections`.`create_at`, 
+`vw_collections`.`updated_at`, 
+`vw_collections`.`MDAStation_Name`, 
+`vw_collections`.`pos_ID`, 
+`vw_collections`.`MDA_ID`, 
+`vw_collections`.`collectionType`, 
+`vw_collections`.`CollectionStatus`, 
+`vw_collections`.`User_ID`, 
+`vw_collections`.`SubHead_Name`, 
+`vw_collections`.`SubHead_Code`, 
+`vw_collections`.`RevenueCode`, 
+`vw_collections`.`RevenueName`, 
+`vw_collections`.`Biller_ID`, 
+`vw_collections`.`RevenueHead_ID`, 
+`vw_collections`.`Remittance_id`, 
+`vw_collections`.`MDA_Name`, 
+`vw_collections`.`Name`
+FROM `vw_collections` AS `vw_collections`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_remittances" EntityType="Self.vw_remittances" store:Type="Views" store:Schema="igr_collections">
+      <DefiningQuery>SELECT
+`vw_remittances`.`Remittance_id`, 
+`vw_remittances`.`Amount`, 
+`vw_remittances`.`MDAStation_ID`, 
+`vw_remittances`.`create_at`, 
+`vw_remittances`.`updated_at`, 
+`vw_remittances`.`MDAStation_Name`, 
+`vw_remittances`.`pos_ID`, 
+`vw_remittances`.`MDA_ID`, 
+`vw_remittances`.`MDA_Name`, 
+`vw_remittances`.`Biller_ID`, 
+`vw_remittances`.`User_ID`, 
+`vw_remittances`.`remittance_status`, 
+`vw_remittances`.`UserName`, 
+`vw_remittances`.`channel`
+FROM `vw_remittances` AS `vw_remittances`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="agents_ibfk_1" Association="Self.agents_ibfk_1">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="agents" EntitySet="agents" />
+    </AssociationSet>
+    <AssociationSet Name="beneficiaries_bnk_1" Association="Self.beneficiaries_bnk_1">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="beneficiaries" EntitySet="beneficiaries" />
+    </AssociationSet>
+    <AssociationSet Name="beneficiaries_ibfk_1" Association="Self.beneficiaries_ibfk_1">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="beneficiaries" EntitySet="beneficiaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssetAssessment" Association="Self.FK_AssetAssessment">
+      <End Role="asset" EntitySet="asset" />
+      <End Role="assessmenttable" EntitySet="assessmenttable" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CompanyAsset" Association="Self.fk_CompanyAsset">
+      <End Role="taxpayer" EntitySet="taxpayer" />
+      <End Role="asset" EntitySet="asset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DashReport" Association="Self.FK_DashReport">
+      <End Role="reportslisting" EntitySet="reportslisting" />
+      <End Role="igr" EntitySet="igr" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGR" Association="Self.FK_IGR">
+      <End Role="igr" EntitySet="igr" />
+      <End Role="taxpayer" EntitySet="taxpayer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IGRAsset" Association="Self.FK_IGRAsset">
+      <End Role="igr" EntitySet="igr" />
+      <End Role="asset" EntitySet="asset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lga" Association="Self.FK_lga">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="taxpayer" EntitySet="taxpayer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LGAAssessment" Association="Self.FK_LGAAssessment">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="assessmenttable" EntitySet="assessmenttable" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LGAAsset" Association="Self.fk_LGAAsset">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="asset" EntitySet="asset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payertype" Association="Self.FK_Payertype">
+      <End Role="payertype" EntitySet="payertype" />
+      <End Role="taxpayer" EntitySet="taxpayer" />
+    </AssociationSet>
+    <AssociationSet Name="fk_reports_key" Association="Self.fk_reports_key">
+      <End Role="reportslisting" EntitySet="reportslisting" />
+      <End Role="reportsparameter" EntitySet="reportsparameter" />
+    </AssociationSet>
+    <AssociationSet Name="fk_roles" Association="Self.fk_roles">
+      <End Role="aspnetroles" EntitySet="aspnetroles" />
+      <End Role="aspnetuserroles" EntitySet="aspnetuserroles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateAssessment" Association="Self.FK_StateAssessment">
+      <End Role="igr" EntitySet="igr" />
+      <End Role="assessmenttable" EntitySet="assessmenttable" />
+    </AssociationSet>
+    <AssociationSet Name="fk_statMDA_1" Association="Self.fk_statMDA_1">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="mda_stations" EntitySet="mda_stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaxpayerAssessment" Association="Self.FK_TaxpayerAssessment">
+      <End Role="taxpayer" EntitySet="taxpayer" />
+      <End Role="assessmenttable" EntitySet="assessmenttable" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TaxpayerAsset" Association="Self.fk_TaxpayerAsset">
+      <End Role="taxpayer" EntitySet="taxpayer" />
+      <End Role="asset" EntitySet="asset" />
+    </AssociationSet>
+    <AssociationSet Name="fk_users" Association="Self.fk_users">
+      <End Role="aspnetusers" EntitySet="aspnetusers" />
+      <End Role="aspnetuserroles" EntitySet="aspnetuserroles" />
+    </AssociationSet>
+    <AssociationSet Name="IGRkey" Association="Self.IGRkey">
+      <End Role="igr" EntitySet="igr" />
+      <End Role="reportslisting" EntitySet="reportslisting" />
+    </AssociationSet>
+    <AssociationSet Name="mda_catfk_1" Association="Self.mda_catfk_1">
+      <End Role="mda_category" EntitySet="mda_category" />
+      <End Role="mda" EntitySet="mda" />
+    </AssociationSet>
+    <AssociationSet Name="mda_ibfk_1" Association="Self.mda_ibfk_1">
+      <End Role="igr" EntitySet="igr" />
+      <End Role="mda" EntitySet="mda" />
+    </AssociationSet>
+    <AssociationSet Name="pos_ibfk_1" Association="Self.pos_ibfk_1">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="pos" EntitySet="pos" />
+    </AssociationSet>
+    <AssociationSet Name="pos_ibfk_2" Association="Self.pos_ibfk_2">
+      <End Role="mda_stations" EntitySet="mda_stations" />
+      <End Role="pos" EntitySet="pos" />
+    </AssociationSet>
+    <AssociationSet Name="RCredentialKey" Association="Self.RCredentialKey">
+      <End Role="rservers" EntitySet="rservers" />
+      <End Role="reportslisting" EntitySet="reportslisting" />
+    </AssociationSet>
+    <AssociationSet Name="revenueheads_ibfk_1" Association="Self.revenueheads_ibfk_1">
+      <End Role="igr" EntitySet="igr" />
+      <End Role="revenueheads" EntitySet="revenueheads" />
+    </AssociationSet>
+    <AssociationSet Name="revenueheads_ibfk_2" Association="Self.revenueheads_ibfk_2">
+      <End Role="mda" EntitySet="mda" />
+      <End Role="revenueheads" EntitySet="revenueheads" />
+    </AssociationSet>
+    <AssociationSet Name="subheads_ibfk_1" Association="Self.subheads_ibfk_1">
+      <End Role="revenueheads" EntitySet="revenueheads" />
+      <End Role="subheads" EntitySet="subheads" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

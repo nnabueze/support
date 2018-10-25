@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Support.Models.schoolnotification>
+@{
+    ViewBag.Title = "School payment";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div id="page-content">
+    <!-- Table Styles Header -->
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="header-section">
+                    <h1>School Payments</h1>
+                </div>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <div class="header-section">
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li>Payments</li>
+                        <li>List Payments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Table Styles Header -->
+    <!-- Datatables Block -->
+    <!-- Datatables is initialized in js/pages/uiTables.js -->
+    @if (ViewBag.UpdateInformation != null)
+    {
+        <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            @ViewBag.UpdateInformation
+        </div>
+    }
+
+    @if (ViewBag.error != null)
+    {
+        <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            @ViewBag.error
+        </div>
+    }
+    <div class="block full">
+        <div class="block-title">
+            <h2>List Payments</h2>
+        </div>
+        <div class="table-responsive">
+            <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
+                <thead>
+                    <tr>
+                        <th class="text-center" >SessionID</th>
+                        <th class="text-center" >Bank Name</th>
+                        <th class="text-center">Admission No.</th>
+                        <th>Class</th>
+                        <th>Term</th>
+                        <th>Session</th>
+                        <th style="width: 120px;">Amount</th>
+                        <th class="text-center" style="width: 75px;">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-center">@item.SessionId</td>
+                            <td class="text-center">@item.SourceBank</td>
+                            <td class="text-center">@item.AdmissionNo</td>
+                            <td>@item.Class</td>
+                            <td>@item.Term</td>
+                            <td>@item.Session</td>
+                            <td>@item.Amount</td>
+                            <td>@item.Created_At</td>
+                            @*<td class="text-center">
+                                    <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                                </td>*@
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- END Datatables Block -->
+</div>
+<!-- END Page Content -->
+</div>
+<!-- END Main Container -->
+
+@section Script {
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="~/scripts/admin/js/pages/uiTables.js"></script>
+    <script>$(function () { UiTables.init(); });</script>
+}
+

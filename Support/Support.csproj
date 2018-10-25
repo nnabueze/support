@@ -908,6 +908,7 @@
     <Content Include="Views\Home\PaymentItem.cshtml" />
     <Content Include="Views\Home\invoice.cshtml" />
     <Content Include="Views\Home\viewInvoice.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

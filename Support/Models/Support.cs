@@ -38,7 +38,7 @@ namespace Support.Models
         public virtual DbSet<mda> mdas { get; set; }
         public virtual DbSet<mda_category> mda_category { get; set; }
         public virtual DbSet<mda_stations> mda_stations { get; set; }
-        public virtual DbSet<notification> notifications { get; set; }
+        public virtual DbSet<notification> notification { get; set; }
         public virtual DbSet<oneclickpayment> oneclickpayments { get; set; }
         public virtual DbSet<payertype> payertypes { get; set; }
         public virtual DbSet<paymentnotification> paymentnotifications { get; set; }

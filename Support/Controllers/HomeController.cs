@@ -35,13 +35,27 @@ namespace Support.Controllers
                 return RedirectToAction("Index", "Default");
             }
 
-            string tinNo = Session["tinNo"].ToString();
-            string tinParam = Session["temporary_tin"].ToString();
+            string tinNo = null;
+            string tinParam = null;
+
+
+            
             string biller = Session["igr"].ToString();
 
             try
             {
-                tinData = db.notifications.Where(o => o.tin ==  tinNo || o.tin == tinParam && o.IGR_Code == biller).OrderByDescending(o=>o.create_at).ToList();
+                if (Session["temporary_tin"] == null)
+                {
+                    tinNo = Session["tinNo"].ToString();
+                    tinData = db.notification.Where(o => o.tin == tinNo && o.IGR_Code == biller).OrderByDescending(o => o.create_at).ToList();
+
+                }
+                else
+                {
+                    tinParam = Session["temporary_tin"].ToString();
+                    tinData = db.notification.Where(o => o.tin == tinParam && o.IGR_Code == biller).OrderByDescending(o => o.create_at).ToList();
+                }
+                
 
             }
             catch (Exception ex)

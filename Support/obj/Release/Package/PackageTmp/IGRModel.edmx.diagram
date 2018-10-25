@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3cfcfb768c6e4cf88328b867d507b448" Name="Diagram1">
+        <EntityTypeShape EntityType="igr_collectionsModel.abuthpaymentitem" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.abuthpayment" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.agent" Width="1.5" PointX="12.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.aspnetrole" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.aspnetuserclaim" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.aspnetuser" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.assessmenttable" Width="1.5" PointX="7.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.asset" Width="1.5" PointX="10.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.bank" Width="1.5" PointX="13.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.beneficiary" Width="1.5" PointX="15.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.buypowernotification" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.colortab" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.conlog" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.enumeration" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.fundsweep" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.igr" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.igr_categories" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.invoice" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.isnotification" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.jambpayment" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.jigawalog" Width="1.5" PointX="7.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.kedcopayment" Width="1.5" PointX="14.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.kingscare" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.mda" Width="1.5" PointX="10.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.mda_category" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.mda_stations" Width="1.5" PointX="12.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.notification" Width="1.5" PointX="16.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.oneclickpayment" Width="1.5" PointX="18.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.payertype" Width="1.5" PointX="10.5" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.paymentnotification" Width="1.5" PointX="20.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.pos" Width="1.5" PointX="15" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.pos_collection" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.power" Width="1.5" PointX="21.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.remittance" Width="1.5" PointX="0.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.reportslisting" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.reportsparameter" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.revenuehead" Width="1.5" PointX="17.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.richfield" Width="1.5" PointX="22.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.rserver" Width="1.5" PointX="0.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.rssh_upload" Width="1.5" PointX="22.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.schoolclass" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.schooldetail" Width="1.5" PointX="22.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.schoolnotification" Width="1.5" PointX="23.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.schoolsession" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.schoolterm" Width="1.5" PointX="19.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.student_information" Width="1.5" PointX="23.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.subhead" Width="1.5" PointX="20" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.taxpayer" Width="1.5" PointX="12.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.tin" Width="1.5" PointX="9.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.valueswitchpayment" Width="1.5" PointX="11.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.web_collection" Width="1.5" PointX="2.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.aspnetuserlogin" Width="1.5" PointX="14.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.pos_test_najib" Width="1.5" PointX="4.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.igr_users" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.vw_collections" Width="1.5" PointX="24.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="igr_collectionsModel.vw_remittances" Width="1.5" PointX="24.75" PointY="21.75" IsExpanded="true" />
+        <AssociationConnector Association="igr_collectionsModel.agents_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_AssetAssessment" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_LGAAssessment" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_StateAssessment" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_TaxpayerAssessment" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.fk_CompanyAsset" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_IGRAsset" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.fk_LGAAsset" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.fk_TaxpayerAsset" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.beneficiaries_bnk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.beneficiaries_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_DashReport" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_IGR" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.IGRkey" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.mda_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.revenueheads_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_lga" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.fk_statMDA_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.mda_catfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.pos_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.revenueheads_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.pos_ibfk_2" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.FK_Payertype" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.fk_reports_key" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.RCredentialKey" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.subheads_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="igr_collectionsModel.aspnetuserroles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

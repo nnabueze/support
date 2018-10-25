@@ -1,0 +1,151 @@
+﻿@model Support.Models.TicketViewModel
+@{
+    ViewBag.Title = "School Ticket";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<!-- Page content -->
+<div id="page-content">
+    <!-- Tickets Header -->
+    <div class="content-header">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="header-section">
+                    <h1>School Tickets</h1>
+                </div>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <div class="header-section">
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li>Extra Pages</li>
+                        <li><a href="">Tickets</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END Tickets Header -->
+    <!-- Tickets Content -->
+    <div class="row">
+
+        <div class="col-md-8 col-lg-9">
+            <!-- Tickets Block -->
+            <div class="block">
+
+                <!-- Tabs Content -->
+                <div class="tab-content">
+                    @if (ViewBag.UpdateInformation != null)
+                    {
+                        <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.UpdateInformation
+                        </div>
+                    }
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.Error
+                        </div>
+                    }
+                    <!-- Ticket View -->
+                    <div class="tab-pane active" id="tickets-single">
+                        @if (Model.ticket.Ticket_Status == 1)
+                        {
+                            <div class="alert alert-success animation-fadeInQuick">Current Status: <strong>OPEN</strong></div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning animation-fadeInQuick">Current Status: <strong>Close</strong></div>
+                        }
+                        @*<a href="javascript:void(0)" class="btn btn-xs btn-default pull-right"><i class="fa fa-check"></i> Flag as Closed</a>
+                            <a href="javascript:void(0)" class="btn btn-xs btn-danger"><i class="fa fa-flag"></i> Flag as Urgent</a>*@
+                        <a href="/school/tickets" class="btn btn-xs btn-warning"><i class="fa fa-flag"></i> Back To Tickets</a>
+                        <hr>
+                        <ul class="media-list media-feed push">
+                            <!-- Ticket -->
+                            <li class="media">
+                                <a href="page_ready_user_profile.html" class="pull-left">
+                                    <img src="~/Content/admin/img/placeholders/avatars/avatar9.jpg" alt="Avatar" class="img-circle">
+                                </a>
+                                <div class="media-body">
+                                    <p class="push-bit">
+                                        <span class="text-muted pull-right">
+                                            <small>@Model.ticket.Created_at</small>
+                                        </span>
+                                        <small><a href="#">@Session["name"]</a></small>
+                                    </p>
+                                    <h4><strong>@Model.ticket.Title</strong></h4>
+                                    <p>@Model.ticket.Message</p>
+
+                                    @*<p>
+                                            <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-support"></i> Ask for Assistance</a>
+                                            <a href="javascript:void(0)" class="btn btn-xs btn-default"><i class="fa fa-user"></i> Assign this ticket</a>
+                                        </p>*@
+                                </div>
+                            </li>
+                            <!-- END Ticket -->
+                            <!-- Replies -->
+                            @foreach (var item in Model.ticket.Comments)
+                            {
+                                <li class="media">
+                                    <a href="page_ready_user_profile.html" class="pull-left">
+                                        <img src="~/Content/admin/img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
+                                    </a>
+                                    <div class="media-body">
+                                        <p class="push-bit">
+                                            <span class="text-muted pull-right">
+                                                <small>@item.Created_at</small>
+                                            </span>
+                                            <small><a href="page_ready_user_profile.html">@item.CommenterName</a></small>
+                                        </p>
+                                        <p>@item.CommentMessage</p>
+                                    </div>
+                                </li>
+                            }
+
+                            <li class="media">
+                                <a href="page_ready_user_profile.html" class="pull-left">
+                                    <img src="~/Content/admin/img/placeholders/avatars/avatar.jpg" alt="Avatar" class="img-circle">
+                                </a>
+                                <div class="media-body">
+
+
+                                    @if (Model.ticket.Ticket_Status == 1)
+                                    {
+                                        <form action="/School/CommentReply" method="post">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" value="@Model.ticket.TicketId" name="ticketId" />
+                                            <textarea id="tickets-reply" name="commentreply" class="form-control" rows="5" placeholder="Enter your reply"></textarea>
+                                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-reply"></i> Post Reply</button>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        <p>This Ticket has been closed by Admin</p>
+                                    }
+                                </div>
+                            </li>
+                            <!-- END Replies -->
+                        </ul>
+                    </div>
+                    <!-- END Ticket View -->
+                </div>
+                <!-- END Tabs Content -->
+            </div>
+            <!-- END Tickets Block -->
+        </div>
+    </div>
+    <!-- END Tickets Content -->
+</div>
+<!-- END Page Content -->
+                </div>
+<!-- END Main Container -->
+
+@section Script {
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="js/pages/readyTickets.js"></script>
+    <script>$(function () { ReadyTickets.init(); });</script>
+}
+

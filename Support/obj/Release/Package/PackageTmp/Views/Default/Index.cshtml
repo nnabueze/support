@@ -1,0 +1,285 @@
+﻿@model IEnumerable<Support.Models.igr>
+@{
+    ViewBag.Title = "IGR";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="login-container">
+    <!-- Login Header -->
+    <h1 class="h2 text-light text-center push-top-bottom animation-pullDown">
+        <img src="~/Content/img/eCollect.png" height="50" width="150" opacity:.5/>
+    </h1>
+    <!-- END Login Header -->
+    <!-- Login Block -->
+    <div class="block animation-fadeInQuick" style="opacity: 0.95;">
+        <!-- Login Title -->
+        <div class="block-title">
+            <h2>Welcome...</h2>
+        </div>
+
+
+
+        <!-- Block Tabs -->
+        <div class="block full">
+            <!-- Block Tabs Title -->
+            <div class="block-title">
+                @*<div class="block-options pull-right">
+                    <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+                </div>*@
+                <ul class="nav nav-tabs" data-toggle="tabs">
+                    <li class="active"><a href="#block-tabs-home">IGR Login</a></li>
+                    <li><a href="#block-tabs-profile">School Login</a></li>
+                </ul>
+            </div>
+            <!-- END Block Tabs Title -->
+            <!-- Tabs Content -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="block-tabs-home">
+
+
+                    @if (ViewBag.UpdateInformation != null)
+                    {
+                        <div class="alert alert-success alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.UpdateInformation
+                        </div>
+                    }
+
+                    @if (ViewBag.error != null)
+                    {
+                        <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            @ViewBag.error
+                        </div>
+                    }
+
+
+
+                    <!-- END Login Title -->
+                    <!-- Login Form -->
+                    <form id="form1" action="/IGR/login" method="post" class="form-horizontal push-top" onsubmit="CheckFileName();">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @*<label for="login-password" class="col-xs-12">Password</label>
+                            <div class="col-xs-12">
+                                <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                            </div>*@
+                        </div>
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Tin No.</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="login-email" name="tin" class="form-control" placeholder="Your Tin....">
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label for="login-password" class="col-xs-12">Password</label>
+                            <div class="col-xs-12">
+                                <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                            </div>
+                        </div>*@
+                        <div class="form-group form-actions">
+                            <div class="col-xs-8">
+                                @*<button type="submit" class="btn btn-effect-ripple btn-sm btn-warning">Get Tin</button>*@
+                                <a href="#" id="form1_btn" class="btn btn-effect-ripple btn-sm btn-danger" data-toggle="modal">Get Tin</a>
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <button type="submit" class="btn btn-effect-ripple btn-sm btn-success">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <form id="form2" action="/tin" method="post" class="form-horizontal push-top" onsubmit="CheckFileName();">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @*<label for="login-password" class="col-xs-12">Password</label>
+                <div class="col-xs-12">
+                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                </div>*@
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Name</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="login-email" name="name" class="form-control" placeholder="Your Name....">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Phone</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="login-email" name="phone" class="form-control" placeholder="Your Phone....">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Email</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="login-email" name="email" class="form-control" placeholder="Your Email....">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Bvn</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="login-email" name="bvn" class="form-control" placeholder="Your BVN...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="biller" class="col-xs-12">State</label>
+                            <div class="col-xs-12">
+                                <select name="biller" id="example-select" class="col-xs-12 form-control">
+                                    <option value="">Select state ....</option>
+                                    @foreach (var item in Model.Where(o => o.CategoryName == "IGR"))
+                                    {
+                                        <option value="@item.IGR_Code">@item.IGR_Name</option>
+                                    }
+                                    
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Address</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="" name="address" class="form-control" placeholder="Your Address">
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                <label for="login-password" class="col-xs-12">Password</label>
+                <div class="col-xs-12">
+                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                </div>
+            </div>*@
+                        <div class="form-group form-actions">
+                            <div class="col-xs-8">
+                                @*<button type="submit" class="btn btn-effect-ripple btn-sm btn-warning">Get Tin</button>*@
+                                <a href="#" id="form2_btn" class="btn btn-effect-ripple btn-sm btn-danger" data-toggle="modal">Login</a>
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <button type="submit" class="btn btn-effect-ripple btn-sm btn-success">Get Tin</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane" id="block-tabs-profile">
+                    <form id="form2" action="/school/login" method="post" class="form-horizontal push-top" onsubmit="CheckFileName();">
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @*<label for="login-password" class="col-xs-12">Password</label>
+                <div class="col-xs-12">
+                    <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+                </div>*@
+                        </div>
+
+                       
+
+                        <div class="form-group">
+                            <label for="biller" class="col-xs-12">School</label>
+                            <div class="col-xs-12">
+                                <select id="example-select" name="school" class="col-xs-12 form-control">
+                                    <option value="">Select School ....</option>
+                                    @foreach (var item in Model.Where(o => o.CategoryName == "School"))
+                                    {
+                                        <option value="@item.IGR_Code">@item.IGR_Name</option>
+                                    }
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tin" class="col-xs-12">Admission No</label>
+                            <div class="col-xs-12">
+                                <input type="text" id="login-email" name="AdmissionNo" class="form-control" placeholder="Your Admission No..">
+                            </div>
+                        </div>
+                        <div class="form-group form-actions">
+                            <div class="col-xs-8">
+                                @*<button type="submit" class="btn btn-effect-ripple btn-sm btn-warning">Get Tin</button>
+                                <a href="#" id="form2_btn" class="btn btn-effect-ripple btn-sm btn-danger" data-toggle="modal">Login</a>*@
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <button type="submit" class="btn btn-effect-ripple btn-sm btn-success">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <!-- END Tabs Content -->
+        </div>
+        <!-- END Block Tabs -->
+
+
+
+
+
+
+        <!-- Regular Fade -->
+        <div id="modal-fade" class="modal fade" tabindex="-1" role="dialog" aria-hidden="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title"><strong>Modal</strong></h3>
+                    </div>
+                    <div class="modal-body">
+                        Content..
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-effect-ripple btn-primary">Save</button>
+                        <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Regular Fade -->
+
+
+
+
+
+        <!-- END Login Form -->
+        <!-- Social Login -->
+        <hr>
+
+
+        @*<div class="push text-center">or Login with</div>
+            <div class="row push">
+                <div class="col-xs-6">
+                    <a href="javascript:void(0)" class="btn btn-effect-ripple btn-sm btn-info btn-block"><i class="fa fa-facebook"></i> Facebook</a>
+                </div>
+                <div class="col-xs-6">
+                    <a href="javascript:void(0)" class="btn btn-effect-ripple btn-sm btn-primary btn-block"><i class="fa fa-twitter"></i> Twitter</a>
+                </div>
+            </div>*@
+
+
+        <!-- END Social Login -->
+    </div>
+    <!-- END Login Block -->
+
+    @section Script {
+        <script>
+            $("#form2").hide();
+
+            $("#form1_btn").click(function (e) {
+                e.preventDefault();
+                // assumes element with id='button'
+                $("#form1").hide(1000);
+                $("#form2").show(1000);
+            });
+
+            $("#form2_btn").click(function (e) {
+                e.preventDefault();
+                // assumes element with id='button'
+                $("#form2").hide(1000);
+                $("#form1").show(1000);
+            });
+        </script>
+
+    <!-- Load and execute javascript code used only in this page -->
+    <script src="~/scripts/admin/js/pages/formsComponents.js"></script>
+    <script>$(function () { FormsComponents.init(); });</script>
+    }
+

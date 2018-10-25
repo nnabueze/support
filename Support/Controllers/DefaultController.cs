@@ -40,10 +40,11 @@ namespace Support.Controllers
                 ViewBag.error = "Tin is required";
                 return View("Index");
             }
-
+            
             try
             {
                 var tinData = db.tins.Where(o => o.tin_no == tin || o.temporary_tin == tin).FirstOrDefault();
+
                 if (tinData != null)
                 {
                     Session["isLogin"] = "yes";
