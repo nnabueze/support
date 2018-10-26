@@ -4,38 +4,42 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 
 namespace Support.Models
 {
     public class EmailClass
     {
-        public const string TOKEN = "FNs6Noo-kkuqsM7QPzQ5f26MPs1-r1KXLEa4oZmRMLghzA256sFgnLJVFHweeiJgwKS9oXanr_3pSqEJ9TP01kHf-h3nGLrnM7v1vhsDIccAf6P2W29m5pB873fDcWbTLEyUTcXA6Feys1KX1sybsjbA_-sW7UL5OHLjCR9W6Igmp0p3XhYjk8I4aef8SCsJZOtqhrsBr5K8E9bm51_R5OW0xe_7pd0I9NNbuHbEEifGgRQDWPVWfdGSqJN8VOgw";
+        public const string TOKEN = "DY-bXX-eQjijqwiQFPz8wrolt-jNYhOaf-6nBsBtETp2mfWYzrrtnh6HrB5smRq1bSOu4rgN-yd9cLHnYr8g9RXXbsmNtkvYGjSmk34qA5-OTasRCS2dHJSykTKe_LH-gwXnUgHFu2CY62qeB_6lW7-ffKm4wBldXW04qC6NIPHOrEK0_lLt8rr38WTiP0UTw0FXQZlD0AUqVJNXbfRklxpNwfoKTfzzoENBYPuHauAoDv7KcwesicKDm9hK1XLU";
         public static string sendEmail(string url, EmailParam requestParam)
         {
             var json = JsonConvert.SerializeObject(requestParam);
             string resCodeString;
-            string responseText;
+            string responseText = null;
 
             HttpWebRequest httpWebReq = (HttpWebRequest)WebRequest.Create(url);
-            httpWebReq.Headers.Add("Authorization", "Bearer "+TOKEN);
-            httpWebReq.ContentType = "application/json; charset=utf-8";
+            httpWebReq.ContentType = "application/json";
+            byte[] postData = Encoding.UTF8.GetBytes(json);
+            httpWebReq.ContentLength = postData.Length;
+            httpWebReq.Headers["Authorization"] = "Bearer" + " " + TOKEN;
             httpWebReq.Method = "POST";
+            Stream dataStream = httpWebReq.GetRequestStream();
+            dataStream.Write(postData, 0, postData.Length);
+            dataStream.Close();
 
-            using (StreamWriter streamWriter = new StreamWriter(httpWebReq.GetRequestStream()))
-            {
-
-                streamWriter.Write(json);
-                streamWriter.Flush();
-            }
             using (HttpWebResponse httpResponse = (HttpWebResponse)httpWebReq.GetResponse())
             {
+                if (httpResponse.StatusCode != HttpStatusCode.OK)
+                {
+                    return responseText;
+                }
+
                 using (StreamReader streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
                     responseText = streamReader.ReadToEnd();
                 }
 
-                //var resCode = httpResponse.StatusCode;
                 resCodeString = httpResponse.StatusCode.ToString();
             }
 

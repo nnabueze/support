@@ -11,7 +11,7 @@ namespace Support.Controllers
     public class HomeController : Controller
     {
         support db = new support();
-        public const string EMAILAPI = "http://hub.ercasng.com:8011/api/pos/Sms";
+        public const string EMAILAPI = "http://69.64.74.108:8011/api/pos/Sms";
 
         // GET: Home
         public ActionResult Index()
@@ -109,6 +109,10 @@ namespace Support.Controllers
 
             //save  ticket
             Ticket ticketParam = new Ticket();
+            string name = null;
+            string email = null;
+            string phone = null;
+
             ticketParam.Title = requestPost.Title;
             ticketParam.Message = requestPost.Message;
             ticketParam.TicketId = RandomNumber()+ RandomNumber();
@@ -120,10 +124,16 @@ namespace Support.Controllers
             if (Session["temporary_tin"] == null)
             {
                 ticketParam.TinId = Session["tinNo"].ToString();
+                name = Session["name"].ToString();
+                email = Session["email"].ToString();
+                phone = Session["phone"].ToString();
             }
             else
             {
                 ticketParam.TinId = Session["temporary_tin"].ToString();
+                name = Session["name"].ToString();
+                email = Session["email"].ToString();
+                phone = Session["phone"].ToString();
             }
 
             
@@ -135,10 +145,14 @@ namespace Support.Controllers
 
                 if (ticketPara != null)
                 {
-                    //EmailParam param = new EmailParam();
-                    //param.Email = "nnabueze.opara@ercasng.com";
-                    //param.From = "Open Ticket for IGR";
-                    //EmailClass.sendEmail(EMAILAPI, param);
+                    EmailParam param = new EmailParam();
+                    param.Email = "servicedelivery@ercasng.com";
+                    param.SenderEmail = "no-reply@ercasng.com";
+                    param.From = "Open Ticket for IGR";
+                    param.Message = "Hi Admin,\n\nYou have a pending ticket with content below\n\nPlease login into support to respond ticket\n\n--------------\n\n"
+                                    + requestPost.Message+ "\n\n------------\n\nSender Name: "+ name+ "\nTinNo: "+ ticketParam.TinId+
+                                    "\nPhone: "+phone+ "\nEmaill: "+email;
+                    EmailClass.sendEmail(EMAILAPI, param);
                 }
             }
             catch (Exception ex)
@@ -441,6 +455,10 @@ namespace Support.Controllers
                     viewModel.ticket = db.Ticket.Where(o => o.TicketId == ticketId).FirstOrDefault();
 
                     Comment commentModel = new Comment();
+                    string name = null;
+                    string email = null;
+                    string phone = null;
+                    string tin = null;
                     try
                     {
                         commentModel.CommenterName = Session["name"].ToString();
@@ -449,15 +467,34 @@ namespace Support.Controllers
                         commentModel.Created_at = DateTime.Now;
                         commentModel.CommentId = RandomNumber();
 
+                        if (Session["temporary_tin"] == null)
+                        {
+                            tin = Session["tinNo"].ToString();
+                            name = Session["name"].ToString();
+                            email = Session["email"].ToString();
+                            phone = Session["phone"].ToString();
+                        }
+                        else
+                        {
+                            tin = Session["temporary_tin"].ToString();
+                            name = Session["name"].ToString();
+                            email = Session["email"].ToString();
+                            phone = Session["phone"].ToString();
+                        }
+
                         var commentData = db.Comment.Add(commentModel);
                         db.SaveChanges();
 
                         if (commentData != null)
                         {
-                            //EmailParam param = new EmailParam();
-                            //param.Email = "nnabueze.opara@ercasng.com";
-                            //param.From = "Open Ticket for IGR";
-                            //EmailClass.sendEmail(EMAILAPI, param);
+                            EmailParam param = new EmailParam();
+                            param.Email = "servicedelivery@ercasng.com";
+                            param.SenderEmail = "no-reply@ercasng.com";
+                            param.From = "Open Ticket for IGR";
+                            param.Message = "Hi Admin,\n\nYou have a pending ticket with content below\n\nPlease login into support to respond ticket\n\n--------------\n\n"
+                                            + commentModel.CommentMessage + "\n\n------------\n\nSender Name: " + name + "\nTinNo: " + tin +
+                                            "\nPhone: " + phone + "\nEmaill: " + email;
+                            EmailClass.sendEmail(EMAILAPI, param);
                         }
 
 
