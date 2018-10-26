@@ -387,18 +387,16 @@ namespace Support.Controllers
             if (Session["isLogin"] != null)
             {
                 string TinNo;
-                if (string.IsNullOrEmpty(Session["tinNo"].ToString()))
+                if (Session["tinNo"] == null)
                 {
                     TinNo = Session["temporary_tin"].ToString();
                 }
                 else
                 {
                     TinNo = Session["tinNo"].ToString();
-                }                
-                string IGR_Code = Session["igr"].ToString();
+                }
 
-                //var info = db.student_information.Where(o => o.IGR_Code == IGR_Code && o.AdmissionNo == AdmissionNo).ToList();
-                var info = db.invoices.Where(o => o.IGR_Code == IGR_Code && o.TinNo == TinNo).OrderByDescending(o => o.create_at).ToList();
+                var info = db.invoices.Where(o => o.TinNo == TinNo).OrderByDescending(o => o.create_at).ToList();
 
                 return View(info);
             }
