@@ -110,6 +110,7 @@
                                             <div class="alert alert-danger alert-dismissable" style="padding-left:-4em; padding-right:-4em">
                                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                 @Session["Error"]
+                                                @{ Session.Remove("Error"); }
                                             </div>
                                         }
                                         @foreach (var item in Model)

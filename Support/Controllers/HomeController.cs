@@ -72,12 +72,21 @@ namespace Support.Controllers
         {
             IEnumerable<Ticket> ticketData = new List<Ticket>();
 
-            string tinNo = Session["tinNo"].ToString();
-            string tempararyTin = Session["temporary_tin"].ToString();
+            string tinNo = null;
+            string tempararyTin = null;
 
             if (Session["isLogin"] != null)
             {
-                ticketData = db.Ticket.Where(o => o.TinId == tinNo || o.TinId == tempararyTin).OrderByDescending(o => o.Created_at).ToList();
+                if (Session["temporary_tin"] == null)
+                {
+                    tinNo = Session["tinNo"].ToString();
+                    ticketData = db.Ticket.Where(o => o.TinId == tinNo).OrderByDescending(o => o.Created_at).ToList();
+                }
+                else
+                {
+                    tempararyTin = Session["temporary_tin"].ToString();
+                    ticketData = db.Ticket.Where(o => o.TinId == tempararyTin).OrderByDescending(o => o.Created_at).ToList();
+                }               
 
                 return View(ticketData);
             }
@@ -155,8 +164,8 @@ namespace Support.Controllers
                     var FileExt = Request.Files[upload].ContentType;
                     if (FileExt == "image/png" || FileExt == "image/jpeg")
                     {
-                        var filePathOriginal = Server.MapPath("/Content/ticket");
-                        var filePathThumbnail = Server.MapPath("/Content/ticket");
+                        var filePathOriginal = Server.MapPath("/Content/img");
+                        var filePathThumbnail = Server.MapPath("/Content/img");
                         string savedFileName = Path.Combine(filePathOriginal, filename);
                         Request.Files[upload].SaveAs(savedFileName);
                     }
