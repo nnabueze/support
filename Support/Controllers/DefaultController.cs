@@ -152,7 +152,7 @@ namespace Support.Controllers
         public ActionResult Tin(TinRequest requestParam)
         {
             IEnumerable<Models.igr> biller = new List<Models.igr>();
-            biller = db.igrs.Where(o => o.IsIGR == true).ToList();
+            biller = db.igrs;
             Models.tin tinParam = new Models.tin();
 
             if (!ModelState.IsValid)
