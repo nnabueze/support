@@ -11,6 +11,7 @@ namespace Support.Controllers
     public class SchoolController : Controller
     {
         support db = new support();
+        public const string EMAILAPI = "http://69.64.74.108:8011/api/pos/Sms";
         // GET: School
         public ActionResult Index()
         {
@@ -114,6 +115,8 @@ namespace Support.Controllers
             ticketParam.Created_at = DateTime.Now;
             ticketParam.AdmissionNo = Session["AdmissionNo"].ToString();
 
+            string name = Session["name"].ToString();
+
 
 
             try
@@ -123,10 +126,13 @@ namespace Support.Controllers
 
                 if (ticketPara != null)
                 {
-                    //EmailParam param = new EmailParam();
-                    //param.Email = "nnabueze.opara@ercasng.com";
-                    //param.From = "Open Ticket for IGR";
-                    //EmailClass.sendEmail(EMAILAPI, param);
+                    EmailParam param = new EmailParam();
+                    param.Email = "servicedelivery@ercasng.com";
+                    param.SenderEmail = "no-reply@ercasng.com";
+                    param.From = "Open Ticket for IGR";
+                    param.Message = "Hi Admin,\n\nYou have a pending ticket with content below\n\nPlease login into support to respond ticket\n\n--------------\n\n"
+                                    + requestPost.Message + "\n\n------------\n\nSender Name: " + name + "\nAmissionNo: " + ticketParam.AdmissionNo;
+                    EmailClass.sendEmail(EMAILAPI, param);
                 }
             }
             catch (Exception ex)
@@ -202,16 +208,21 @@ namespace Support.Controllers
                         commentModel.TicketId = ticketId;
                         commentModel.Created_at = DateTime.Now;
                         commentModel.CommentId = RandomNumber();
+                        string name = Session["name"].ToString();
+                        string adminssionNo = Session["AdmissionNo"].ToString();
 
                         var commentData = db.Comment.Add(commentModel);
                         db.SaveChanges();
 
                         if (commentData != null)
                         {
-                            //EmailParam param = new EmailParam();
-                            //param.Email = "nnabueze.opara@ercasng.com";
-                            //param.From = "Open Ticket for IGR";
-                            //EmailClass.sendEmail(EMAILAPI, param);
+                            EmailParam param = new EmailParam();
+                            param.Email = "servicedelivery@ercasng.com";
+                            param.SenderEmail = "no-reply@ercasng.com";
+                            param.From = "Open Ticket for IGR";
+                            param.Message = "Hi Admin,\n\nYou have a pending ticket with content below\n\nPlease login into support to respond ticket\n\n--------------\n\n"
+                                            + commentModel.CommentMessage + "\n\n------------\n\nSender Name: " + name + "\nAmissionNo: " + adminssionNo;
+                            EmailClass.sendEmail(EMAILAPI, param);
                         }
 
 
